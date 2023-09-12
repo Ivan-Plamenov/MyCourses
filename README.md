@@ -1,4 +1,4 @@
-# My Course Portfolio
+# My Courses Portfolio
 
 Welcome to my personal course portfolio! This GitHub repository serves as a comprehensive record of the various courses I have completed throughout my learning journey. Whether you're a potential employer, fellow learner, or simply curious about my educational background, you'll find detailed information and resources related to each course I've undertaken.
 
