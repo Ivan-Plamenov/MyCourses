@@ -1,3 +1,14 @@
 # Python Web Framework (Django)
 
+### About the Course
+
 The Python Web Framework course will go into the details of web programming with Python using one of the most popular Python Frameworks - Django. You will build on your knowledge of Views using CBV. You will learn how to register, log and unlog users. Additionally, security will be addressed as well as the ins and outs of developing dynamic web applications. Students will also learn about the Django REST Framework. The basic concepts of Unit and Integration Testing will be learned and best practices for testing a Web application will be clarified. During the course, you will practice what you have learned through hands-on building of a complete web application.
+
+### Skills Acquired
+
+- Building dynamic web applications
+- Working with users, roles and sessions
+- Working with Class-Based Views
+- Unit and Integration testing
+- Building the Django REST Framework
+- Debugging in Git and GitHub
