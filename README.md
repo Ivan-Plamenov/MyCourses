@@ -4,7 +4,7 @@
 [![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/blob/main/README.de.md)
 [![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/blob/main/README.bg.md)
 
-# My courses portfolio
+# My courses
 
 Welcome to my personal course portfolio! This GitHub repository serves as a comprehensive record of the various courses I have completed throughout my learning journey. Whether you're a potential employer, fellow learner, or simply curious about my educational background, you'll find detailed information and resources related to each course I've undertaken.
 
