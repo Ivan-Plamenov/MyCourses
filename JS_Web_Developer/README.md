@@ -1,4 +1,10 @@
-# Repository for Problem-Solving and Homework Tasks
+# Language selection
+
+[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/README.md)
+[![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/README.de.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/README.bg.md)
+
+# Repository for problem-solving and homework tasks
 
 This repository serves two main purposes. Firstly, it's a handy resource for referencing the materials covered in the SoftUni JavaScript Web Developer Program. Additionally, it's a simple tool for my personal record-keeping.
 
@@ -6,7 +12,7 @@ Inside this repository, you'll discover coding challenges and homework assignmen
 
 ### SoftUni JavaScript Web Developer Program Overview
 
-| Course Name | Course Page | Course Repo | Certificate |
+| Course name | Course page | Course repo | Certificate |
 | :---------- | :---------: | :---------: | :---------: |
 | **`Programming Basics`** | [Link](https://softuni.bg/courses/programming-basics)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/JS_Web_Developer/01_Programming_Basics) | |
 | **`Programming Fundamentals`** | [Link](https://softuni.bg/courses/programming-fundamentals-csharp-java-js-python)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/JS_Web_Developer/02_Programming_Fundamentals) | |
