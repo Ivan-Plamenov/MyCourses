@@ -6,34 +6,36 @@
 
 # Моите курсове
 
-Добре дошли в моето лично портфолио от курсове! Това GitHub хранилище служи като изчерпателен запис на различните курсове, които съм завършил по време на своето обучение. Независимо дали сте потенциален работодател, съученик или просто сте заинтересовани от образователния ми опит, ще намерите подробна информация и ресурси, свързани с всеки курс, който съм завършил.
+Добре дошли в моето лично портфолио от курсове! Това GitHub хранилище служи като изчерпателен запис на различните курсове, които съм завършил по време на своето обучение. Независимо дали сте потенциален 
+работодател, съученик или просто сте заинтересовани от образователния ми опит, ще намерите подробна информация и ресурси, свързани с всеки курс, който съм завършил.
 
-## Features:
+## Особености:
 
-- **Course Overviews:** Each course is documented with an informative overview, including the course title, institution, instructor, and a brief description.
+- **Преглед на курсовете:** Всеки курс е представен с подробен преглед, включващ заглавието на курса, институцията, преподавателя и кратко описание.
 
-- **Course Materials:** I've uploaded relevant course materials, such as lecture notes, assignments, and project files, wherever possible, to provide insight into the curriculum.
+- **Материали по курса:** Когато е възможно, съм качил съответните материали по курса, като например записки от лекции, задачи и файлове с проекти, за да се даде представа за учебната програма.
 
-- **Certificates and Achievements:** You'll find digital certificates and accolades I've earned upon course completion, showcasing my commitment to continuous learning.
+- **Сертификати и постижения:** Ще откриете дигитални сертификати и признания, които съм получил след завършване на курсовете и които показват моя ангажимент за непрекъснато обучение.
 
-- **Code Samples:** If applicable, I've included code samples and projects created during the courses to demonstrate my practical skills and applications of the knowledge gained.
+- **Примери на кодове:** Ако е приложимо, съм включил примери на кодове и проекти, създадени по време на курсовете, за да демонстрирам практическите си умения и приложения на придобитите знания.
 
-- **Links to Course Websites:** Access to official course websites, syllabi, or external resources to learn more about the courses I've taken.
+- **Връзки към уебсайтове на курсовете:** Достъп до официалните уебсайтове на курсовете, учебни програми или външни ресурси, за да научите повече за курсовете, които съм посещавал.
 
-## Why Explore My Course Portfolio?
+## Защо да разгледате портфолиото ми от курсове?
 
-- **Transparency:** I believe in transparency when it comes to my education and professional development. This portfolio reflects my dedication to continuous growth and improvement.
+- **Прозрачност:** Вярвам в прозрачността, когато става въпрос за моето образование и професионално развитие. Това портфолио отразява моята отдаденост на непрекъснатото израстване и усъвършенстване.
 
-- **Skill Showcase:** For fellow developers and enthusiasts, you can explore my code samples and projects to get a sense of my technical abilities.
+- **Преглед на уменията:** За колегите програмисти и любители може да се запознаете с моите примери за код и проекти, за да добиете представа за техническите ми способности.
 
-- **Inspiration:** If you're considering similar courses or career paths, my portfolio may provide inspiration and insights into various educational opportunities.
+- **Вдъхновение:** Ако обмисляте подобни курсове или кариера, моето портфолио може да ви вдъхнови и да ви даде представа за различни образователни възможности.
 
-## How to Navigate:
+## Как да се ориентирате:
 
-Feel free to explore the repository's contents by browsing through folders corresponding to each course. Additionally, you can use the search bar to find specific courses, certificates, or projects.
+Не се колебайте да разгледате съдържанието на хранилището, като преглеждате папките, съответстващи на всеки курс. Освен това можете да използвате лентата за търсене, за да намерите конкретни курсове,
+сертификати или проекти.
 
-## Connect with Me:
+## Свържете се с мен:
 
-If you have any questions, feedback, or just want to connect, don't hesitate to reach out. You can find my contact information in the repository or through my GitHub profile.
+Ако имате въпроси, обратна връзка или просто искате да се свържете, не се колебайте да се обърнете към мен. Можете да намерите информацията ми за контакт в хранилището или в профила ми в GitHub.
 
-Thank you for visiting my Course Portfolio! I hope you find it informative and valuable.
+Благодаря ви, че посетихте моето портфолио от курсове! Надявам се, че то ще ви бъде полезно и информативно.
