@@ -4,36 +4,40 @@
 [![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/blob/main/README.de.md)
 [![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/blob/main/README.bg.md)
 
-# Portfolio meiner Kurse
+## meine Kurse
 
 Willkommen zu meinem persönlichen Kursportfolio! Dieses GitHub-Repository dient als umfassende Aufzeichnung der verschiedenen Kurse, die ich im Laufe meiner Ausbildung absolviert habe. Egal, ob Sie ein potenzieller Arbeitgeber, ein Mitstudent oder einfach nur interessiert an meinem Bildungshintergrund sind, hier werden Sie detaillierte Informationen und Ressourcen zu den einzelnen Kursen finden, die ich besucht habe.
 
-## Features:
+## Merkmale:
 
-- **Course overviews:** Each course is documented with an informative overview, including the course title, institution, instructor, and a brief description.
+- **Kursübersichten:** Jeder Kurs ist mit einer detaillierten Übersicht gekennzeichnet, die den Kurstitel, die Institution, den Dozenten und eine kurze Beschreibung enthält.
 
-- **Course materials:** I've uploaded relevant course materials, such as lecture notes, assignments, and project files, wherever possible, to provide insight into the curriculum.
+- **Kursmaterialien:** Ich habe relevante Kursmaterialien wie Vorlesungsmitschriften, Aufgaben und Projektdateien hochgeladen, wo es möglich war, um einen besseren Einblick in den Kursplan zu geben.
 
-- **Certificates and achievements:** You'll find digital certificates and accolades I've earned upon course completion, showcasing my commitment to continuous learning.
+- **Zertifikate und Auszeichnungen:** Hier finden Sie digitale Zertifikate und Auszeichnungen, die ich nach Abschluss eines Kurses erworben habe und die mein Engagement für eine kontinuierliche
+  Weiterbildung zeigen.
+  
+- **Codebeispiele:** Falls zutreffend, habe ich Codebeispiele und Projekte beigefügt, die während der Kurse erstellt wurden, um meine praktischen Fähigkeiten und die Anwendung des erworbenen Wissens zu
+demonstrieren.
 
-- **Code samples:** If applicable, I've included code samples and projects created during the courses to demonstrate my practical skills and applications of the knowledge gained.
+- **Links zu Kurs-Websites:** Zugang zu offiziellen Kurs-Websites, Lehrplänen oder externen Ressourcen, um mehr über die von mir belegten Kurse zu erfahren.
 
-- **Links to course websites:** Access to official course websites, syllabi, or external resources to learn more about the courses I've taken.
+## Weshalb mein Kursportfolio erkunden?
 
-## Why explore my courses portfolio?
+- **Transparenz:** Ich lege großen Wert auf Transparenz, wenn es um meine Ausbildung und berufliche Entwicklung geht. Dieses Portfolio spiegelt mein Engagement für kontinuierliches Wachstum und ständige
+Weiterentwicklung wider.
 
-- **Transparency:** I believe in transparency when it comes to my education and professional development. This portfolio reflects my dedication to continuous growth and improvement.
+- **Skill showcase:** Für andere Entwickler und Begeisterte können Sie meine Codebeispiele und Projekte erkunden, um einen Eindruck von meinen technischen Fähigkeiten zu bekommen.
 
-- **Skill showcase:** For fellow developers and enthusiasts, you can explore my code samples and projects to get a sense of my technical abilities.
+- **Inspiration:** Wenn Sie ähnliche Studiengänge oder Karrierewege in Erwägung ziehen, kann mein Portfolio Inspiration und Einblicke in verschiedene Bildungsmöglichkeiten bieten.
 
-- **Inspiration:** If you're considering similar courses or career paths, my portfolio may provide inspiration and insights into various educational opportunities.
+## So navigieren Sie:
 
-## How to navigate:
+Sie können den Inhalt des Repositorys erkunden, indem Sie die Ordner der einzelnen Kurse durchsuchen. Außerdem können Sie die Suchleiste verwenden, um bestimmte Kurse, Zertifikate oder Projekte zu
+finden.
 
-Feel free to explore the repository's contents by browsing through folders corresponding to each course. Additionally, you can use the search bar to find specific courses, certificates, or projects.
+## Verbinden Sie sich mit mir:
 
-## Connect with me:
+Wenn Sie Fragen oder Feedback haben oder sich einfach nur austauschen möchten, nehmen Sie bitte Kontakt mit mir auf. Sie finden meine Kontaktinformationen im Repository oder in meinem GitHub-Profil.
 
-If you have any questions, feedback, or just want to connect, don't hesitate to reach out. You can find my contact information in the repository or through my GitHub profile.
-
-Thank you for visiting my Course Portfolio! I hope you find it informative and valuable.
+Vielen Dank, dass Sie mein Kursportfolio besucht haben! Ich hoffe, Sie finden es informativ und wertvoll.
