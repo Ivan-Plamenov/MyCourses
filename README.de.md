@@ -1,4 +1,4 @@
-# Sprachauswahl 
+# Sprachauswahl
 
 [![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/blob/main/README.de.md)
 [![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/blob/main/README.bg.md)
