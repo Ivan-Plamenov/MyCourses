@@ -1,4 +1,10 @@
-# Repository for Problem-Solving and Homework Tasks
+# Language selection
+
+[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/README.md)
+[![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/README.de.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/README.bg.md)
+
+# Repository for problem-solving and homework tasks
 
 This repository serves two main purposes. Firstly, it's a handy resource for referencing the materials covered in the SoftUni Python Web Developer Program. Additionally, it's a simple tool for my personal record-keeping.
 
