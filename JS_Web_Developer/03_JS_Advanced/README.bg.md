@@ -2,7 +2,6 @@
 
 [![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/03_JS_Advanced/README.bg.md)
 [![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/03_JS_Advanced/README.md)
-[![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/03_JS_Advanced/README.de.md)
 
 # JavaScript Advanced
 
