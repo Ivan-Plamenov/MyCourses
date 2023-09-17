@@ -1,7 +1,6 @@
 # Language selection
 
 [![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/README.md)
-[![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/README.de.md)
 [![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/README.bg.md)
 
 # Repository for problem-solving and homework tasks
