@@ -8,7 +8,7 @@
 
 ### Über den Kurs
 
-Der Kurs "Grundlagen der Programmierung" vermittelt die ersten Programmierkenntnisse, die für alle technischen Studiengänge an der Software-Universität erforderlich sind. Dazu gehören das Schreiben von 
+Der Kurs "Programming Basics" vermittelt die ersten Programmierkenntnisse, die für alle technischen Studiengänge an der Software-Universität erforderlich sind. Dazu gehören das Schreiben von 
 Programmiercode auf Einstiegsebene (grundlegende Programmierkenntnisse ), die Arbeit mit der Entwicklungsumgebung (IDE), die Verwendung von Variablen und Daten, Operatoren und Ausdrücken, die Arbeit mit 
 der Konsole (Lesen von Eingaben und Drucken von Ergebnissen), die Verwendung von bedingten Anweisungen (if, if-else) und Schleifen (for, while, do-while).
 
