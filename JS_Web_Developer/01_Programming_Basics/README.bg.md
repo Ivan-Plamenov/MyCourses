@@ -1,6 +1,6 @@
 # Избор на език
 
-[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/edit/main/JS_Web_Developer/01_Programming_Basics/README.bg.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/01_Programming_Basics/README.bg.md)
 [![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/01_Programming_Basics/README.md)
 [![DE](https://img.shields.io/badge/LANG-DE-green.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/01_Programming_Basics/README.de.md)
 
