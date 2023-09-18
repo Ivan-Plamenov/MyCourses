@@ -3,7 +3,7 @@
 [![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/08_Python_Web_Framework/README.bg.md)
 [![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/08_Python_Web_Framework/README.md)
 
-# Python Web Framework
+# Python Web Framework (Django)
 
 ### За курса
 
