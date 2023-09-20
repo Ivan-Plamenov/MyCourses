@@ -1,7 +1,7 @@
 # Избор на език
 
-[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/02_Programming_Fundamentals/README.bg.md)
-[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/02_Programming_Fundamentals/README.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/JS_Web_Developer/02_Programming_Fundamentals/README.bg.md)
+[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/JS_Web_Developer/02_Programming_Fundamentals/README.md)
 
 # Programming Fundamentals with JavaScript
 
@@ -17,5 +17,3 @@
 - Разбиране на взаимовръзката между различни IT концепции
 - Анализ на проблеми и редуциране до компютърно-изпълними стъпки
 - Базови умения за работа с HTML и CSS
-
-
