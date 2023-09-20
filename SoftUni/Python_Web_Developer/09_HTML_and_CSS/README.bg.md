@@ -1,7 +1,7 @@
 # Избор на език
 
-[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/09_HTML_and_CSS/README.bg.md)
-[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/09_HTML_and_CSS/README.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/Python_Web_Developer/09_HTML_and_CSS/README.bg.md)
+[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/Python_Web_Developer/09_HTML_and_CSS/README.md)
 
 # HTML and CSS
 
