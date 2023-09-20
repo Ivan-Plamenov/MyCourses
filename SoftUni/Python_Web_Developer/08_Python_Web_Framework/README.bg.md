@@ -1,7 +1,7 @@
 # Избор на език
 
-[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/08_Python_Web_Framework/README.bg.md)
-[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/08_Python_Web_Framework/README.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/Python_Web_Developer/08_Python_Web_Framework/README.bg.md)
+[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/Python_Web_Developer/08_Python_Web_Framework/README.md)
 
 # Python Web Framework (Django)
 
