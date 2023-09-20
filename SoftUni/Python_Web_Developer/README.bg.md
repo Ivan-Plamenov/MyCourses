@@ -1,7 +1,7 @@
 # Избор на език
 
-[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/README.bg.md)
-[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/Python_Web_Developer/README.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/Python_Web_Developer/README.bg.md)
+[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/Python_Web_Developer/README.md)
 
 # Хранилище за решения на проблеми и задачи за домашна работа
 
