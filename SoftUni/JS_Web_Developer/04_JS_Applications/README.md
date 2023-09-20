@@ -1,7 +1,7 @@
 # Language selection
 
-[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/04_JS_Applications/README.md)
-[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/JS_Web_Developer/04_JS_Applications/README.bg.md)
+[![EN](https://img.shields.io/badge/LANG-EN-blue.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/JS_Web_Developer/04_JS_Applications/README.md)
+[![BG](https://img.shields.io/badge/LANG-BG-red.svg)](https://github.com/Ivan-Plamenov/MyCourses/blob/main/SoftUni/JS_Web_Developer/04_JS_Applications/README.bg.md)
 
 # JavaScript Applications
 
