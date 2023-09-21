@@ -14,8 +14,8 @@
 
 | Име на курса | Страница на курса | Хранилище на курса | Удостоверение |
 | :---------- | :---------: | :---------: | :---------: |
-| **`Programming Basics`** | [Link](https://softuni.bg/courses/programming-basics)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/JS_Web_Developer/01_Programming_Basics) | |
-| **`Programming Fundamentals`** | [Link](https://softuni.bg/courses/programming-fundamentals-csharp-java-js-python)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/JS_Web_Developer/02_Programming_Fundamentals) | |
+| **`Programming Basics`** | [Link](https://softuni.bg/courses/programming-basics)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/JS_Web_Developer/01_Programming_Basics) |[Link](https://softuni.bg/certificates/details/126983/eb463e17) |
+| **`Programming Fundamentals`** | [Link](https://softuni.bg/courses/programming-fundamentals-csharp-java-js-python)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/JS_Web_Developer/02_Programming_Fundamentals) |[Link](https://softuni.bg/certificates/details/141353/cfe8ee62)|
 | **`Python Advanced`** | [Link](https://softuni.bg/courses/python-advanced)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/Python_Web_Developer/03_Python_Advanced) | |
 | **`Python OOP`** | [Link](https://softuni.bg/courses/python-oop)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/Python_Web_Developer/04_Python_OOP) | |
 | **`Postgre SQL`** | [Link](https://softuni.bg/opencourses/postgre-sql)| [Link](https://github.com/Ivan-Plamenov/MyCoursesPortfolio/tree/main/Python_Web_Developer/05_Postgre_SQL) | |
