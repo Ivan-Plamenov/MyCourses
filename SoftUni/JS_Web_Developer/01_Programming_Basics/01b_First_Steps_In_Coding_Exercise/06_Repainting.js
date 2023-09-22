@@ -15,6 +15,3 @@ function Repainting(input){
 
     console.log(finalCosts)
 }
-
-// Repainting([10,11,4,8])
-// Repainting([5,10,10,1])

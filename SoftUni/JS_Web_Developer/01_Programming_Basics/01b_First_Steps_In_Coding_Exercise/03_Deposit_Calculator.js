@@ -6,6 +6,3 @@ function calculatorDeposits(input){
     totalAmount = sumDeposit + lenghtDeposit * (( sumDeposit * yearlyRate)/12)
     console.log(totalAmount)
 }
-
-// calculatorDeposits(["200","3","5.7"])
-// calculatorDeposits(["2350", "6", "7"])

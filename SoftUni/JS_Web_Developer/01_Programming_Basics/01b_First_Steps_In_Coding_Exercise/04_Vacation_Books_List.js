@@ -7,6 +7,3 @@ function requiredReading(input){
     neededTime = totalTime / daysNumber;;
     console.log(neededTime)
 }
-
-// requiredReading(["212","20","2"])
-// requiredReading(["432","15","4"])

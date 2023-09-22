@@ -10,6 +10,3 @@ function basketballEquipment(input){
 
     console.log(totalCosts)
 }
-
-// basketballEquipment(["365"])
-// basketballEquipment(["550"])

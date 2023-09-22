@@ -6,6 +6,3 @@ function yardGreening(input){
 console.log(`The final price is: ${priceFinal} lv.`)
 console.log(`The discount is: ${priceDiscount} lv.`)
 }
-
-// yardGreening(["550"])
-// yardGreening(["150"])

@@ -13,6 +13,3 @@ function schoolSupplies(input){
 
     console.log(finalPrice)
 }
-
-//schoolSupplies(["2","3","4","25"])
-//schoolSupplies(["4","2","5","13"])
