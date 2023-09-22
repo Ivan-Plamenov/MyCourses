@@ -7,5 +7,5 @@ function calculatorDeposits(input){
     console.log(totalAmount)
 }
 
-calculatorDeposits(["200","3","5.7"])
-calculatorDeposits(["2350", "6", "7"])
+// calculatorDeposits(["200","3","5.7"])
+// calculatorDeposits(["2350", "6", "7"])
