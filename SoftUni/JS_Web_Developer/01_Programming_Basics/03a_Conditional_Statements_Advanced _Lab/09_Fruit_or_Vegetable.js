@@ -8,18 +8,18 @@ function fruitOrVegetable(input){
         case "cherry":
         case "lemon":
         case "grapes":
-            console.log(`fruit`)
+            console.log(`fruit`);
             break;
         
         case "tomato":
         case "cucumber":
         case "pepper":
         case "carrot":
-            console.log(`vegetable`)
+            console.log(`vegetable`);
             break;
         
         default:
-            console.log(`unknown`)
+            console.log(`unknown`);
             break;
        }
 }

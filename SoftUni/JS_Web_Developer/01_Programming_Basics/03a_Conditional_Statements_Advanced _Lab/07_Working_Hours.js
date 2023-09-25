@@ -3,8 +3,8 @@ function workingHours(input){
     let day  =  input[1];
 
     if (hour <= 18 && hour >= 10 && day != "Sunday"){
-        console.log(`open`)
+        console.log(`open`);
     } else {
-        console.log(`closed`)
+        console.log(`closed`);
     }
  }
