@@ -1,16 +1,18 @@
 n = int(input())
 
-guestlist = set()
+reservations = set()
 
 for _ in range(n):
-    guestlist.add(input())
+    rev_number = input()
+    reservations.add(rev_number)
 
-while True:
+guest = input()
+
+while guest != 'END':
+    reservations.remove(guest)
     guest = input()
-    if guest == 'END':
-        break
-    else:
-        guestlist.remove(guest)
 
-print(len(guestlist))
-print('\n'.join(sorted(guestlist)))
+print(len(reservations))
+
+for num in sorted(reservations):
+    print(num)
