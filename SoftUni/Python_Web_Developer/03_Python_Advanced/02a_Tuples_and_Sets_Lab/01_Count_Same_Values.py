@@ -1,11 +1,8 @@
-from collections import defaultdict
+nums = tuple(float(el) for el in input().split())
 
-numbers_count = defaultdict(int)
+occ = {}
 
-numbers = (float(i) for i in input().split())
-
-for number in numbers:
-    numbers_count[number] += 1
-
-for num, count in numbers_count.items():
-    print(f"{num:.1f} - {count} times")
+for num in nums:
+    if num not in occ:
+        occ[num] = nums.count(num)
+        print(f"{num} - {nums.count(num)} times")
