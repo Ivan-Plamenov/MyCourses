@@ -10,6 +10,7 @@ for _ in range(n):
         parking.remove(registration)
 
 if parking:
-    print('\n'.join(parking))
+    for car in parking:
+        print(car)
 else:
     print('Parking Lot is Empty')
