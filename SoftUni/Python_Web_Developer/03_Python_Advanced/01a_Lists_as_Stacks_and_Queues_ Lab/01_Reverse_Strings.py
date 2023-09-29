@@ -1,7 +1,11 @@
-input_string = input()
+input_string = list(input())
 
-stack = list(input_string)
+while input_string:
+    print(input_string.pop(), end='')
 
-while len(stack) > 0:
-    print(stack.pop(), end='')
-print()
+
+######################## Task ########################
+# Write a program that:
+#     • Reads an input string
+#     • Reverses it using a stack
+#     • Prints the result back on the console
