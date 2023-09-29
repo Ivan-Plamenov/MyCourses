@@ -1,6 +1,12 @@
-unique_usernames = set()
+
 username_count = int(input())
+
+unique_usernames = set()
+
 for _ in range(username_count):
-    username = input()
-    unique_usernames.add(username)
-[print(name) for name in unique_usernames]
+    unique_usernames.add(input())
+
+# for name in unique_usernames:
+#     print(name)
+
+print('\n'.join(unique_usernames))
