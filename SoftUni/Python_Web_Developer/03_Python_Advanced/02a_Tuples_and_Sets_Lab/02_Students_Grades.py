@@ -1,14 +1,15 @@
-from collections import defaultdict
-
 number_of_students = int(input())
 
-student_grades = defaultdict(list)
+students = {}
 
 for _ in range(number_of_students):
     name, grade = input().split()
-    student_grades[name].append(float(grade))
+    if name not in students:
+        students[name] = []
+    students[name].append(float(grade))
 
-for student, grade in student_grades.items():
-    grades = ' '.join([f"{i:.2f}" for i in grade])  # lol sry
-    avg_grade = sum(grade) / len(grade)
-    print(f"{student} -> {grades} (avg: {avg_grade:.2f})")
+for student_name, grades in students.items():
+    formated_grades = ' '.join([f"{grade:.2f}" for grade in grades])  
+    print(f"{student_name} -> {formated_grades} " 
+          f"(avg: {sum(grades)/len(grades):.2f})")
+    
