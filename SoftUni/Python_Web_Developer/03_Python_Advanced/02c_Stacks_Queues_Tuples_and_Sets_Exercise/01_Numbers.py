@@ -10,13 +10,13 @@ for _ in range(n):
 
     if command == "Add First":
         first_set.update(numbers)
-    if command == "Add Second":
+    elif command == "Add Second":
         second_set.update(numbers)
-    if command == "Remove First":
+    elif command == "Remove First":
         first_set.difference_update(numbers)
-    if command == "Remove Second":
+    elif command == "Remove Second":
         second_set.difference_update(numbers)
-    if command == "Check Subset":
+    elif command == "Check Subset":
         print(first_set.issubset(second_set) or second_set.issubset(first_set))
 
 print(*sorted(first_set), sep=", ")
