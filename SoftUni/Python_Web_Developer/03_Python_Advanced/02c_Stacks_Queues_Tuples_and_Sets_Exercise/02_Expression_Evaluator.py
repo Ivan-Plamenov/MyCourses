@@ -1,29 +1,23 @@
-def evaluate_numbers(operator, numbers):
-    if operator == "*":
-        result = 1
-        for i in range(len(numbers)):
-            result *= numbers[i]
-    elif operator == "+":
-        result = sum(numbers)
-    elif operator == "-":
-        result = numbers[0]
-        for i in range(1, len(numbers)):
-            result -= numbers[i]
-    else:
-        result = numbers[0]
-        for i in range(1, len(numbers)):
-            result = int(result / numbers[i])
-    numbers.clear()
-    numbers.append(result)
-
+from collections import deque
 
 expression = input().split()
-current_numbers = []
-operators = ("*", "+", "-", "/")
-for item in expression:
-    if item not in operators:
-        current_numbers.append(int(item))
-    else:
-        evaluate_numbers(item, current_numbers)
+numbers = deque()
 
-print(*current_numbers)
+for char in expression:
+    if char not in '+-*/':
+        numbers.append(int(char))
+    else:
+        while len(numbers) > 1:
+            first_num = numbers.popleft()
+            second_num = numbers.popleft()
+        
+            if char == '+':
+                numbers.appendleft(first_num + second_num)
+            elif char == '-':
+                numbers.appendleft(first_num - second_num)
+            elif char == '*':
+                numbers.appendleft(first_num * second_num)
+            elif char == '/':
+                numbers.appendleft(first_num // second_num)
+
+print(numbers[0])
