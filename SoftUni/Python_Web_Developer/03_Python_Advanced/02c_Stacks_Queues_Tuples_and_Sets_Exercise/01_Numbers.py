@@ -1,39 +1,23 @@
-def add_numbers(first_or_second, numbers):
-    [first_or_second.add(number) for number in numbers]
+first_set = set(int(x) for x in input().split())
+second_set = set(int(x) for x in input().split())
 
+n = int(input())
 
-def remove_numbers(first_or_second, numbers):
-    [first_or_second.remove(number) for number in numbers if number in first_or_second]
+for _ in range(n):
+    line = input().split()
+    command = f"{line[0]} {line[1]}"
+    numbers = [int(num) for num in line[2:]]
 
+    if command == "Add First":
+        first_set.update(numbers)
+    if command == "Add Second":
+        second_set.update(numbers)
+    if command == "Remove First":
+        first_set.difference_update(numbers)
+    if command == "Remove Second":
+        second_set.difference_update(numbers)
+    if command == "Check Subset":
+        print(first_set.issubset(second_set) or second_set.issubset(first_set))
 
-def check_subset(first, second):
-    print(first.issubset(second) or second.issubset(first))
-
-
-first_sequence = set(map(int, input().split()))
-second_sequence = set(map(int, input().split()))
-lines_count = int(input())
-for _ in range(lines_count):
-    command_line = input()
-    if command_line == "Check Subset":
-        check_subset(first_sequence, second_sequence)
-    else:
-        command = command_line.split()
-        values = [int(num) for num in command[2:]]
-        if command[0] == "Add":
-            if command[1] == "First":
-                add_numbers(first_sequence, values)
-            else:
-                add_numbers(second_sequence, values)
-        elif command[0] == "Remove":
-            if command[1] == "First":
-                remove_numbers(first_sequence, values)
-            else:
-                remove_numbers(second_sequence, values)
-
-if first_sequence:
-    sorted_first = [str(num) for num in sorted(first_sequence)]
-    print(f"{', '.join(sorted_first)}")
-if second_sequence:
-    sorted_second = [str(num) for num in sorted(second_sequence)]
-    print(f"{', '.join(sorted_second)}")
+print(*sorted(first_set), sep=", ")
+print(*sorted(second_set), sep=", ")
