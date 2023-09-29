@@ -1,49 +1,37 @@
 from collections import deque
 
-
-def time_to_seconds(time):
-    hours, minutes, seconds = list(map(int, time.split(":")))
-    return hours * 60 * 60 + minutes * 60 + seconds
-
-
-def formatted_time(seconds):
-    hours = seconds // (60 * 60) % 24
-    minutes = (seconds % (60 * 60)) // 60
-    seconds = (seconds % (60 * 60)) % 60
-    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
-
-
-robots_info = input().split(";")
+products = deque()
 robots = []
+robots_data = input().split(';')
+hours, minutes, seconds = [int(x) for x in input().split(':')]
+start_time_seconds = hours * 3600 + minutes * 60 + seconds
 
-for item in robots_info:
-    name, process_time = item.split("-")
-    robots.append([name, int(process_time), int(process_time), "free"])
+for robot in robots_data:
+    robot_name, processing_time = robot.split('-')
+    busy_until_time = 0
+    robots.append({'name': robot_name, 'data': [int(processing_time), busy_until_time]})
 
-time = input()
-time_in_seconds = time_to_seconds(time)
-products_queue = deque()
 while True:
     product = input()
-    if product == "End":
+    if product == 'End':
         break
-    products_queue.append(product)
+    products.append(product)
 
-while products_queue:
-    time_in_seconds += 1
-    current_product = products_queue.popleft()
+while products:
+    start_time_seconds += 1
+    current_product = products.popleft()
+    is_taken = False
+
     for robot in robots:
-        robot_name = robot[0]
-        status = robot[3]
-        if status == "free":
-            robot[3] = "busy"
-            print(f"{robot_name} - {current_product} [{formatted_time(time_in_seconds)}]")
+        if robot['data'][1] <= start_time_seconds:
+            robot['data'][1] = start_time_seconds + robot['data'][0]
+            h = start_time_seconds // 3600
+            m = (start_time_seconds % 3600) // 60
+            s = (start_time_seconds % 3600) % 60
+            h %= 24
+            print(f"{robot['name']} - {current_product} [{h:02d}:{m:02d}:{s:02d}]")
+            is_taken = True
             break
-    else:
-        products_queue.append(current_product)
-    for robot in robots:
-        if robot[3] == "busy":
-            robot[2] -= 1
-        if robot[2] <= 0:
-            robot[3] = "free"
-            robot[2] = robot[1]
+
+    if not is_taken:
+        products.append(current_product)
