@@ -1,19 +1,9 @@
 from collections import deque
-kids = deque(input().split())
-nth = int(input())
+children = deque(input().split())
+n = int(input()) -1
 
-count = 1
+while len(children) != 1:
+    children.rotate(-n)
+    print(f"Removed {children.popleft()}")
 
-while len(kids) > 0:
-    if count == nth:
-        kid = kids.popleft()
-        count = 1
-        if len(kids) == 0:
-            break
-        print(f"Removed {kid}")
-    else:
-        kid = kids.popleft()  # .rotate() can be used instead
-        kids.append(kid)      # of manually moving the circle
-        count += 1
-
-print(f"Last is {kid}")
+print(f"Last is {children.popleft()}")
