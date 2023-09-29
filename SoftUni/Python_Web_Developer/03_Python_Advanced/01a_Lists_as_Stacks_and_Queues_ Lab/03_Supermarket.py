@@ -1,13 +1,23 @@
-customer_queue = []
+from collections import deque
 
-while True:
-    command = input()
-    if command == 'Paid':
-        while len(customer_queue) > 0:
-            print(customer_queue.pop(0))
-    elif command == 'End':
-        break
+customer_list = deque()
+name = input()
+
+while name != "End":
+    if name == 'Paid':
+        while customer_list:
+            print(customer_list.popleft())
     else:
-        customer_queue.append(command)
+        customer_list.append(name)
+    name = input()
 
-print(f"{len(customer_queue)} people remaining.")
+print(f"{len(customer_list)} people remaining.")
+
+
+######################## Task ########################
+# Tom is working at the supermarket, and he needs your help to keep track of his clients. 
+# Write a program that reads lines of input consisting of a customer's name and adds it to 
+# the end of a queue until "End" is received. If, in the meantime, you receive the command "Paid",
+# you should print each customer in the order they are served (from the first to the last one) 
+# and empty the queue. When you receive "End", you should print the count of the remaining people 
+# in the queue in the format: "{count} people remaining.".
