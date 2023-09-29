@@ -1,19 +1,14 @@
-clothes_stack = list(map(int, input().split()))
+clothes_stack = [int(x) for x in input().split()]
 rack_capacity = int(input())
+
 rack_count = 0
-current_rack = 0
 
 while clothes_stack:
-    current_clothing = clothes_stack.pop()
-    if current_rack + current_clothing == rack_capacity:
-        rack_count += 1
-        current_rack = 0
-    elif current_rack + current_clothing < rack_capacity:
-        current_rack += current_clothing
-    elif current_rack + current_clothing > rack_capacity:
-        rack_count += 1
-        current_rack = current_clothing
-
-if current_rack > 0:
     rack_count += 1
+    current_rack_capacity = rack_capacity
+    current_rack_capacity
+    
+    while clothes_stack and clothes_stack[-1] <= current_rack_capacity:
+        current_rack_capacity -= clothes_stack.pop()
+
 print(rack_count)
