@@ -1,7 +1,7 @@
 from collections import deque
 
-materials = list(map(int, input().split()))
-magic_levels = deque(map(int, input().split()))
+materials = [int(x) for x in input().split()]
+magic = deque(int(x) for x in input().split())
 
 magic_required = {
     150: "Doll",
@@ -9,37 +9,42 @@ magic_required = {
     300: "Teddy bear",
     400: "Bicycle"
 }
+
 presents = {}
 
-while materials and magic_levels:
-    material = materials.pop()
-    magic = magic_levels.popleft()
-    level = material * magic
-    if level in magic_required:
-        current_present = magic_required[level]
-        if current_present not in presents:
-            presents[current_present] = 0
-        presents[current_present] += 1
-    else:
-        if level < 0:
-            materials.append(material + magic)
-        elif level > 0:
-            materials.append(material + 15)
-        else:
-            if magic == 0 and material == 0:
-                continue
-            elif magic == 0:
-                materials.append(material)
-            else:
-                magic_levels.appendleft(magic)
+while materials and magic:
+    total_magic = materials[-1] * magic[0]
+    if total_magic in magic_required:
+        new_present = magic_required[total_magic]
+        if new_present not in presents:
+            presents[new_present] = 0
+        presents[new_present] += 1
+        materials.pop()
+        magic.popleft()
+    elif total_magic < 0:
+        materials.append(materials.pop() + magic.popleft())
+    elif total_magic > 0:
+        magic.popleft()
+        materials[-1] += 15
+    elif materials[-1] == 0 and magic[0] == 0:
+        materials.pop()
+        magic.popleft()
+    elif materials[-1] == 0:
+        materials.pop()
+    elif magic[0] == 0:
+        magic.popleft()
+
 
 if ("Doll" in presents and "Wooden train" in presents) or ("Teddy bear" in presents and "Bicycle" in presents):
     print("The presents are crafted! Merry Christmas!")
 else:
     print("No presents this Christmas!")
+
 if materials:
-    print(f"Materials left: {', '.join([str(m) for m in reversed(materials)])}")
-if magic_levels:
-    print(f"Magic left: {', '.join([str(m) for m in magic_levels])}")
-for present in sorted(presents.keys()):
-    print(f"{present}: {presents[present]}")
+    print(f"Materials left: {', '.join([str(x) for x in reversed(materials)])}")
+if magic:
+    print(f"Magic left: {', '.join([str(x) for x in magic])}")
+
+for key,value in sorted(presents.items()):
+    if value > 0:
+        print(f"{key}: {value}")
