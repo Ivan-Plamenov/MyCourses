@@ -1,25 +1,20 @@
-def matrix_modification(modification, r, c, val):
-    if r in range(size) and c in range(size):
-        if modification == "Add":
-            matrix[r][c] += val
-        elif modification == "Subtract":
-            matrix[r][c] -= val
-    else:
-        print("Invalid coordinates")
-
-
-size = int(input())
-matrix = []
-
-for _ in range(size):
-    matrix.append([int(x) for x in input().split()])
+rows = int(input())
+matrix = [[int(x) for x in input().split()] for _ in range(rows)]
 
 while True:
-    command = input()
-    if command.startswith("END"):
+    command = input().split()
+    if command[0] == 'END':
         break
-    action = command.split()[0]
-    row, col, value = [int(x) for x in command.split()[1:]]
-    matrix_modification(action, row, col, value)
+    row = int(command[1])
+    col = int(command[2])
+    value = int(command[3])
+    if row < 0 or row >= rows or col < 0 or col >= rows:
+        print('Invalid coordinates')
+        continue
+    if command[0] == 'Add':
+        matrix[row][col] += value
+    elif command[0] == 'Subtract':
+        matrix[row][col] -= value
 
-[print(" ".join([str(x) for x in element])) for element in matrix]
+for row in matrix:
+    print(*row, sep=' ')
