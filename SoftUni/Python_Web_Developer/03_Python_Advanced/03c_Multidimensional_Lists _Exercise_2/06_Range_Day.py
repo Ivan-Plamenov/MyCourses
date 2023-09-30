@@ -25,7 +25,7 @@ for _ in range(n):
         c = my_position[1] + directions[command[1]][1]
         while 0 <= r < 5 and 0 <= c < 5:
             if matrix[r][c] == 'x':
-                matrix[r][c] == '-'
+                matrix[r][c] == '.'
                 targets -= 1
                 targets_down.append([r, c])
                 break
@@ -51,9 +51,9 @@ for _ in range(n):
             r = my_position[0]
             c = my_position[1] + steps
 
-        if 0 <= r < 5 and 0 <= c < 5 and matrix[r][c] == '-':
+        if 0 <= r < 5 and 0 <= c < 5 and matrix[r][c] == '.':
             matrix[r][c] = 'A'
-            matrix[my_position[0]][my_position[1]] = '-'
+            matrix[my_position[0]][my_position[1]] = '.'
             my_position = [r, c]
 
 if targets > 0:
