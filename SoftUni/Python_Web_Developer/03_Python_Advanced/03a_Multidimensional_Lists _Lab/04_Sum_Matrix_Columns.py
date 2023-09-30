@@ -1,10 +1,15 @@
-rows, cols = list(map(int, (input().split(", "))))
+data = input().split(", ")
+rows = int(data[0])
+cols = int(data[1])
+
 matrix = []
 
-for _ in range(rows):
-    matrix.append([int(i) for i in input().split()])
+for row in range(rows):
+    elements = [int(el) for el in input().split()]
+    matrix.append(elements)
 
-t_matrix = list(zip(*matrix))
-
-for col in t_matrix:
-    print(sum(col))
+for col_index in range(cols):
+    sum_col_nums = 0
+    for row_index in range(rows):
+        sum_col_nums += matrix[row_index][col_index]
+    print(sum_col_nums)
