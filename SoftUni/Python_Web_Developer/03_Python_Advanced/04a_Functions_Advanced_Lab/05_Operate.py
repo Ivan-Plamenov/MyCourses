@@ -1,12 +1,13 @@
-def operate(operator, *args):
-    result = args[0]
-    if operator in ["+", "-"]:
-        for num in args[1:]:
-            result = eval(f"{result}{operator}{num}")
-    else:
-        if 0 in args:
-            result = 0
-        else:
-            for num in args[1:]:
-                result = eval(f"{result}{operator}{num}")
-    return result
+from functools import reduce
+
+def operate(*args):
+    data = list(args)
+    op = data.pop(0)
+
+    operators = {
+        "+": lambda a, b: a + b,
+        "-": lambda a, b: a - b,
+        "*": lambda a, b: a * b,
+        "/": lambda a, b: a / b,
+    }
+    return reduce(operators[op], data)
