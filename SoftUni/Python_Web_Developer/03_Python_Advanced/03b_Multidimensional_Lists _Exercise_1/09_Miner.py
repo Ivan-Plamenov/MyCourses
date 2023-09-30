@@ -1,54 +1,47 @@
+def is_valid(row, col, size):
+    return 0 <= row < size and 0 <= col < size
+
 size = int(input())
 commands = input().split()
+
 matrix = []
+current_row, current_col = 0, 0
 coal = 0
-miner_row, miner_col = 0, 0
 game_over = False
 
 for row in range(size):
-    current_row = [x for x in input().split()]
-    matrix.append(current_row)
+    matrix.append(input().split())
     for col in range(size):
-        if current_row[col] == "s":
-            miner_row, miner_col = row, col
-        elif current_row[col] == "c":
+        if matrix[row][col] == "s":
+            current_row, current_col = row, col
+        elif matrix[row][col] == "c":
             coal += 1
 
 for command in commands:
     if command == "up":
-        if miner_row - 1 in range(size):
-            new_row, new_col = miner_row - 1, miner_col
-        else:
-            continue
+        if is_valid(current_row - 1, current_col, size):
+            current_row -= 1          
     elif command == "down":
-        if miner_row + 1 in range(size):
-            new_row, new_col = miner_row + 1, miner_col
-        else:
-            continue
+        if is_valid(current_row + 1, current_col, size):
+            current_row += 1
     elif command == "left":
-        if miner_col - 1 in range(size):
-            new_row, new_col = miner_row, miner_col -1
-        else:
-            continue
+        if is_valid(current_row, current_col - 1, size):
+            current_col -= 1
     elif command == "right":
-        if miner_col + 1 in range(size):
-            new_row, new_col = miner_row, miner_col + 1
-        else:
-            continue
-    symbol_to_overcome = matrix[new_row][new_col]
-    if symbol_to_overcome == "c":
+        if is_valid(current_row, current_col + 1, size):
+            current_col += 1
+    
+    if matrix[current_row][current_col] == "e":
+        print(f"Game over! ({current_row}, {current_col})")
+        game_over = True
+        break
+    elif matrix[current_row][current_col] == "c":
         coal -= 1
-    elif symbol_to_overcome == "e":
-        print(f"Game over! ({new_row}, {new_col})")
-        game_over = True
-        break
-    matrix[new_row][new_col] = "s"
-    matrix[miner_row][miner_col] = "*"
-    miner_row, miner_col = new_row, new_col
-    if coal == 0:
-        print(f"You collected all coal! ({new_row}, {new_col})")
-        game_over = True
-        break
+        matrix[current_row][current_col] = '*'
+        if coal == 0:
+            print(f"You collected all coal! ({current_row}, {current_col})")
+            game_over = True
+            break
 
 if not game_over:
-    print(f"{coal} pieces of coal left. ({miner_row}, {miner_col})")
+    print(f"{coal} pieces of coal left. ({current_row}, {current_col})")
