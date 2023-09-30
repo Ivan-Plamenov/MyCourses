@@ -1,8 +1,10 @@
 def sorting_cheeses(**kwargs):
+    sorted_dict = sorted(kwargs.items(), key=lambda kvp:(-len(kvp[1]), kvp[0]))
     result = ""
-    sorted_cheeses = sorted(kwargs.items(), key=lambda x: (-len(x[1]), x[0]))
-    for cheese, pieces in sorted_cheeses:
-        sorted_pieces = [str(x) for x in sorted(pieces, reverse=True)]
-        result += cheese + "\n"
-        result += "\n".join(sorted_pieces) + "\n"
+
+    for name, quantities in sorted_dict:
+        result += f"{name}\n"
+        sorted_quantities = sorted(quantities, reverse=True)
+        result += "\n".join([str(el) for el in sorted_quantities])
+        result += "\n"
     return result
