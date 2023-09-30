@@ -1,5 +1,6 @@
-from functools import reduce
-
-
 def multiply(*args):
-    return reduce(lambda a, b: a * b, args)
+    result = 1
+    for num in args:
+        result *= num
+    return result
+    
