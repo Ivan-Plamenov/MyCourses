@@ -1,17 +1,17 @@
 from collections import deque
 
-rows, columns = [int(x) for x in input().split()]
-snake = deque(input())
+rows, cols = [int(x) for x in input().split()]
+txt = deque(input())
+
 matrix = []
 
 for row in range(rows):
-    current_row = ""
-    for col in range(columns):
-        current_symbol = snake.popleft()
-        current_row += current_symbol
-        snake.append(current_symbol)
-    if row % 2 != 0:
-        current_row = current_row[::-1]
-    matrix.append(current_row)
+    matrix.append([' '] * cols)
+    for col in range(cols):
+        if row % 2 == 0:
+            matrix[row][col] = txt[0]
+        else:
+            matrix[row][-1 - col] = txt[0]
+        txt.rotate(-1)
 
-[print(element) for element in matrix]
+[print(*row,sep='')for row in matrix]
