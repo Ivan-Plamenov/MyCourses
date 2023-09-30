@@ -1,8 +1,10 @@
 def concatenate(*args, **kwargs):
-    string_concatenation = "".join(args)
+    result = ''
+    for string in args:
+        result += string
 
-    for key in kwargs:
-        if key in string_concatenation:
-            string_concatenation = string_concatenation.replace(key, kwargs[key])
-
-    return string_concatenation
+    for key, value in kwargs.items():
+        if key in result:
+            result = result.replace(key, value)
+        
+    return result
