@@ -1,14 +1,8 @@
-rows, columns = [int(x) for x in input().split()]
-matrix = []
+rows, cols = [int(x) for x in input().split()]
+
+start = ord('a')
 
 for row in range(rows):
-    current_row = []
-    for col in range(columns):
-        first_letter = chr(97 + row)
-        second_letter = chr(97 + row + col)
-        third_letter = first_letter
-        palindrome = first_letter + second_letter + third_letter
-        current_row.append(palindrome)
-    matrix.append(current_row)
-
-[print(" ".join(element)) for element in matrix]
+    for col in range(cols):
+        print(f"{chr(start + row)}{chr(start + row + col)}{chr(start + row)}", end = ' ')
+    print()
