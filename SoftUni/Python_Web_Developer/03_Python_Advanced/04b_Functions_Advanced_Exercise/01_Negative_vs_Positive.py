@@ -1,17 +1,20 @@
-def sort_numbers():
-    [negatives.append(x) for x in numbers if x < 0]
-    [positives.append(x) for x in numbers if x >= 0]
+def nums_sums(*args):
+    neg_sum = 0
+    pos_sum = 0
+    for num in args:
+        if num > 0:
+            pos_sum += num
+        else:
+            neg_sum += num
 
+    return neg_sum, pos_sum
 
-numbers = [int(x) for x in input().split()]
-negatives, positives = [], []
+nums = [int(x) for x in input().split()]
 
-sort_numbers()
+print(nums_sums(*nums)[0])
+print(nums_sums(*nums)[1])
 
-print(sum(negatives))
-print(sum(positives))
-
-if abs(sum(negatives)) > sum(positives):
+if abs(nums_sums(*nums)[0]) > nums_sums(*nums)[1]:
     print("The negatives are stronger than the positives")
 else:
     print("The positives are stronger than the negatives")
