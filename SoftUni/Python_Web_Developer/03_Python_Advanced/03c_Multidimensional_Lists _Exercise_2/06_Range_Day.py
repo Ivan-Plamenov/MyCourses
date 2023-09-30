@@ -1,71 +1,61 @@
-def move(direction, steps, s_row, s_col):
-    if direction == "up":
-        new_row, new_col = s_row - steps, s_col
-    elif direction == "down":
-        new_row, new_col = s_row + steps, s_col
-    elif direction == "left":
-        new_row, new_col = s_row, s_col - steps
-    elif direction == "right":
-        new_row, new_col = s_row, s_col + steps
-    if new_row in range(size) and new_col in range(size) and field[new_row][new_col] == ".":
-        field[s_row][s_col] = "."
-        s_row, s_col = new_row, new_col
-        field[s_row][s_col] = "A"
-    return s_row, s_col
-
-
-def shoot(direction, s_row, s_col):
-    possible_targets = []
-    if direction == "up":
-        possible_targets.extend([[row, s_col] for row in range(s_row - 1, - 1, - 1)])
-    elif direction == "down":
-        possible_targets.extend([[row, s_col] for row in range(s_row + 1, size)])
-    elif direction == "left":
-        possible_targets.extend([[s_row, col] for col in range(s_col - 1, - 1, - 1)])
-    elif direction == "right":
-        possible_targets.extend([[s_row, col] for col in range(s_col + 1, size)])
-    for target in possible_targets:
-        target_row, target_col = target
-        if target_row in range(size) and target_col in range(size) and field[target_row][target_col] == "x":
-            field[target_row][target_col] = "."
-            return [target_row, target_col]
-    return []
-
-
-size = 5
-field = []
-shooter_row, shooter_col = 0, 0
+matrix = []
+my_position = []
 targets = 0
 
-for row in range(size):
-    current_row = [x for x in input().split()]
-    field.append(current_row)
-    for symbol in current_row:
-        if symbol == "A":
-            shooter_row, shooter_col = row, current_row.index("A")
-        elif symbol == "x":
+for row in range(5):
+    matrix.append(input().split())
+    for col in range(5):
+        if matrix[row][col] == 'A':
+            my_position = [row, col]
+        elif matrix[row][col] == 'x':
             targets += 1
 
-command_count = int(input())
-shot_targets = []
+directions = {'up' : (-1, 0), 
+                  'down' : (1, 0),
+                  'left' : (0, -1),
+                  'right' : (0, 1)}
+targets_down = []
 
-for _ in range(command_count):
+n = int(input())
+
+for _ in range(n):
     command = input().split()
-    if command[0] == "move":
-        move_direction, steps = command[1], int(command[2])
-        shooter_row, shooter_col = move(move_direction, steps, shooter_row, shooter_col)
-    elif command[0] == "shoot":
-        shoot_direction = command[1]
-        coordinates = shoot(shoot_direction, shooter_row, shooter_col)
-        if coordinates:
-            shot_targets.append(coordinates)
-            targets -= 1
-    if targets == 0:
-        break
+    if command[0] == 'shoot':
+        r = my_position[0] + directions[command[1]][0]
+        c = my_position[1] + directions[command[1]][1]
+        while 0 <= r < 5 and 0 <= c < 5:
+            if matrix[r][c] == 'x':
+                matrix[r][c] == '-'
+                targets -= 1
+                targets_down.append([r, c])
+                break
+            r += directions[command[1]][0]
+            c += directions[command[1]][1]
 
-if targets == 0:
-    print(f"Training completed! All {len(shot_targets)} targets hit.")
-else:
+        if targets == 0:
+            print(f"Training completed! All {len(targets_down)} targets hit.")
+            break
+    elif command[0] == 'move':
+        steps = int(command[2])
+        direction = command[1]
+        if direction == 'up':    
+            r = my_position[0] - steps
+            c = my_position[1]
+        elif direction == 'down':    
+            r = my_position[0] + steps
+            c = my_position[1]
+        elif direction == 'left':    
+            r = my_position[0]
+            c = my_position[1] - steps
+        else:
+            r = my_position[0]
+            c = my_position[1] + steps
+
+        if 0 <= r < 5 and 0 <= c < 5 and matrix[r][c] == '-':
+            matrix[r][c] = 'A'
+            matrix[my_position[0]][my_position[1]] = '-'
+            my_position = [r, c]
+
+if targets > 0:
     print(f"Training not completed! {targets} targets left.")
-
-[print(element) for element in shot_targets]
+[print(row) for row in targets_down]
