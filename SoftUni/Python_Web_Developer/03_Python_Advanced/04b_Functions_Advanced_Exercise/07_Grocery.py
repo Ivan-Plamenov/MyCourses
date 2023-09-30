@@ -1,9 +1,8 @@
 def grocery_store(**kwargs):
-    receipt = ""
-    
-    sorted_products = sorted(kwargs.items(), key=lambda x: (-x[1], -len(x[0]), x[0]))
-    
-    for key, value in sorted_products:
-        receipt += f"{key}: {value}" + "\n"
-    
-    return receipt
+    receipt = dict(sorted(kwargs.items(), key=lambda kvp: (-kvp[1], -len(kvp[0]), kvp[0])))
+    result = []
+
+    for product, quantity in receipt.items():
+        result.append(f"{product}: {quantity}")
+
+    return"\n".join(result)
