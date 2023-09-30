@@ -1,11 +1,13 @@
-rows = int(input())
+n = int(input())
+
 matrix = []
-diagonal_sum = 0
 
-for _ in range(rows):
-    matrix.append([int(num) for num in input().split()])
+for row in range(n):
+    elements = [int(el) for el in input().split()]
+    matrix.append(elements)
 
-for i in range(rows):
-    diagonal_sum += matrix[i][i]
+sum_diagonal = 0
+for row_index in range(n):
+    sum_diagonal += matrix[row_index][row_index]
 
-print(diagonal_sum)
+print(sum_diagonal)
