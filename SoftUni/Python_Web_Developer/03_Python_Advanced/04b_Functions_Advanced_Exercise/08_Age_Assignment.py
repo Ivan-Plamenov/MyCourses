@@ -1,14 +1,12 @@
 def age_assignment(*args, **kwargs):
-    result = ""
-    
-    for full_name in args:
-        first_letter = full_name[0]
-        kwargs[full_name] = kwargs[first_letter]
-        del kwargs[first_letter]
-    
-    sorted_names = sorted(kwargs.items(), key=lambda x: x[0])
-    
-    for name, age in sorted_names:
-        result += f"{name} is {age} years old." + "\n"
-    
-    return result
+    persons = {}
+
+    for name in args:
+        persons[name] = kwargs[name[0]]
+
+    result = sorted(persons.items(), key=lambda x: x[0])
+    final_result = []
+
+    for name, age in result:
+        final_result.append(f"{name} is {age} years old.")
+    return "\n".join(final_result)
