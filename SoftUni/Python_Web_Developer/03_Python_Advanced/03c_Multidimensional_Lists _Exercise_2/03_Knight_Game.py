@@ -1,46 +1,41 @@
-def possible_attacks(r, c):
-    result = 0
-    if (r - 1) in range(size) and (c - 2) in range(size) and matrix[r - 1][c - 2] == "K":
-        result += 1
-    if (r - 2) in range(size) and (c - 1) in range(size) and matrix[r - 2][c - 1] == "K":
-        result += 1
-    if (r - 2) in range(size) and (c + 1) in range(size) and matrix[r - 2][c + 1] == "K":
-        result += 1
-    if (r - 1) in range(size) and (c + 2) in range(size) and matrix[r - 1][c + 2] == "K":
-        result += 1
-    if (r + 1) in range(size) and (c + 2) in range(size) and matrix[r + 1][c + 2] == "K":
-        result += 1
-    if (r + 2) in range(size) and (c + 1) in range(size) and matrix[r + 2][c + 1] == "K":
-        result += 1
-    if (r + 2) in range(size) and (c - 1) in range(size) and matrix[r + 2][c - 1] == "K":
-        result += 1
-    if (r + 1) in range(size) and (c - 2) in range(size) and matrix[r + 1][c - 2] == "K":
-        result += 1
-    return result
+n = int(input())
 
-
-size = int(input())
 matrix = []
+knights = []
 
-for _ in range(size):
-    matrix.append(list(input()))
+for row in range(n):
+    matrix.append([x for x in input()])
+    for col in range(n):
+        if matrix[row][col] == 'K':
+            knights.append([row, col])
 
 removed_knights = 0
-attacking_knight = []
+possible_moves = [(1, 2), (2, 1), (-1, 2), (-2, 1), (1, -2), (2, -1), (-1, -2), (-2, -1)]
 
 while True:
-    max_attacks = 0
-    for row in range(size):
-        for col in range(size):
-            if matrix[row][col] == "K":
-                attacks = possible_attacks(row, col)
-                if attacks > max_attacks:
-                    max_attacks = attacks
-                    attacking_knight = [row, col]
-    if max_attacks == 0:
+    max_hits = 0
+    max_knight = [0,0]
+    
+    for k_row, k_col in knights:
+        hits = 0
+
+        for move in possible_moves:
+            new_row = k_row + move[0]
+            new_col = k_col + move[1]
+
+            if 0 <= new_row < n and 0 <= new_col < n:
+                if matrix[new_row][new_col] == 'K':
+                    hits += 1
+            
+            if hits > max_hits:
+                max_hits = hits
+                max_knight =[k_row, k_col]
+
+    if max_hits == 0:
         break
-    knight_row, knight_col = attacking_knight
-    matrix[knight_row][knight_col] = "0"
-    removed_knights += 1
+    else:
+        knights.remove(max_knight)
+        matrix[max_knight[0]][max_knight[1]] = '0'
+        removed_knights += 1
 
 print(removed_knights)
