@@ -1,21 +1,24 @@
-def find_in_matrix(matrix, element):
-    for index, row in enumerate(matrix):
-        for i, col in enumerate(row):
-            if col == element:
-                return index, i
-
-
 rows = int(input())
+
 matrix = []
 
-for _ in range(rows):
-    matrix.append(list(input()))
+for row in range(rows):
+    elements = list(input())
+    matrix.append(elements)
 
-search_for = input()
+searched_element = input()
 
-search_found = find_in_matrix(matrix, search_for)
+position = None
 
-if search_found:
-    print(search_found)
-else:
-    print(f"{search_for} does not occur in the matrix")
+for row_index in range(rows):
+    if position:
+        break
+    for col_index in range(len(matrix[row_index])):
+        current_element = matrix[row_index][col_index]
+        if current_element == searched_element:
+            position = (row_index, col_index)
+            print(position)
+            break
+
+if not position:
+    print(f"{searched_element} does not occur in the matrix")
