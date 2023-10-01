@@ -9,9 +9,9 @@ while orders_queue and orders_queue[0] <= food_quantity:
     orders_queue.popleft()
 
 if orders_queue:
-    print('Orders left:', end='')
+    print("Orders left:", end="")
     while orders_queue:
-        print(f' {orders_queue.popleft()}', end='')
+        print(f" {orders_queue.popleft()}", end="")
 
 else:
-     print("Orders complete")
+    print("Orders complete")

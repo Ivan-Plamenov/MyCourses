@@ -1,12 +1,11 @@
 from collections import deque
 
 expression = deque(input())
-opening_brackets = '([{'
-closing_brackets = ')]}'
+opening_brackets = "([{"
+closing_brackets = ")]}"
 counter = 0
 
 while expression and counter < len(expression) / 2:
-
     if expression[0] not in opening_brackets:
         break
 

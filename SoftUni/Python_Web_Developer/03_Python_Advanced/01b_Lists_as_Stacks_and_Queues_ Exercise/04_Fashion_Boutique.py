@@ -7,7 +7,7 @@ while clothes_stack:
     rack_count += 1
     current_rack_capacity = rack_capacity
     current_rack_capacity
-    
+
     while clothes_stack and clothes_stack[-1] <= current_rack_capacity:
         current_rack_capacity -= clothes_stack.pop()
 

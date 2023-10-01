@@ -2,7 +2,7 @@ from collections import deque
 
 bullet_price = int(input())
 gun_barrel_size = int(input())
-bullets = list(map(int, input().split()))       # bullets are a stack
+bullets = list(map(int, input().split()))  # bullets are a stack
 locks = deque(list(map(int, input().split())))  # locks are a queue
 prize_value = int(input())
 shots = 0
