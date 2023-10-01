@@ -13,7 +13,12 @@ while True:
         print("Invalid input!")
         continue
     row_1, col_1, row_2, col_2 = [int(x) for x in command.split()[1:]]
-    if row_1 in range(rows) and col_1 in range(columns) and row_2 in range(rows) and col_2 in range(columns):
+    if (
+        row_1 in range(rows)
+        and col_1 in range(columns)
+        and row_2 in range(rows)
+        and col_2 in range(columns)
+    ):
         shuffle_matrix(row_1, col_1, row_2, col_2)
         [print(" ".join(element)) for element in matrix]
     else:

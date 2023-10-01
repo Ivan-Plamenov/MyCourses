@@ -2,7 +2,9 @@ def explosion(bomb_row, bomb_column):
     bomb_strength = matrix[bomb_row][bomb_column]
     for explosion_row in range(bomb_row - 1, bomb_row + 2):
         for explosion_col in range(bomb_column - 1, bomb_column + 2):
-            if explosion_row in range(matrix_size) and explosion_col in range(matrix_size):
+            if explosion_row in range(matrix_size) and explosion_col in range(
+                matrix_size
+            ):
                 if matrix[explosion_row][explosion_col] > 0:
                     matrix[explosion_row][explosion_col] -= bomb_strength
     matrix[bomb_row][bomb_column] = 0
