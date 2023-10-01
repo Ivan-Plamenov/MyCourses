@@ -20,14 +20,14 @@ while command != "End":
         if liters_to_give <= water_quantity:
             water_quantity -= liters_to_give
             print(print(f"{person_name} got water"))
-            
+
         else:
             print(print(f"{person_name} must wait"))
 
     else:
         liters_to_add = int(data[1])
         water_quantity += liters_to_add
-    
+
     command = input()
 
 print(f"{water_quantity} liters left")

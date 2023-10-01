@@ -1,6 +1,7 @@
 from collections import deque
+
 children = deque(input().split())
-n = int(input()) -1
+n = int(input()) - 1
 
 while len(children) != 1:
     children.rotate(-n)
