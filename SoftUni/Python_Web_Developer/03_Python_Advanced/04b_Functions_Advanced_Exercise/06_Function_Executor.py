@@ -3,5 +3,5 @@ def func_executor(*args):
 
     for func, data in args:
         result.append(f"{func.__name__} - {func(*data)}")
-    
+
     return "\n".join(result)

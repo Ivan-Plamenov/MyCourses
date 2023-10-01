@@ -9,6 +9,7 @@ def nums_sums(*args):
 
     return neg_sum, pos_sum
 
+
 nums = [int(x) for x in input().split()]
 
 print(nums_sums(*nums)[0])
