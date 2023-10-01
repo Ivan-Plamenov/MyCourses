@@ -1,5 +1,6 @@
 from string import punctuation
 
+
 def count_symbols(line):
     punctuation_symbols = set(punctuation)
     letters_count = 0
@@ -12,7 +13,10 @@ def count_symbols(line):
 
     return letters_count, punctuations_count
 
-with open('text.txt','r') as input_file, open('output.txt', 'w') as output_file:
-    for idx,line in enumerate(input_file):
+
+with open("text.txt", "r") as input_file, open("output.txt", "w") as output_file:
+    for idx, line in enumerate(input_file):
         letters, punctuations = count_symbols(line)
-        output_file.write(f'Line {idx + 1}: {line.strip()} ({letters})({punctuations})\n')
+        output_file.write(
+            f"Line {idx + 1}: {line.strip()} ({letters})({punctuations})\n"
+        )
