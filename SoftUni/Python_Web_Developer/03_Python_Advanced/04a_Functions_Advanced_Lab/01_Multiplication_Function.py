@@ -3,4 +3,3 @@ def multiply(*args):
     for num in args:
         result *= num
     return result
-    

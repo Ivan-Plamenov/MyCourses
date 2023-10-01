@@ -1,5 +1,6 @@
 from functools import reduce
 
+
 def operate(*args):
     data = list(args)
     op = data.pop(0)

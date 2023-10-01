@@ -1,8 +1,7 @@
 def rectangle(length, width):
-        
     if not isinstance(length, int) or not isinstance(width, int):
         return "Enter valid values!"
-    
+
     def perimeter():
         return (length + width) * 2
 

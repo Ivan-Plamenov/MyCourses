@@ -1,5 +1,5 @@
 def sorting_cheeses(**kwargs):
-    sorted_dict = sorted(kwargs.items(), key=lambda kvp:(-len(kvp[1]), kvp[0]))
+    sorted_dict = sorted(kwargs.items(), key=lambda kvp: (-len(kvp[1]), kvp[0]))
     result = ""
 
     for name, quantities in sorted_dict:
