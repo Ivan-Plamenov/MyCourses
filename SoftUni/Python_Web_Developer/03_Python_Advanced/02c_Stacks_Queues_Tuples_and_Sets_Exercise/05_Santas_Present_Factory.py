@@ -3,12 +3,7 @@ from collections import deque
 materials = [int(x) for x in input().split()]
 magic = deque(int(x) for x in input().split())
 
-magic_required = {
-    150: "Doll",
-    250: "Wooden train",
-    300: "Teddy bear",
-    400: "Bicycle"
-}
+magic_required = {150: "Doll", 250: "Wooden train", 300: "Teddy bear", 400: "Bicycle"}
 
 presents = {}
 
@@ -35,7 +30,9 @@ while materials and magic:
         magic.popleft()
 
 
-if ("Doll" in presents and "Wooden train" in presents) or ("Teddy bear" in presents and "Bicycle" in presents):
+if ("Doll" in presents and "Wooden train" in presents) or (
+    "Teddy bear" in presents and "Bicycle" in presents
+):
     print("The presents are crafted! Merry Christmas!")
 else:
     print("No presents this Christmas!")
@@ -45,6 +42,6 @@ if materials:
 if magic:
     print(f"Magic left: {', '.join([str(x) for x in magic])}")
 
-for key,value in sorted(presents.items()):
+for key, value in sorted(presents.items()):
     if value > 0:
         print(f"{key}: {value}")

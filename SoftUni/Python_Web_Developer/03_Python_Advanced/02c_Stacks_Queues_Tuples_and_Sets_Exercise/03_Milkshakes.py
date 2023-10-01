@@ -1,7 +1,7 @@
 from collections import deque
 
-chocolates = [int(x) for x in input().split(', ')]
-milk_cups = deque(int(x) for x in input().split(', '))
+chocolates = [int(x) for x in input().split(", ")]
+milk_cups = deque(int(x) for x in input().split(", "))
 milkshakes = 0
 
 while chocolates and milk_cups and milkshakes < 5:
@@ -25,11 +25,12 @@ while chocolates and milk_cups and milkshakes < 5:
         chocolates[-1] -= 5
 
 
-
 if milkshakes == 5:
     print("Great! You made all the chocolate milkshakes needed!")
 else:
     print("Not enough milkshakes.")
 
-print(f"Chocolate: {', '.join([str(x) for x in chocolates]) if chocolates else 'empty'}")
+print(
+    f"Chocolate: {', '.join([str(x) for x in chocolates]) if chocolates else 'empty'}"
+)
 print(f"Milk: {', '.join([str(x) for x in milk_cups]) if milk_cups else 'empty'}")
