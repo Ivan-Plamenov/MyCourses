@@ -1,4 +1,4 @@
-strings = input().split('|')
+strings = input().split("|")
 
 matrix = []
 
@@ -8,4 +8,4 @@ for i in range(len(strings) - 1, -1, -1):
         matrix.append(row)
 
 for row in matrix:
-    print(*row, sep=" ", end=' ')
+    print(*row, sep=" ", end=" ")

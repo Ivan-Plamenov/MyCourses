@@ -37,7 +37,7 @@ while True:
                 [new_row - 1, new_col],
                 [new_row + 1, new_col],
                 [new_row, new_col - 1],
-                [new_row, new_col + 1]
+                [new_row, new_col + 1],
             ]
             for h in surrounding_houses:
                 if presents == 0:
