@@ -1,19 +1,19 @@
 function numsDevisible(input) {
-    let firstNumber = Number(input[0]);
-    let secondNumber = Number(input[1]);
+  let firstNumber = Number(input[0]);
+  let secondNumber = Number(input[1]);
 
-    let sum = 0;
+  let sum = 0;
 
-    for (let i = firstNumber; i < secondNumber; i++) {
-        if (i % 9 == 0) {
-            sum += i;
-        }
+  for (let i = firstNumber; i < secondNumber; i++) {
+    if (i % 9 == 0) {
+      sum += i;
     }
-    console.log(`The sum: ${sum}`);
+  }
+  console.log(`The sum: ${sum}`);
 
-    for (let i = firstNumber; i < secondNumber; i++) {
-        if (i % 9 == 0) {
-            console.log(i);
-        }
+  for (let i = firstNumber; i < secondNumber; i++) {
+    if (i % 9 == 0) {
+      console.log(i);
     }
+  }
 }

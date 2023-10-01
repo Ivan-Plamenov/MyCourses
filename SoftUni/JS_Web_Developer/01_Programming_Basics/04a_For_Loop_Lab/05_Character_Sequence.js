@@ -1,8 +1,8 @@
 function characterSequence(input) {
-    let word = input[0];
-    let charsWord = word.length;
+  let word = input[0];
+  let charsWord = word.length;
 
-    for (let i = 0; i < charsWord; i++) {
-        console.log(word[i]);
-    }
+  for (let i = 0; i < charsWord; i++) {
+    console.log(word[i]);
+  }
 }
