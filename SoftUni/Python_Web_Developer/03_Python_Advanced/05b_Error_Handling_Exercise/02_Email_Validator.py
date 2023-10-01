@@ -26,6 +26,8 @@ while True:
         raise MustContainAtSymbolError("Email must contain @")
 
     if domain not in ["com", "bg", "org", "net"]:
-        raise InvalidDomainError("Domain must be one of the following: .com, .bg, .org, .net")
+        raise InvalidDomainError(
+            "Domain must be one of the following: .com, .bg, .org, .net"
+        )
 
     print("Email is valid")
