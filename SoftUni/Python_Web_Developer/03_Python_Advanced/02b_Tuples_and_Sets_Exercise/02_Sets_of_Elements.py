@@ -11,6 +11,4 @@ for _ in range(m):
 
 unique_elements = set_n.intersection(set_m)
 
-print('\n'.join(unique_elements))
-
-
+print("\n".join(unique_elements))

@@ -17,4 +17,4 @@ elif sum(odd_set) > sum(even_set):
 else:
     result = odd_set.symmetric_difference(even_set)
 
-print(*result, sep=', ')
+print(*result, sep=", ")
