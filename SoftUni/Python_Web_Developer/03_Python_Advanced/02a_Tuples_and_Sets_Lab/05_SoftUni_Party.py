@@ -8,7 +8,7 @@ for _ in range(n):
 
 guest = input()
 
-while guest != 'END':
+while guest != "END":
     reservations.remove(guest)
     guest = input()
 

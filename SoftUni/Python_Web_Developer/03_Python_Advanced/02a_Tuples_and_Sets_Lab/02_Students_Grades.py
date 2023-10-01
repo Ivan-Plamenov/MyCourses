@@ -9,7 +9,7 @@ for _ in range(number_of_students):
     students[name].append(float(grade))
 
 for student_name, grades in students.items():
-    formated_grades = ' '.join([f"{grade:.2f}" for grade in grades])  
-    print(f"{student_name} -> {formated_grades} " 
-          f"(avg: {sum(grades)/len(grades):.2f})")
-    
+    formated_grades = " ".join([f"{grade:.2f}" for grade in grades])
+    print(
+        f"{student_name} -> {formated_grades} " f"(avg: {sum(grades)/len(grades):.2f})"
+    )
