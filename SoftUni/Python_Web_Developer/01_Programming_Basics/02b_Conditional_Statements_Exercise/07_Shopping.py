@@ -12,8 +12,8 @@ total_price = price_vga + price_cpu + price_ram
 if num_vga > num_cpu:
     total_price *= 0.85
 
-if budget < total_price :
+if budget < total_price:
     print(f"Not enough money! You need {total_price - budget:.02f} leva more!")
 
-else :
+else:
     print(f"You have {budget - total_price:.02f} leva left!")

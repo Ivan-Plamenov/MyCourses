@@ -4,7 +4,7 @@ cast_clothing_price = float(input())
 set_price = 0.1 * budget
 clothing_price = cast_number * cast_clothing_price
 
-if cast_number >150:
+if cast_number > 150:
     clothing_price *= 0.9
 
 total_cost = set_price + clothing_price
