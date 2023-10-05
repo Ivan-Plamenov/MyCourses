@@ -1,16 +1,17 @@
 CREATE OR REPLACE VIEW view_continents_countries_currencies_details AS
-SELECT CONCAT(continent_name, ': ', continent_code) AS "Continent Details",
-    CONCAT(
-        country_name,
+SELECT CONCAT(continent_name, ': ', cont.continent_code) AS "Continent Details",
+    CONCAT_WS(
         ' - ',
-        capital,
-        ' - ',
-        area_in_sq_km,
-        ' - km2'
+        cntr.country_name,
+        cntr.capital,
+        cntr.area_in_sq_km,
+        'km2'
     ) AS "Country Information",
-    CONCAT(description, ' (', currency_code, ')') AS "Currencies"
-FROM continents
-    JOIN countries ON continents.continent_code = countries.continent_code
-    JOIN currencies ON countries.currency_code = currencies.currency_code
-ORDER BY "Country Information",
-    "Currencies";
+    CONCAT(curr.description, ' (', curr.currency_code, ')') AS "Currencies"
+FROM continents AS cont,
+    countries AS cntr,
+    currencies AS curr
+WHERE cont.continent_code = cntr.continent_code
+    AND cntr.currency_code = curr.currency_code
+ORDER BY "Country Information" ASC,
+    "Currencies" ASC;

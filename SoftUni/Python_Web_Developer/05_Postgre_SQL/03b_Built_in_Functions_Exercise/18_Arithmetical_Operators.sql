@@ -1,13 +1,8 @@
 -- Create the "bookings_calculation" table and add columns
-CREATE TABLE bookings_calculation (
-    booked_for NUMERIC,
-    multiplication NUMERIC,
-    modulo NUMERIC
-);
--- Populate the "multiplication" and "modulo" columns
-INSERT INTO bookings_calculation (booked_for, multiplication, modulo)
+CREATE TABLE bookings_calculation -- Populate the "multiplication" and "modulo" columns
+AS
 SELECT booked_for,
-    booked_for * 50 AS multiplication,
-    booked_for % 50 AS modulo
+    CAST(booked_for * 50 AS NUMERIC) AS multiplication,
+    CAST(booked_for % 50 AS NUMERIC) AS modulo
 FROM bookings
 WHERE apartment_id = 93;
