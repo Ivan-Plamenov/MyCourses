@@ -1,15 +1,13 @@
--- Create the "monasteries" table
-CREATE TABLE IF NOT EXISTS monasteries (
+CREATE TABLE monasteries(
     id SERIAL PRIMARY KEY,
-    monastery_name VARCHAR(255) NOT NULL,
-    country_code CHAR(2) NOT NULL
+    monastery_name VARCHAR(255),
+    country_code CHAR(2)
 );
--- Insert data into the "monasteries" table
 INSERT INTO monasteries (monastery_name, country_code)
-VALUES ('Rila Monastery St. Ivan of Rila', 'BG'),
-    ('Bachkovo Monastery Virgin Mary', 'BG'),
+VALUES ('Rila Monastery "St. Ivan of Rila"', 'BG'),
+    ('Bachkovo Monastery "Virgin Mary"', 'BG'),
     (
-        'Troyan Monastery Holy Mother''s Assumption',
+        'Troyan Monastery "Holy Mother''s Assumption"',
         'BG'
     ),
     ('Kopan Monastery', 'NP'),
@@ -27,23 +25,18 @@ VALUES ('Rila Monastery St. Ivan of Rila', 'BG'),
     ('Pa-Auk Forest Monastery', 'MM'),
     ('Taktsang Palphug Monastery', 'BT'),
     ('Sümela Monastery', 'TR');
--- Modify the "countries" table by adding a BOOLEAN column called "three_rivers" with a default value of false
 ALTER TABLE countries
-ADD COLUMN three_rivers BOOLEAN DEFAULT false;
--- Update the "three_rivers" column for countries that have more than three rivers
+ADD COLUMN three_rivers BOOLEAN DEFAULT False;
 UPDATE countries
-SET three_rivers = true
-WHERE country_code IN (
-        SELECT cr.country_code
+SET three_rivers = True
+WHERE (
+        SELECT count(country_code) >= 3
         FROM countries_rivers AS cr
-            JOIN rivers AS r ON cr.river_id = r.id
-        GROUP BY cr.country_code
-        HAVING COUNT(cr.river_id) > 3
+        WHERE cr.country_code = countries.country_code
     );
--- Retrieve the desired records
 SELECT m.monastery_name,
-    c.country_name AS country_name
+    c.country_name
 FROM monasteries AS m
-    JOIN countries AS c ON m.country_code = c.country_code
-WHERE c.three_rivers = true
+    JOIN countries AS c USING (country_code)
+WHERE c.three_rivers = False
 ORDER BY m.monastery_name;
