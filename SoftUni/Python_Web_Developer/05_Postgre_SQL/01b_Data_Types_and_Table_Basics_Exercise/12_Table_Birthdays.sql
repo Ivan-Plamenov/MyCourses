@@ -1,4 +1,4 @@
--- Create the "minions_birthdays" table
+-- Creates the "minions_birthdays" table with columns "id," "name," "date_of_birth," "age," "present," and "party."
 CREATE TABLE IF NOT EXISTS minions_birthdays (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
