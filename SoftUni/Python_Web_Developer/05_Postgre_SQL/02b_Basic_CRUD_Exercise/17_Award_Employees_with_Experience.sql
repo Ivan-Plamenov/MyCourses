@@ -1,3 +1,5 @@
+-- Updates employee salaries by adding 1500 and job titles to "Senior [original title]"
+-- for employees hired between January 1, 1998, and January 5, 2000.
 UPDATE employees
 SET salary = salary + 1500,
     job_title = 'Senior ' || job_title

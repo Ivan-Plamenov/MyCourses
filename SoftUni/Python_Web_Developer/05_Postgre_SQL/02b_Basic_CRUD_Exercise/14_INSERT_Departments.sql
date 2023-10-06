@@ -1,3 +1,4 @@
+-- Inserts department names and manager IDs into the "departments" table.
 INSERT INTO departments (department, manager_id)
 VALUES ('Finance', 3),
     ('Information Services', 42),

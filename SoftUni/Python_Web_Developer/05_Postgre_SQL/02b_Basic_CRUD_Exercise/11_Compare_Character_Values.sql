@@ -1,3 +1,4 @@
+-- Selects project names and start dates for specific project names, limiting the result to 20 records.
 SELECT name,
     start_date
 FROM projects

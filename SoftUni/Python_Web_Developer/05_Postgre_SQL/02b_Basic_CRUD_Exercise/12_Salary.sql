@@ -1,3 +1,4 @@
+-- Selects employee names, job titles, and salaries for specific salary values, sorted by salary in descending order.
 SELECT CONCAT(first_name, ' ', last_name) AS "Full Name",
     job_title,
     salary
