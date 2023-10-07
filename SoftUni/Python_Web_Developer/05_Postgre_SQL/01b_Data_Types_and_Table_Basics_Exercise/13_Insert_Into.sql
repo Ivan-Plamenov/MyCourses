@@ -1,4 +1,4 @@
--- Inserts data into the "minions_info" table with columns: name, code, task, banana, email, equipped, and mood.
+-- Inserts data into the "minions_info" table with specified columns.
 INSERT INTO minions_info (name, code, task, banana, email, equipped, mood)
 VALUES (
         'Mark',

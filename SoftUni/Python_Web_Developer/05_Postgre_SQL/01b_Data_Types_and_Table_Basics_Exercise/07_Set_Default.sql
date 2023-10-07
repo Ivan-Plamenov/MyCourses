@@ -1,4 +1,4 @@
--- Sets default values for columns "age," "name," and "code" in the "minions_info" table.
+-- Sets default values for "age," "name," and "code" columns in "minions_info."
 ALTER TABLE minions_info
 ALTER COLUMN age
 SET DEFAULT 0,
