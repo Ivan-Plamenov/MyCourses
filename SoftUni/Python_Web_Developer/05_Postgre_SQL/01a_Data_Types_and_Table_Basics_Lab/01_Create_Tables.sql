@@ -1,3 +1,4 @@
+-- Creates three tables: "employees," "departments," and "issues," each with specific columns.
 CREATE TABLE employees(
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(20),
@@ -17,4 +18,4 @@ CREATE TABLE issues(
     description VARCHAR(150),
     "date" DATE,
     start TIMESTAMP
-)
+);
