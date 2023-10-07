@@ -1,4 +1,6 @@
-INSERT INTO employees(
+-- Inserts two new employee records into the "employees" table
+-- and then selects all records from the same table.
+INSERT INTO employees (
         first_name,
         last_name,
         job_title,
