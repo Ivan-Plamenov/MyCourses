@@ -1,4 +1,4 @@
--- Selects employees (IDs 200 and 250) and their projects (excluding IDs 50 and 100).
+-- Gets employee-project assignments for specific employees and excludes certain projects.
 SELECT employee_id,
     project_id
 FROM employees_projects

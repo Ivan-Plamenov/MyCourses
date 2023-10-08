@@ -1,4 +1,4 @@
--- Updates employee salaries by adding 1500 and job titles to "Senior [original title]"
+-- Increases the salary by 1500 and adds "Senior" to the job title
 -- for employees hired between January 1, 1998, and January 5, 2000.
 UPDATE employees
 SET salary = salary + 1500,

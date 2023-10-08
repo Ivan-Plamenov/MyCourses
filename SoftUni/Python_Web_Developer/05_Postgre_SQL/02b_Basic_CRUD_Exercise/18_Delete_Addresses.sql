@@ -1,3 +1,3 @@
--- Deletes addresses associated with city IDs 5, 17, 20, and 30 from the "addresses" table.
+-- Deletes addresses associated with specific city IDs (5, 17, 20, 30).
 DELETE FROM addresses
 WHERE city_id IN (5, 17, 20, 30);

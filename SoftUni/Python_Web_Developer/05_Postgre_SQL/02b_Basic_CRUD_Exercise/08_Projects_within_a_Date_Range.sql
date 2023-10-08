@@ -1,4 +1,5 @@
--- Selects project details for projects within a specified date range, ordered by their start date.
+-- Retrieves project details for projects within a date range,
+-- ordered by their start dates.
 SELECT name,
     start_date,
     end_date

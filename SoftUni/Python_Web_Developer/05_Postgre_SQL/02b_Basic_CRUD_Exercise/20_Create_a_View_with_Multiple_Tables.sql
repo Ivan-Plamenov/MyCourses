@@ -1,5 +1,5 @@
--- Creates a view named "view_addresses" with columns "Full Name," "Department ID," and "Address,"
--- combining employee and address information and ordering by the address.
+-- Creates a view named "view_addresses" to show employee full names, department IDs,
+-- and formatted addresses by joining data from employees and addresses tables.
 CREATE VIEW view_addresses AS
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS "Full Name",
     e.department_id,

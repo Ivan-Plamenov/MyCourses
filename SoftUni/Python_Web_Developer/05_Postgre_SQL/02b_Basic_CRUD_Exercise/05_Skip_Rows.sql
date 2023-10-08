@@ -1,5 +1,5 @@
--- Selects employee information with columns "id," "Full Name" (concatenation of first, middle, and last names),
--- and "Hire Date," ordered by "Hire Date" and skipping the first 9 rows.
+-- Retrieves employee IDs, full names, and hire dates, starting from the 10th record
+-- and orders them by hire date.
 SELECT "id",
     CONCAT(first_name, ' ', middle_name, ' ', last_name) AS "Full Name",
     "hire_date" AS "Hire Date"

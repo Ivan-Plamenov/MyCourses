@@ -1,3 +1,3 @@
--- Updates project names to be in uppercase.
+-- Converts project names to uppercase.
 UPDATE projects
 SET name = UPPER(name);

@@ -1,4 +1,4 @@
--- Selects addresses with numbers less than 1000 or IDs between 50 and 100.
+-- Retrieves address details for specific addresses based on their ID and number criteria.
 SELECT number,
     street
 FROM addresses
