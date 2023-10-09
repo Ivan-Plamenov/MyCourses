@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION fn_cash_in_users_games(game_name VARCHAR(50)) RETURNS TABLE (total_cash NUMERIC(19, 2)) AS $$ BEGIN RETURN QUERY
+-- Create a PostgreSQL function to calculate the total cash of users in a specified game
+CREATE OR REPLACE FUNCTION fn_cash_in_users_games(game_name VARCHAR(50)) RETURNS TABLE (total_cash NUMERIC(19, 2)) AS $$ BEGIN -- Calculate the total cash of users who have an odd rank in the specified game
+    RETURN QUERY
 SELECT ROUND(SUM(cash), 2) AS total_cash
 FROM (
         SELECT cash,

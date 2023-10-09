@@ -1,3 +1,4 @@
+-- Create a PostgreSQL function to generate a full name from first and last names
 CREATE OR REPLACE FUNCTION fn_full_name(
         first_name VARCHAR(50),
         last_name VARCHAR(50)

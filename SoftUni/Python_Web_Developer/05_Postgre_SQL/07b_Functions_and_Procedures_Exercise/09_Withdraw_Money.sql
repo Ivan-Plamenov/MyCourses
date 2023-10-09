@@ -1,9 +1,9 @@
+-- Create a PostgreSQL stored procedure to withdraw money from a specific account
 CREATE OR REPLACE PROCEDURE sp_withdraw_money(
         account_id INT,
         money_amount NUMERIC(19, 4)
-    ) LANGUAGE plpgsql AS $$
+    ) LANGUAGE plpgsql AS $$ BEGIN -- Get the current balance of the account
 DECLARE current_balance NUMERIC(19, 4);
-BEGIN -- Get the current balance of the account
 SELECT "balance" INTO current_balance
 FROM accounts
 WHERE "id" = account_id;

@@ -1,3 +1,4 @@
+-- Create a PostgreSQL stored procedure to deposit money into a specific account
 CREATE OR REPLACE PROCEDURE sp_deposit_money(
         account_id INT,
         money_amount NUMERIC(19, 4)

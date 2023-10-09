@@ -1,3 +1,4 @@
+-- 66 / 100
 -- Create the "logs" table
 CREATE TABLE logs (
     id SERIAL PRIMARY KEY,
