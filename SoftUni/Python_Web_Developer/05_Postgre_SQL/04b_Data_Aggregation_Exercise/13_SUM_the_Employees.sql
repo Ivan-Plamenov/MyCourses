@@ -1,34 +1,35 @@
-SELECT count(
+-- Counts the number of employees in each department.
+SELECT COUNT(
         CASE
             WHEN department_id = 1 THEN 1
         END
     ) AS "Engineering",
-    count(
+    COUNT(
         CASE
             WHEN department_id = 2 THEN 1
         END
     ) AS "Tool Design",
-    count(
+    COUNT(
         CASE
             WHEN department_id = 3 THEN 1
         END
     ) AS "Sales",
-    count(
+    COUNT(
         CASE
             WHEN department_id = 4 THEN 1
         END
     ) AS "Marketing",
-    count(
+    COUNT(
         CASE
             WHEN department_id = 5 THEN 1
         END
     ) AS "Purchasing",
-    count(
+    COUNT(
         CASE
             WHEN department_id = 6 THEN 1
         END
     ) AS "Research and Development",
-    count(
+    COUNT(
         CASE
             WHEN department_id = 7 THEN 1
         END

@@ -1,3 +1,4 @@
+-- Categorizes projects based on their status.
 SELECT project_name,
     CASE
         WHEN start_date IS NULL
@@ -7,4 +8,4 @@ SELECT project_name,
         ELSE 'Done'
     END AS project_status
 FROM projects
-WHERE project_name LIKE '%Mountain%'
+WHERE project_name LIKE '%Mountain%';

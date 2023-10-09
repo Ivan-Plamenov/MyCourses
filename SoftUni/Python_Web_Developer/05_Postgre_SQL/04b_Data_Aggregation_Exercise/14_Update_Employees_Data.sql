@@ -1,3 +1,4 @@
+-- Updates employees' salaries and job titles based on their hire dates.
 UPDATE employees
 SET salary = CASE
         WHEN hire_date < '2015-01-16' THEN salary + 2500

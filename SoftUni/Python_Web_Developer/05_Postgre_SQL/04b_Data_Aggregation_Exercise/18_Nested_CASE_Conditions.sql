@@ -1,3 +1,4 @@
+-- Creates or replaces a view to calculate performance ratings for employees.
 CREATE OR REPLACE VIEW view_performance_rating AS
 SELECT first_name,
     last_name,

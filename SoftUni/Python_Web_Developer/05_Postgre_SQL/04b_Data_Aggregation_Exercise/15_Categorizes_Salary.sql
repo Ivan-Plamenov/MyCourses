@@ -1,3 +1,4 @@
+-- Categorizes job titles based on the average salary for each category.
 SELECT job_title,
     CASE
         WHEN avg(salary) > 45800 THEN 'Good'

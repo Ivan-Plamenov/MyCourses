@@ -1,3 +1,4 @@
+-- Find top magic wand creators with unusually large deposits.
 SELECT magic_wand_creator,
     MAX(deposit_amount) AS "Max Deposit Amount"
 FROM wizard_deposits

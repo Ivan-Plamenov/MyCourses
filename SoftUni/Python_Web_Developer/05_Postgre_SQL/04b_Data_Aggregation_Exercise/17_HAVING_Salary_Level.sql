@@ -1,3 +1,4 @@
+-- Calculates the number of employees and categorizes departments by salary level.
 SELECT department_id,
     COUNT(*) AS "num_employees",
     CASE

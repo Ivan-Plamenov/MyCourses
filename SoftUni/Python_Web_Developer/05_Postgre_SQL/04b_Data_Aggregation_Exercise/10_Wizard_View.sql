@@ -1,3 +1,4 @@
+-- View for wizard deposits expiring before August 17, 1983.
 CREATE OR REPLACE VIEW view_wizard_deposits_with_expiration_date_before_1983_08_17 AS
 SELECT concat(first_name, ' ', last_name) AS "Wizard Name",
     deposit_start_date AS "Start Date",

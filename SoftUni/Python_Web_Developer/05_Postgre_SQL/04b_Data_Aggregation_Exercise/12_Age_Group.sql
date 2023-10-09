@@ -1,3 +1,4 @@
+-- Counts the number of wizard deposits in different age groups.
 SELECT CASE
         WHEN age BETWEEN 0 AND 10 THEN '[0-10]'
         WHEN age BETWEEN 11 AND 20 THEN '[11-20]'
@@ -7,7 +8,7 @@ SELECT CASE
         WHEN age BETWEEN 51 AND 60 THEN '[51-60]'
         ELSE '[61+]'
     END AS "Age Group",
-    COUNT(*) AS "count"
+    COUNT(*) AS "Count"
 FROM wizard_deposits
 GROUP BY "Age Group"
 ORDER BY "Age Group" ASC;

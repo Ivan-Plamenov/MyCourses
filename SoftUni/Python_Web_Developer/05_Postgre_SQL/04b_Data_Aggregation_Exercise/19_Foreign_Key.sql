@@ -1,3 +1,4 @@
+-- Creates a table for tracking employee-project relationships if it doesn't exist.
 CREATE TABLE IF NOT EXISTS employees_projects (
     id SERIAL PRIMARY KEY,
     employee_id INT,
