@@ -1,3 +1,4 @@
+-- Retrieve booking IDs and customer names with a cross join
 SELECT b.booking_id AS "Booking ID",
     c.first_name AS "Customer Name"
 FROM bookings AS b

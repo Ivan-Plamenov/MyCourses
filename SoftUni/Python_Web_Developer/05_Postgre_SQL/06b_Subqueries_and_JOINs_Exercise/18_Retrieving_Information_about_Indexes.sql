@@ -1,3 +1,4 @@
+-- Retrieve information about indexes in the "public" schema
 SELECT tablename,
     indexname,
     indexdef

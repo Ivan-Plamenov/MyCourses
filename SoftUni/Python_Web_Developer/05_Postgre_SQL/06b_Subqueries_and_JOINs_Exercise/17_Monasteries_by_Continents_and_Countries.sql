@@ -1,6 +1,8 @@
+-- Update the country name 'Myanmar' to 'Burma' in the "countries" table
 UPDATE countries
 SET country_name = 'Burma'
 WHERE country_name = 'Myanmar';
+-- Insert data into the "monasteries" table for 'Tanzania' and 'Burma'
 INSERT INTO monasteries (monastery_name, country_code)
 VALUES (
         'Hanga Abbey',
@@ -15,9 +17,10 @@ VALUES (
         (
             SELECT country_code
             FROM countries
-            WHERE country_name = 'Myanmar'
+            WHERE country_name = 'Burma'
         )
     );
+-- Retrieve continent names, country names, and the count of monasteries for countries without at least three rivers
 SELECT con.continent_name,
     c.country_name,
     count(m.id) AS monasteries_count

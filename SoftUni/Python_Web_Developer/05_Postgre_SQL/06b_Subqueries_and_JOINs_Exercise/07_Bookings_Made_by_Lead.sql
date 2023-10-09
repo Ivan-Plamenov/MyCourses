@@ -1,3 +1,4 @@
+-- Retrieve booking details for apartments booked by customers with the job type 'Lead'
 SELECT b.apartment_id,
     b.booked_for,
     c.first_name,

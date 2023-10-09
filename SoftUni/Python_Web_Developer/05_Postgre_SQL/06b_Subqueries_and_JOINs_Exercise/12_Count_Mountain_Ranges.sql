@@ -1,3 +1,4 @@
+-- Count the distinct mountain ranges in specific countries
 SELECT mc.country_code,
     COUNT(DISTINCT m.mountain_range) AS mountain_range_count
 FROM mountains AS m

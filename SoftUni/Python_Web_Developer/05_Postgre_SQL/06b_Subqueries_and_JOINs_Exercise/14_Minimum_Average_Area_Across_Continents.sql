@@ -1,3 +1,4 @@
+-- Find the minimum average area among continents
 SELECT MIN(avg_area) AS "min_average_area"
 FROM (
         SELECT continent_code,

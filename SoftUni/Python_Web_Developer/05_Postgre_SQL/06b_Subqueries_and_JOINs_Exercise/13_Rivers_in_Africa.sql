@@ -1,3 +1,4 @@
+-- Retrieve the top 5 African countries and their associated rivers (if any)
 SELECT c.country_name,
     r.river_name
 FROM (

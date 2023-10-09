@@ -1,3 +1,4 @@
+-- Retrieve booking information with customer details
 SELECT b.booking_id,
     b.starts_at::date AS "Start Date",
     b.apartment_id AS "Apartment ID",

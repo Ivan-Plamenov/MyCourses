@@ -1,3 +1,4 @@
+-- Retrieve mountain peaks in Bulgaria with elevations greater than 2835 meters
 SELECT mc.country_code AS "country_code",
     m.mountain_range AS "mountain_range",
     p.peak_name AS "peak_name",

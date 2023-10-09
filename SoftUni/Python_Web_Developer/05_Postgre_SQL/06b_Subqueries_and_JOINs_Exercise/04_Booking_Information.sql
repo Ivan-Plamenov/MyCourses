@@ -1,3 +1,4 @@
+-- Retrieve booking information with apartment owner and customer details
 SELECT b.booking_id AS "Booking ID",
     a.name AS "Apartment Owner",
     a.apartment_id AS "Apartment ID",

@@ -1,3 +1,4 @@
+-- Retrieve apartment names, countries, and booking dates
 SELECT a.name,
     a.country,
     b.booked_at::date

@@ -1,5 +1,6 @@
+-- Count the number of bookings made for each country's apartments between two specific dates
 SELECT a.country,
-    count(b.booking_id) AS booking_count
+    COUNT(b.booking_id) AS booking_count
 FROM bookings AS b
     JOIN apartments AS a USING (apartment_id)
 WHERE b.booked_at > '2021-05-18 07:52:09.904+03'
