@@ -21,3 +21,9 @@ CREATE TABLE orders (
     customer_id INT,
     CONSTRAINT fk_orders_customers FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
 );
+CREATE TABLE order_items (
+    order_id INT,
+    CONSTRAINT fk_order_items_orders FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    item_id INT,
+    CONSTRAINT fk_order_items_items FOREIGN KEY (item_id) REFERENCES items(id) ON DELETE CASCADE
+);
