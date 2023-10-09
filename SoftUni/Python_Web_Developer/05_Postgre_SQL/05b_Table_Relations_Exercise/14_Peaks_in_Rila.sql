@@ -1,3 +1,4 @@
+-- Retrieve mountain range, peak names, and elevations for peaks in the 'Rila' mountain range
 SELECT m.mountain_range,
     p.peak_name,
     p.elevation

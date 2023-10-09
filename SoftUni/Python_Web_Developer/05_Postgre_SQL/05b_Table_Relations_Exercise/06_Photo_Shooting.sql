@@ -1,18 +1,22 @@
-CREATE TABLE customers(
+-- Create the "customers" table with an automatically incremented primary key
+CREATE TABLE customers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50),
     date DATE
 );
-CREATE TABLE photos(
+-- Create the "photos" table with an automatically incremented primary key
+CREATE TABLE photos (
     id SERIAL PRIMARY KEY,
     url TEXT,
     place VARCHAR(50),
     customer_id INT,
     CONSTRAINT fk_photos_customers FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
+-- Insert data into the "customers" table
 INSERT INTO customers (name, date)
 VALUES ('Bella', '2022-03-25'),
     ('Philip', '2022-07-05');
+-- Insert data into the "photos" table
 INSERT INTO photos (url, place, customer_id)
 VALUES ('bella_1111.com', 'National Theatre', 1),
     ('bella_1112.com', 'Largo', 1),

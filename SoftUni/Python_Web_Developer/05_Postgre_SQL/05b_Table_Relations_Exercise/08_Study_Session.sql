@@ -1,3 +1,4 @@
+--66/100
 -- Create the "students" table
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
