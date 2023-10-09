@@ -1,4 +1,6 @@
-SELECT replace(title, 'The', '***')
+-- Replaces 'The' with '***' in book titles starting with 'The'
+-- and orders the results by ID.
+SELECT REPLACE(title, 'The', '***')
 FROM books
-WHERE left(title, 3) = 'The'
-ORDER BY ID
+WHERE LEFT(title, 3) = 'The'
+ORDER BY ID;
