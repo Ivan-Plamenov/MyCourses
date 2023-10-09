@@ -1,3 +1,5 @@
+-- Creates or replaces a view named "view_river_info" to display information about rivers,
+-- including their names, outflows, and lengths in kilometers, ordered by river name.
 CREATE OR REPLACE VIEW view_river_info AS
 SELECT CONCAT(
         'The river ',

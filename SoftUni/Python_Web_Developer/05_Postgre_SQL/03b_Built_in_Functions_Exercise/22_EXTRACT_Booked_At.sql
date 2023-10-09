@@ -1,3 +1,4 @@
+-- Extract date and time components (Year, Month, Day, Hour, Minute, Second) from the "booked_at" column, adjusted to UTC.
 SELECT EXTRACT(
         YEAR
         FROM booked_at

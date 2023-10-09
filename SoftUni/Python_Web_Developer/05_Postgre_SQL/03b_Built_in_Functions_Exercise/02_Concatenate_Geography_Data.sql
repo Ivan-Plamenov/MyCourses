@@ -1,3 +1,5 @@
+-- Creates or replaces a view named "view_continents_countries_currencies_details" to display
+-- continent details, country information, and currencies, linked through common codes.
 CREATE OR REPLACE VIEW view_continents_countries_currencies_details AS
 SELECT CONCAT(continent_name, ': ', cont.continent_code) AS "Continent Details",
     CONCAT_WS(
