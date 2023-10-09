@@ -1,3 +1,4 @@
+-- Find the maximum salary within each department and sort the results by department ID.
 SELECT department_id,
     MAX(salary) AS max_salary
 FROM employees
