@@ -1,12 +1,12 @@
--- Retrieve information about drivers and their cars
+-- Fetches the first name, last name, car make, model, and mileage of drivers who have non-null mileage values, sorted by mileage in descending order and then by driver's first name.
 SELECT d.first_name,
     d.last_name,
     c.make,
     c.model,
     c.mileage
-FROM cars AS c
-    JOIN cars_drivers AS cd ON cd.car_id = c.id
-    JOIN drivers AS d ON d.id = cd.driver_id
-WHERE mileage IS NOT NULL
-ORDER BY mileage DESC,
-    first_name;
+FROM drivers AS d
+    JOIN cars_drivers AS cd ON cd.driver_id = d."id"
+    JOIN cars AS c ON cd.car_id = c."id"
+WHERE c.mileage IS NOT NULL
+ORDER BY c.mileage DESC,
+    d.first_name;
