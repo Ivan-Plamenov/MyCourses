@@ -1,6 +1,6 @@
--- Retrieve board games sorted by release year and name
-SELECT name,
-    rating
-FROM board_games
-ORDER BY release_year ASC,
-    name DESC;
+-- Select the name and rating of each board game
+SELECT bg."name",
+    bg.rating
+FROM board_games AS bg
+ORDER BY bg.release_year,
+    bg."name" DESC;
