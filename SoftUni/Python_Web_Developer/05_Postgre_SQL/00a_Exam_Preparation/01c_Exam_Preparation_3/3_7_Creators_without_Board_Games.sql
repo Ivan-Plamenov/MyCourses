@@ -1,8 +1,8 @@
--- Retrieve creators without any associated board games
-SELECT creators.id,
-    creators.first_name || ' ' || creators.last_name AS creator_name,
-    creators.email
-FROM creators
-    LEFT JOIN creators_board_games ON creators.id = creators_board_games.creator_id
-WHERE creators_board_games.board_game_id IS NULL
-ORDER BY creator_name ASC;
+-- Fetch the ID, full name, and email of creators who have not been associated with any board games
+SELECT c."id",
+    CONCAT_WS(' ', c.first_name, c.last_name) AS creator_name,
+    c.email
+FROM creators AS c
+    LEFT JOIN creators_board_games AS cbg ON cbg.creator_id = c."id"
+WHERE cbg.creator_id IS NULL
+ORDER BY creator_name;
