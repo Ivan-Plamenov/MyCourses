@@ -1,4 +1,4 @@
--- Inserting records into the board_games table
+-- Inserting board games details into the 'board_games' table
 INSERT INTO board_games (
         name,
         release_year,
@@ -12,7 +12,7 @@ VALUES ('Deep Blue', 2019, 5.67, 1, 15, 7),
     ('Catan: Starfarers', 2021, 9.87, 7, 13, 6),
     ('Bleeding Kansas', 2020, 3.25, 3, 7, 4),
     ('One Small Step', 2019, 5.75, 5, 9, 2);
--- Inserting records into the publishers table
+-- Inserting publishers details into the 'publishers' table
 INSERT INTO publishers (name, address_id, website, phone)
 VALUES (
         'Agman Games',
