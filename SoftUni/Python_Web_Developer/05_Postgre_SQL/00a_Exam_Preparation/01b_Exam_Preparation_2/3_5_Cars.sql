@@ -1,6 +1,6 @@
--- Retrieve information about all cars and sort by "id" in ascending order
-SELECT make,
-    model,
-    condition
-FROM cars
-ORDER BY id ASC;
+-- Retrieves the make, model, and condition of all cars, ordered by their IDs.
+SELECT c.make,
+    c.model,
+    c."condition"
+FROM cars AS c
+ORDER BY c."id";
