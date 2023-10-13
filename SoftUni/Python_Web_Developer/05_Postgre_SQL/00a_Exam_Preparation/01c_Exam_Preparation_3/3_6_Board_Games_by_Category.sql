@@ -1,4 +1,4 @@
--- Retrieve board games with specified categories and order them by release year
+-- Fetch the ID, name, release year, and category name of board games
 SELECT board_games.id,
     board_games.name,
     board_games.release_year,
