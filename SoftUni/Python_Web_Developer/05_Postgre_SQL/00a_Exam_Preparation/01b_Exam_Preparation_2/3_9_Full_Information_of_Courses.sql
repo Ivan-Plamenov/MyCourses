@@ -1,20 +1,10 @@
--- Retrieve comprehensive information about all courses
-SELECT a.name AS address,
-    CASE
-        WHEN EXTRACT(
-            HOUR
-            FROM co.start
-        ) BETWEEN 6 AND 20 THEN 'Day'
-        ELSE 'Night'
-    END AS day_time,
-    co.bill,
-    cl.full_name,
-    ca.make,
-    ca.model,
-    cat.name AS category_name
-FROM courses co
-    JOIN addresses a ON co.from_address_id = a.id
-    JOIN clients cl ON co.client_id = cl.id
-    JOIN cars ca ON co.car_id = ca.id
-    JOIN categories cat ON ca.category_id = cat.id
-ORDER BY co.id;
+-- Retrieves each client's full name, number of cars, and total sum of their bills. Only includes clients with the second letter of their full name as 'a' and those who have more than one car. Results are ordered by the client's full name.
+SELECT cl.full_name,
+    COUNT(cl."id") AS count_of_cars,
+    SUM(COALESCE (cou.bill, 0)) AS total_sum
+FROM clients AS cl
+    JOIN courses AS cou ON cou.client_id = cl."id"
+WHERE SUBSTRING(cl.full_name, 2, 1) = 'a'
+GROUP BY cl."id"
+HAVING COUNT(cl."id") > 1
+ORDER BY cl.full_name;
