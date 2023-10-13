@@ -1,6 +1,7 @@
--- Insert records into the "clients" table for drivers with "id" between 10 and 20
+-- Inserts records into the 'clients' table based on entries in the 'drivers' table.
+-- For each driver with an ID between 10 and 20:
 INSERT INTO clients (full_name, phone_number)
-SELECT CONCAT(first_name, ' ', last_name) AS full_name,
-    '(088) 9999' || (id * 2) AS phone_number
-FROM drivers
-WHERE id BETWEEN 10 AND 20;
+SELECT CONCAT(d.first_name, ' ', d.last_name),
+    '(088) 9999' || (d."id" * 2)
+FROM drivers AS d
+WHERE d."id" BETWEEN 10 AND 20;
