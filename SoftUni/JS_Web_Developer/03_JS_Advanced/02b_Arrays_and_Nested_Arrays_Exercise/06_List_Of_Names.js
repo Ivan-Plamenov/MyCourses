@@ -1,6 +1,7 @@
-function listOfNames(arr = []) {
-    arr = arr.sort((a, b) => {
-        return a > b ? 1 : -1;
-    });
-    arr.forEach((name) => console.log(`${arr.indexOf(name) + 1}.${name}`));
+function listNames(names) {
+  names.sort();
+
+  for (let i = 0; i < names.length; i++) {
+    console.log(`${i + 1}.${names[i]}`);
+  }
 }
