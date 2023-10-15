@@ -1,8 +1,3 @@
-const chai = require("chai");
-const expect = chai.expect;
-
-const movieTheater = require("./movieTheater");
-
 describe("movieTheater", function () {
   describe("ageRestrictions()", function () {
     it("should handle movie rating G", function () {

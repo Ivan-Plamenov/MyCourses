@@ -1,8 +1,3 @@
-const chai = require("chai");
-const assert = chai.assert;
-
-const chooseYourCar = require("./chooseYourCar"); // assuming the provided code is in chooseYourCar.js
-
 describe("car tests", () => {
   it("choosingType", () => {
     expect(() => {

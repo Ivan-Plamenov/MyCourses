@@ -1,8 +1,3 @@
-const chai = require("chai");
-const assert = chai.assert;
-
-const lottery = require("./Lottery");
-
 describe("Tests for lottery object", function () {
   describe("buyLotteryTicket() tests", function () {
     it("should throw an error if buy is false", function () {

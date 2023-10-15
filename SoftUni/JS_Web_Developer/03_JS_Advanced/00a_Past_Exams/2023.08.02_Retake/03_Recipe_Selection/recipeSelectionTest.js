@@ -1,6 +1,3 @@
-const chai = require("chai");
-const assert = chai.assert;
-
 describe("Tests for recipeSelection object", function () {
   describe("isTypeSuitable() tests", function () {
     it("should return not suitable for vegetarians", function () {

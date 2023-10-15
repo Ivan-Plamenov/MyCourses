@@ -1,8 +1,3 @@
-const chai = require("chai");
-const expect = chai.expect;
-
-const weddingDay = require("./weddingDay");
-
 describe("weddingDay Tests", function () {
   describe("pickVenue()", function () {
     it("should return the correct message for a valid venue", function () {

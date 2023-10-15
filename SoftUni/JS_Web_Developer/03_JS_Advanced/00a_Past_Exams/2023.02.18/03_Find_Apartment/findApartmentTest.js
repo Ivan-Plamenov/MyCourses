@@ -1,8 +1,3 @@
-const chai = require("chai");
-const expect = chai.expect;
-
-const findNewApartment = require("./findApartment");
-
 describe("findNewApartment Tests", function () {
   describe("isGoodLocation()", function () {
     it("should return suitable location message for valid inputs", function () {
