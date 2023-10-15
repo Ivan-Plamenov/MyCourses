@@ -1,5 +1,6 @@
 const chai = require("chai");
 const expect = chai.expect;
+
 const weddingDay = require("./weddingDay");
 
 describe("weddingDay Tests", function () {

@@ -1,5 +1,6 @@
 const chai = require("chai");
 const assert = chai.assert;
+
 const motorcycleRider = require("./motorcycleRider");
 
 describe("Motorcycle Rider", () => {

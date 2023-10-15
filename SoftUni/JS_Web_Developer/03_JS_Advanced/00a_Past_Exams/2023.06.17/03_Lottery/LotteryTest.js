@@ -1,5 +1,6 @@
 const chai = require("chai");
 const assert = chai.assert;
+
 const lottery = require("./Lottery");
 
 describe("Tests for lottery object", function () {
