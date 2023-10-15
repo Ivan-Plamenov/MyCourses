@@ -1,42 +1,41 @@
-function foo (request) {
-    const errMsg = (x) => {
-        const capitalized = x !== 'uri'
-            ? x.charAt(0)
-               .toLocaleUpperCase() + x.slice(1)
-            : x.toLocaleUpperCase()
-        return `Invalid request header: Invalid ${capitalized}`
-    }
+function validateRequest(request) {
+  // Check for missing properties
+  if (!request.hasOwnProperty("method")) {
+    throw new Error("Invalid request header: Invalid Method");
+  }
+  if (!request.hasOwnProperty("uri")) {
+    throw new Error("Invalid request header: Invalid URI");
+  }
+  if (!request.hasOwnProperty("version")) {
+    throw new Error("Invalid request header: Invalid Version");
+  }
+  if (!request.hasOwnProperty("message")) {
+    throw new Error("Invalid request header: Invalid Message");
+  }
 
-    function propsExist (obj, arr) {
-        arr.forEach(x => {
-            if (! obj.hasOwnProperty(x)) {
-                throw new Error(errMsg(x))
-            }
-        })
+  // Validate Method
+  const validMethods = ["GET", "POST", "DELETE", "CONNECT"];
+  if (!validMethods.includes(request.method)) {
+    throw new Error("Invalid request header: Invalid Method");
+  }
 
-        return obj
-    }
+  // Validate URI
+  const uriPattern = /^([a-zA-Z0-9.]+|\*)$/;
+  if (!uriPattern.test(request.uri) || request.uri === "") {
+    throw new Error("Invalid request header: Invalid URI");
+  }
 
-    function validProps (obj) {
-        const checks = {
-            method: (m) => ['GET', 'POST', 'DELETE', 'CONNECT'].includes(m),
-            uri: (u) => /^(\.*[a-zA-Z]*[0-9]*\.*\**)+$/g.test(u) && u !== '',
-            version: (v) => [
-                'HTTP/0.9', 'HTTP/1.0', 'HTTP/1.1', 'HTTP/2.0'
-            ].includes(v),
-            message: (m) => /^[^<>\\&'"]*$/g.test(m)
-        }
+  // Validate Version
+  const validVersions = ["HTTP/0.9", "HTTP/1.0", "HTTP/1.1", "HTTP/2.0"];
+  if (!validVersions.includes(request.version)) {
+    throw new Error("Invalid request header: Invalid Version");
+  }
 
-        Object.entries(obj).forEach(([prop, value]) => {
-            if (! checks[prop](value)) {
-                throw new Error(errMsg(x[0]))
-            }
-        })
+  // Validate Message
+  const messagePattern = /^[^<>\\&'"]*$/;
+  if (!messagePattern.test(request.message)) {
+    throw new Error("Invalid request header: Invalid Message");
+  }
 
-        return obj
-    }
-
-    return validProps(propsExist(request, [
-        'method', 'uri', 'version', 'message'
-    ]))
+  return request;
 }
