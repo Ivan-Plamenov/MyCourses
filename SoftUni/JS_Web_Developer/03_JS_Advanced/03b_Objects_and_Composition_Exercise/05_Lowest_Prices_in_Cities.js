@@ -1,18 +1,23 @@
-function lowestPrice(arr = []) {
-    var map = new Map();
-    for (let line of arr) {
-        let [town, product, price] = line.split(" | ");
-        if (!map.has(product)) {
-            map.set(product, [price, town]);
-        } else {
-            if (map.get(product)[1] === town) {
-                map.set(product, [price, town]);
-            } else if (Number(map.get(product)[0]) > Number(price)) {
-                map.set(product, [price, town]);
-            }
-        }
+function findLowestPrices(input) {
+  let products = {};
+
+  for (let data of input) {
+    let [town, product, price] = data.split(" | ");
+    price = Number(price);
+
+    if (!products[product]) {
+      products[product] = { price, town };
+    } else {
+      if (products[product].price > price) {
+        products[product].price = price;
+        products[product].town = town;
+      }
     }
-    for (const [key, value] of map) {
-        console.log(`${key} -> ${value[0]} (${value[1]})`);
-    }
+  }
+
+  for (let product in products) {
+    console.log(
+      `${product} -> ${products[product].price} (${products[product].town})`
+    );
+  }
 }
