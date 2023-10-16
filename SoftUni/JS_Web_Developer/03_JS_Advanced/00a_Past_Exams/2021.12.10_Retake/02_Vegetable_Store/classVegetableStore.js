@@ -1,3 +1,4 @@
+// 80 / 100
 class VegetableStore {
   constructor(owner, location) {
     this.owner = owner;
@@ -6,25 +7,26 @@ class VegetableStore {
     this.totalPrice = 0;
   }
 
-  findProduct(type) {
-    return this.availableProducts.find((product) => product.type === type);
-  }
-
   loadingVegetables(vegetables) {
     let addedVeggies = [];
 
     vegetables.forEach((veg) => {
-      let [type, quantity, price] = veg.split(" ");
-      quantity = parseFloat(quantity);
-      price = parseFloat(price);
-      const existingProduct = this.findProduct(type);
-      if (existingProduct) {
-        existingProduct.quantity += quantity;
-        if (price > existingProduct.price) {
-          existingProduct.price = price;
+      const [type, quantity, price] = veg.split(" ");
+      const existingVeggie = this.availableProducts.find(
+        (v) => v.type === type
+      );
+
+      if (existingVeggie) {
+        existingVeggie.quantity += parseFloat(quantity);
+        if (parseFloat(price) > existingVeggie.price) {
+          existingVeggie.price = parseFloat(price);
         }
       } else {
-        this.availableProducts.push({ type, quantity, price });
+        this.availableProducts.push({
+          type: type,
+          quantity: parseFloat(quantity),
+          price: parseFloat(price),
+        });
         addedVeggies.push(type);
       }
     });
@@ -34,26 +36,27 @@ class VegetableStore {
 
   buyingVegetables(selectedProducts) {
     this.totalPrice = 0;
-    selectedProducts.forEach((product) => {
-      let [type, quantity] = product.split(" ");
-      quantity = parseFloat(quantity);
-      const existingProduct = this.findProduct(type);
-      if (!existingProduct) {
+
+    selectedProducts.forEach((selProduct) => {
+      const [type, quantity] = selProduct.split(" ");
+      const veggie = this.availableProducts.find((v) => v.type === type);
+
+      if (!veggie) {
         throw new Error(
           `${type} is not available in the store, your current bill is $${this.totalPrice.toFixed(
             2
           )}.`
         );
-      }
-      if (quantity > existingProduct.quantity) {
+      } else if (veggie.quantity < parseFloat(quantity)) {
         throw new Error(
           `The quantity ${quantity} for the vegetable ${type} is not available in the store, your current bill is $${this.totalPrice.toFixed(
             2
           )}.`
         );
+      } else {
+        this.totalPrice += veggie.price * parseFloat(quantity);
+        veggie.quantity -= parseFloat(quantity);
       }
-      this.totalPrice += quantity * existingProduct.price;
-      existingProduct.quantity -= quantity;
     });
 
     return `Great choice! You must pay the following amount $${this.totalPrice.toFixed(
@@ -62,16 +65,15 @@ class VegetableStore {
   }
 
   rottingVegetable(type, quantity) {
-    const existingProduct = this.findProduct(type);
-    if (!existingProduct) {
-      throw new Error(`${type} is not available in the store.`);
-    }
+    const veggie = this.availableProducts.find((v) => v.type === type);
 
-    if (quantity >= existingProduct.quantity) {
-      existingProduct.quantity = 0;
+    if (!veggie) {
+      throw new Error(`${type} is not available in the store.`);
+    } else if (veggie.quantity <= quantity) {
+      veggie.quantity = 0;
       return `The entire quantity of the ${type} has been removed.`;
     } else {
-      existingProduct.quantity -= quantity;
+      veggie.quantity -= quantity;
       return `Some quantity of the ${type} has been removed.`;
     }
   }
@@ -80,7 +82,9 @@ class VegetableStore {
     this.availableProducts.sort((a, b) => a.price - b.price);
     let output = "Available vegetables:";
     this.availableProducts.forEach((product) => {
-      output += `\n${product.type}-${product.quantity}-${product.price}`;
+      output += `\n${product.type}-${product.quantity}-$${product.price.toFixed(
+        2
+      )}`;
     });
     output += `\nThe owner of the store is ${this.owner}, and the location is ${this.location}.`;
     return output;
