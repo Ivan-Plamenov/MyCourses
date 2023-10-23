@@ -1,4 +1,3 @@
-# 100 / 100
 def team_lineup(*args):
     # Dictionary to store country-player mappings.
     country_players = {}

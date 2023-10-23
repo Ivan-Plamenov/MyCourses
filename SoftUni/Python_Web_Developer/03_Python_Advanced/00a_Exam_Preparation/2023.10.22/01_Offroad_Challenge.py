@@ -1,4 +1,3 @@
-# 100 / 100
 def offroad_challenge(fuel_sequence, consumption_indexes, altitudes_required):
     reached_altitudes = []
 

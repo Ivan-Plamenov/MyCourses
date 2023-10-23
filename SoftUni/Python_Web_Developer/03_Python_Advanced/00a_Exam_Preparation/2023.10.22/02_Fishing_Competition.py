@@ -1,4 +1,3 @@
-# 100 / 100
 n = int(input())
 matrix = [list(input()) for _ in range(n)]
 ship_position = [
