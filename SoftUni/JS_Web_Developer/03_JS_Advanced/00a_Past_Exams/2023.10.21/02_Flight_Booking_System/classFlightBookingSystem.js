@@ -1,5 +1,3 @@
-// 100 / 100
-
 class FlightBookingSystem {
   constructor(agencyName) {
     this.agencyName = agencyName;
@@ -78,39 +76,3 @@ class FlightBookingSystem {
     return result.join("\n");
   }
 }
-
-// Test Cases
-const system1 = new FlightBookingSystem("TravelWorld");
-console.log(system1.addFlight("AA101", "Los Angeles", "09:00 AM", 250));
-console.log(system1.addFlight("BB202", "New York", "10:30 AM", 180));
-console.log(system1.addFlight("CC303", "Chicago", "11:45 AM", 120));
-console.log(system1.addFlight("AA101", "Los Angeles", "09:00 AM", 250));
-
-const system2 = new FlightBookingSystem("TravelWorld");
-console.log(system2.addFlight("AA101", "Los Angeles", "09:00 AM", 250));
-console.log(system2.addFlight("BB202", "New York", "10:30 AM", 180));
-console.log(system2.bookFlight("Alice", "AA101"));
-console.log(system2.bookFlight("Bob", "BB202"));
-console.log(system2.bookFlight("Charlie", "CC303"));
-
-const system3 = new FlightBookingSystem("TravelWorld");
-console.log(system3.addFlight("AA101", "Los Angeles", "09:00 AM", 250));
-console.log(system3.addFlight("BB202", "New York", "10:30 AM", 180));
-console.log(system3.bookFlight("Alice", "AA101"));
-console.log(system3.bookFlight("Bob", "BB202"));
-console.log(system3.cancelBooking("Alice", "AA101"));
-
-const system4 = new FlightBookingSystem("TravelWorld");
-console.log(system4.addFlight("AA101", "Los Angeles", "09:00 AM", 250));
-console.log(system4.addFlight("BB202", "New York", "10:30 AM", 180));
-console.log(system4.bookFlight("Alice", "AA101"));
-console.log(system4.bookFlight("Bob", "BB202"));
-console.log(system4.showBookings("all"));
-
-const system5 = new FlightBookingSystem("TravelWorld");
-console.log(system5.addFlight("AA101", "Los Angeles", "09:00 AM", 250));
-console.log(system5.addFlight("BB202", "New York", "10:30 AM", 180));
-console.log(system5.bookFlight("Alice", "AA101"));
-console.log(system5.bookFlight("Bob", "BB202"));
-console.log(system5.showBookings("expensive"));
-console.log(system5.showBookings("cheap"));

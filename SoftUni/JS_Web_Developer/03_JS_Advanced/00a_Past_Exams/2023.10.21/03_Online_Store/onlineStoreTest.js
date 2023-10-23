@@ -1,4 +1,3 @@
-// 100/100
 describe("onlineStore", function () {
   describe("isProductAvailable(product, stockQuantity)", function () {
     it("should return out of stock message for zero stock", function () {

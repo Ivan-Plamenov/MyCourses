@@ -1,4 +1,3 @@
-// 100 / 100
 function solution() {
   const form = document.querySelector("form");
   const previewList = document.querySelector(".preview-list");
