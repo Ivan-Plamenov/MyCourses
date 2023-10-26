@@ -1,38 +1,38 @@
-# 40 / 100
+import re
+
+
 class EmailValidator:
-    def __init__(self, min_length, mails, domains):
-        self.min_length = min_length
-        self.mails = mails
-        self.domains = domains
+    def __init__(self, _min_length: int, _mails: list, _domains: list) -> None:
+        self.min_length = _min_length
+        self.mails = _mails
+        self.domains = _domains
 
-    def is_name_valid(self, name):
-        return len(name) >= self.min_length
-
-    def is_mail_valid(self, mail):
-        return mail in self.mails
-
-    def is_domain_valid(self, domain):
-        return domain in self.domains
-
-    def validate(self, email):
-        parts = email.split("@")
-
-        if len(parts) != 2:
+    def __is_name_valid(self, _name: str):
+        if len(_name) >= self.min_length:
+            return True
+        else:
             return False
 
-        name, rest = parts
-        mail_parts = rest.split(".")
-
-        if len(mail_parts) != 2:
+    def __is_mail_valid(self, _mail: str):
+        if _mail in self.mails:
+            return True
+        else:
             return False
 
-        mail, domain = mail_parts
+    def __is_domain_valid(self, _domain: str):
+        if _domain in self.domains:
+            return True
+        else:
+            return False
 
-        return (
-            self.is_name_valid(name)
-            and self.is_mail_valid(mail)
-            and self.is_domain_valid(domain)
-        )
+    def validate(self, _email: str):
+        regex = r"(\w+)@(\w+)\.(\w+)"
+        matches = re.findall(regex, _email)
+        if self.__is_name_valid(matches[0][0]):
+            if self.__is_mail_valid(matches[0][1]):
+                if self.__is_domain_valid(matches[0][2]):
+                    return True
+        return False
 
 
 # Test cases
