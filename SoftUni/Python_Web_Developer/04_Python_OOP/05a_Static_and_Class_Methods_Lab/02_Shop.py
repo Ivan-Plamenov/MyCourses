@@ -1,4 +1,4 @@
-# 70 / 100
+# 80/100
 class Shop:
     def __init__(self, name, shop_type, capacity):
         self.name = name
@@ -6,6 +6,7 @@ class Shop:
         self.capacity = capacity
         self.items = {}
 
+    @classmethod
     def small_shop(cls, name, shop_type):
         # Create a shop with a default capacity of 10
         return cls(name, shop_type, 10)
