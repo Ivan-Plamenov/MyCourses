@@ -1,14 +1,15 @@
 class Room:
-    def __init__(self, number, capacity):
-        self.number = number
-        self.capacity = capacity
+    def __init__(self, _number: int, _capacity: int) -> None:
+        self.number = _number
+        self.capacity = _capacity
         self.guests = 0
         self.is_taken = False
 
-    def take_room(self, people):
-        if not self.is_taken and self.capacity >= people:
+    def take_room(self, _people: int):
+        if self.is_taken is False and _people <= self.capacity:
+            self.guests += _people
             self.is_taken = True
-            self.guests = people
+            self.capacity -= _people
         else:
             return f"Room number {self.number} cannot be taken"
 
