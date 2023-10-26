@@ -17,7 +17,7 @@ class Mammal:
         return f"{self.name} is of type {self.type}"
 
 
-# Example usage:
+# Test Cases
 mammal = Mammal("Dog", "Domestic", "Bark")
 print(mammal.make_sound())  # Output: Dog makes Bark
 print(mammal.get_kingdom())  # Output: animals

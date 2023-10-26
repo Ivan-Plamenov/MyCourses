@@ -10,7 +10,7 @@ class Person:
         return self.__age
 
 
-# Example usage:
+# Test Cases
 person = Person("George", 32)
 print(person.get_name())  # Output: George
 print(person.get_age())  # Output: 32
