@@ -1,40 +1,41 @@
-# 77 / 100
 class Person:
-    def __init__(self, name, surname):
-        self.name = name
-        self.surname = surname
-
-    def __str__(self):
-        return f"{self.name} {self.surname}"
+    def __init__(self, _name: str, _surname: str) -> None:
+        self.name = _name
+        self.surname = _surname
 
     def __add__(self, other):
-        new_name = self.name
-        new_surname = other.surname
-        return Person(new_name, new_surname)
+        return Person(self.name, other.surname)
+
+    def __repr__(self) -> str:
+        return f"{self.name} {self.surname}"
 
 
 class Group:
-    def __init__(self, name, people):
-        self.name = name
-        self.people = people
+    def __init__(self, _name: str, _people: list) -> None:
+        self.name = _name
+        self.people = _people
 
     def __len__(self):
         return len(self.people)
 
-    def __str__(self):
-        members = ", ".join(str(person) for person in self.people)
-        return f"Group {self.name} with members {members}"
-
-    def __iter__(self):
-        return iter(self.people)
-
     def __add__(self, other):
-        new_name = f"{self.people[0].name} {other.people[0].surname}"
-        combined_people = self.people + other.people
-        return Group(new_name, combined_people)
+        name = self.people[0].name + " " + other.people[0].name
+        return Group(name, self.people + other.people)
+
+    def __getitem__(self, index):
+        if index >= 0:
+            return f"Person {index}: {self.people[index]}"
+        else:
+            raise IndexError("list index out of range")
+
+    def __repr__(self) -> str:
+        return (
+            f"Group {self.name} with members "
+            f"{', '.join(str(i) for i in self.people)}"
+        )
 
 
-# Example usage:
+# Test Cases
 p0 = Person("Aliko", "Dangote")
 p1 = Person("Bill", "Gates")
 p2 = Person("Warren", "Buffet")
