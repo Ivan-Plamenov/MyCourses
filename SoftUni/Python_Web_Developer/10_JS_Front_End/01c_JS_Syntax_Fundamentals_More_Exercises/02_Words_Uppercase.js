@@ -6,7 +6,3 @@ function wordsToUppercase(inputString) {
     console.log(result);
   }
 }
-
-// Test Cases
-wordsToUppercase("Hi, how are you?"); // Output: HI, HOW, ARE, YOU
-wordsToUppercase("hello"); // Output: HELLO

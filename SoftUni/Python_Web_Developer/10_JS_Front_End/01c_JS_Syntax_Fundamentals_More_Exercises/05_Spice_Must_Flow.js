@@ -15,14 +15,3 @@ function spiceMustFlow(startingYield) {
   console.log(days);
   console.log(totalSpice);
 }
-
-// Test Cases
-spiceMustFlow(111);
-// Output:
-// 2
-// 134
-
-spiceMustFlow(450);
-// Output:
-// 36
-// 8938

@@ -31,10 +31,3 @@ function gladiatorExpenses(
 
   console.log(`Gladiator expenses: ${expenses.toFixed(2)} aureus`);
 }
-
-// Test Cases
-gladiatorExpenses(7, 2, 3, 4, 5);
-// Output: Gladiator expenses: 16.00 aureus
-
-gladiatorExpenses(23, 12.5, 21.5, 40, 200);
-// Output: Gladiator expenses: 608.00 aureus
