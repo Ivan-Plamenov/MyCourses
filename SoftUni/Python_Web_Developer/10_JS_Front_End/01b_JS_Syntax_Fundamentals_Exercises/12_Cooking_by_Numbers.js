@@ -1,19 +1,23 @@
-function cookingByNumbers(startingNumber, operations) {
-  let currentNumber = Number(startingNumber);
+function cookingByNumbers(number, op1, op2, op3, op4, op5) {
+  number = Number(number);
+  let arr = [op1, op2, op3, op4, op5];
+  let currOper = arr.shift();
 
-  for (let operation of operations) {
-    if (operation === "chop") {
-      currentNumber /= 2;
-    } else if (operation === "dice") {
-      currentNumber = Math.sqrt(currentNumber);
-    } else if (operation === "spice") {
-      currentNumber += 1;
-    } else if (operation === "bake") {
-      currentNumber *= 3;
-    } else if (operation === "fillet") {
-      currentNumber -= currentNumber * 0.2;
+  for (let i = 1; i <= 5; i++) {
+    if (currOper == "chop") {
+      number /= 2;
+    } else if (currOper == "dice") {
+      number = Math.sqrt(number);
+    } else if (currOper == "spice") {
+      number += 1;
+    } else if (currOper == "bake") {
+      number *= 3;
+    } else if (currOper == "fillet") {
+      number -= number * 0.2;
     }
-    console.log(currentNumber);
+
+    currOper = arr.shift();
+    console.log(number);
   }
 }
 
