@@ -19,12 +19,3 @@ function findSpecialWords(input) {
 
   return result;
 }
-
-// Test Cases
-const input1 =
-  "Nowadays everyone uses # to tag a #special word in #socialMedia";
-const input2 =
-  "The symbol # is known #variously in English-speaking #regions as the #number sign";
-
-console.log(findSpecialWords(input1));
-console.log(findSpecialWords(input2));

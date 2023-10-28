@@ -4,5 +4,3 @@ function printSortedNames(input) {
     console.log(`${i + 1}.${input[i]}`);
   }
 }
-
-// Test Cases

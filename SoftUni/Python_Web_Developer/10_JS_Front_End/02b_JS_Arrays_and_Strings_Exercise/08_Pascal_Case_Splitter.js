@@ -7,13 +7,3 @@ function splitPascalCase(inputString) {
 
   return resultString;
 }
-
-// Test Cases
-const input1 = "SplitMeIfYouCanHaHaYouCantOrYouCan";
-console.log(splitPascalCase(input1));
-
-const input2 = "HoldTheDoor";
-console.log(splitPascalCase(input2));
-
-const input3 = "ThisIsSoAnnoyingToDo";
-console.log(splitPascalCase(input3));

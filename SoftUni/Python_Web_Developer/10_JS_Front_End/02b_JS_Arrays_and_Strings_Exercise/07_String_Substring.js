@@ -14,5 +14,3 @@ function stringSubstring(word, text) {
     console.log(`${word} not found!`);
   }
 }
-
-// Test Cases

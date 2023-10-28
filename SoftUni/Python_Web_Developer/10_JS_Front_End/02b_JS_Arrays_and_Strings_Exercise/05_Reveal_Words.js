@@ -20,11 +20,3 @@ function revealWords(words, text) {
 
   return result;
 }
-
-// Test Cases
-const words = "great";
-const text1 = "softuni is ***** place for learning new programming languages";
-const text2 = "softuni is great place for ******** new programming languages";
-
-console.log(revealWords(words, text1));
-console.log(revealWords(words, text2));
