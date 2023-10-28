@@ -19,10 +19,3 @@ function oddOccurrences(input) {
 
   console.log(oddWords.join(" "));
 }
-
-// Test Cases
-const input1 = "Java C# Php PHP Java PhP 3 C# 3 1 5 C#";
-const input2 = "Cake IS SWEET is Soft CAKE sweet Food";
-
-oddOccurrences(input1);
-oddOccurrences(input2);
