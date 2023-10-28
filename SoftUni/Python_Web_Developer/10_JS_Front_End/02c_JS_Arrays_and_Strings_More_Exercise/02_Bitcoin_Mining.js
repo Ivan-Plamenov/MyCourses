@@ -33,8 +33,3 @@ function bitcoinMining(goldPerDayArr) {
   }
   console.log(`Left money: ${money.toFixed(2)} lv.`);
 }
-
-// Test Cases
-bitcoinMining([100, 200, 300]);
-bitcoinMining([50, 100]);
-bitcoinMining([3124.15, 504.212, 2511.124]);

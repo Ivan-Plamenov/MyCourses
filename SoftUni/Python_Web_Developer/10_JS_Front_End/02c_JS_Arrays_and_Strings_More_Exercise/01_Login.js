@@ -19,13 +19,3 @@ function login(input) {
     }
   }
 }
-
-// Test Cases
-const input1 = ["Acer", "login", "go", "let me in", "recA"];
-login(input1);
-
-const input2 = ["momo", "omom"];
-login(input2);
-
-const input3 = ["sunny", "rainy", "cloudy", "sunny", "not sunny"];
-login(input3);
