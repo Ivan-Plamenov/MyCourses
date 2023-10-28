@@ -8,10 +8,3 @@ function sumFirstAndLast(arr) {
     console.log("Array is empty.");
   }
 }
-
-// Test Cases
-sumFirstAndLast([20, 30, 40]); // Output: 60
-sumFirstAndLast([10, 17, 22, 33]); // Output: 43
-sumFirstAndLast([11, 58, 69]); // Output: 80
-sumFirstAndLast([5]); // Output: 10 (Double the single element)
-sumFirstAndLast([]); // Output: "Array is empty."

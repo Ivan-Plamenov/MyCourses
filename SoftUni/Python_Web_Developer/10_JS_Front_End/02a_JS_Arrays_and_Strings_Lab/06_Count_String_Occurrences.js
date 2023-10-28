@@ -10,10 +10,3 @@ function countStringOccurrences(text, word) {
 
   console.log(count);
 }
-
-// Test Cases
-countStringOccurrences("This is a word and it also is a sentence", "is"); // Output: 2
-countStringOccurrences(
-  "softuni is great place for learning new programming languages",
-  "softuni"
-); // Output: 1
