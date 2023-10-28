@@ -22,7 +22,3 @@ function calculateTotalPrice(product, quantity) {
   const totalPrice = price * quantity;
   console.log(totalPrice.toFixed(2));
 }
-
-// Test Cases
-calculateTotalPrice("water", 5); // Output: 5.00
-calculateTotalPrice("coffee", 2); // Output: 3.00

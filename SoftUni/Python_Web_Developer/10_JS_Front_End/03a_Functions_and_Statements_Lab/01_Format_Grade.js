@@ -16,8 +16,3 @@ function formatGrade(grade) {
 
   console.log(`${description} (${grade.toFixed(grade === 2 ? 0 : 2)})`);
 }
-
-// Test Cases
-formatGrade(3.33);
-formatGrade(4.5);
-formatGrade(2.99);
