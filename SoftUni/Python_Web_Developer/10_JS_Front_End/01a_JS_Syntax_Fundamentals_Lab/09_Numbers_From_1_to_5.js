@@ -3,6 +3,3 @@ function printNumbersFrom1To5() {
     console.log(i);
   }
 }
-
-// Call the function to print the numbers
-printNumbersFrom1To5();

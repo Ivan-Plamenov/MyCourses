@@ -45,8 +45,3 @@ function calculateTicketPrice(dayType, age) {
 
   console.log(`${price}$`);
 }
-
-// Test Cases
-calculateTicketPrice("Weekday", 42); // Output: 18$
-calculateTicketPrice("Holiday", -12); // Output: Error!
-calculateTicketPrice("Holiday", 15); // Output: 5$

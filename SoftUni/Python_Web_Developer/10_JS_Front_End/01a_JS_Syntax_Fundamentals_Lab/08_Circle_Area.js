@@ -9,7 +9,3 @@ function calculateCircleArea(input) {
     );
   }
 }
-
-// Test Cases
-calculateCircleArea(5); // Output: 78.54
-calculateCircleArea("name"); // Output: We can not calculate the circle area, because we receive a string.

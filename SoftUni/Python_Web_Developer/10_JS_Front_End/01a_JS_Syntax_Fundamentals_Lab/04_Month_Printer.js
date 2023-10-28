@@ -40,7 +40,3 @@ function printMonth(monthNumber) {
       console.log("Error!");
   }
 }
-
-// Test Cases
-printMonth(2); // Output: February
-printMonth(13); // Output: Error!
