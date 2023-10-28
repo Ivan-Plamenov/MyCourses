@@ -11,9 +11,3 @@ function findSmallestNumber(num1, num2, num3) {
 
   console.log(smallest);
 }
-
-// Test Cases
-findSmallestNumber(2, 5, 3); // Output: 2
-findSmallestNumber(600, 342, 123); // Output: 123
-findSmallestNumber(25, 21, 4); // Output: 4
-findSmallestNumber(2, 2, 2); // Output: 2

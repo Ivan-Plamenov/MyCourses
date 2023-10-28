@@ -19,8 +19,3 @@ function drawLoadingBar(percentage) {
     console.log("Still loading...");
   }
 }
-
-// Test Cases
-drawLoadingBar(30); // 30% [%%%.......]
-drawLoadingBar(50); // 50% [%%%%%.....]
-drawLoadingBar(100); // 100% Complete!

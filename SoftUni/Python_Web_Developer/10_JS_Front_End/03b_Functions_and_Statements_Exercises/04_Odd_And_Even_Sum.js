@@ -15,7 +15,3 @@ function oddAndEvenSum(number) {
 
   return `Odd sum = ${oddSum}, Even sum = ${evenSum}`;
 }
-
-// Test Cases
-console.log(oddAndEvenSum(1000435)); // Output: Odd sum = 9, Even sum = 4
-console.log(oddAndEvenSum(3495892137259234)); // Output: Odd sum = 54, Even sum = 22

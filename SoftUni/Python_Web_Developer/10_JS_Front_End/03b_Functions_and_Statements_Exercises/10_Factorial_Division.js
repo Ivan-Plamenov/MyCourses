@@ -12,7 +12,3 @@ function factorialDivision(firstNum, secondNum) {
   const divisionResult = (firstFactorial / secondFactorial).toFixed(2);
   console.log(divisionResult);
 }
-
-// Test Cases
-factorialDivision(5, 2); // Output: 60.00
-factorialDivision(6, 2); // Output: 360.00

@@ -15,8 +15,3 @@ function printCharactersInRange(char1, char2) {
 
   console.log(result);
 }
-
-// Test Cases
-printCharactersInRange("a", "d"); // Output: "b c "
-printCharactersInRange("#", ":"); // Output: "$ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 "
-printCharactersInRange("C", "#"); // Output: "$ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B "

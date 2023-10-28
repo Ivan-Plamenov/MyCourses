@@ -7,8 +7,3 @@ function generateMatrix(n) {
     console.log(row.join(" "));
   }
 }
-
-// Test Cases
-generateMatrix(3);
-generateMatrix(7);
-generateMatrix(2);

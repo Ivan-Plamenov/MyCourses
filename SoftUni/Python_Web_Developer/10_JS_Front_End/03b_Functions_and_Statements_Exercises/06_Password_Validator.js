@@ -27,8 +27,3 @@ function validatePassword(password) {
     console.log("Password is valid");
   }
 }
-
-// Test Cases
-validatePassword("logIn");
-validatePassword("MyPass123");
-validatePassword("Pa$s$s");

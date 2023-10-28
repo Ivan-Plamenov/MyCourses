@@ -13,8 +13,3 @@ function isPerfectNumber(number) {
     console.log("It's not so perfect.");
   }
 }
-
-// Test Cases
-isPerfectNumber(6); // We have a perfect number!
-isPerfectNumber(28); // We have a perfect number!
-isPerfectNumber(1236498); // It's not so perfect.
