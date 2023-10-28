@@ -19,13 +19,3 @@ function manageMeetings(input) {
 
   console.log(successfulMeetings.join("\n"));
 }
-
-// Test Cases
-const meetingData = [
-  "Monday Peter",
-  "Wednesday Bill",
-  "Monday Tim",
-  "Friday Tim",
-];
-
-manageMeetings(meetingData);
