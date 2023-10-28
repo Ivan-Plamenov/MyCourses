@@ -24,7 +24,3 @@ function printDNAHelix(length) {
     }
   }
 }
-
-// Test Cases
-printDNAHelix(4);
-printDNAHelix(10);

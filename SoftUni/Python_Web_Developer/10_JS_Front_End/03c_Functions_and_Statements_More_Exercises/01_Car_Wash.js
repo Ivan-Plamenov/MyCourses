@@ -23,7 +23,3 @@ function carWash(commands) {
 
   console.log(`The car is ${cleanliness.toFixed(2)}% clean.`);
 }
-
-// Test Cases
-carWash(["soap", "soap", "vacuum cleaner", "mud", "soap", "water"]);
-carWash(["soap", "water", "mud", "mud", "water", "mud", "vacuum cleaner"]);
