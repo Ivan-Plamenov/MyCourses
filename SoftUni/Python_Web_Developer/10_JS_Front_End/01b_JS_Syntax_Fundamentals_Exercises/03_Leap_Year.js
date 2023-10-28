@@ -5,8 +5,3 @@ function isLeapYear(year) {
     console.log("no");
   }
 }
-
-// Test Cases
-isLeapYear(1984); // Output: yes
-isLeapYear(2003); // Output: no
-isLeapYear(4); // Output: yes

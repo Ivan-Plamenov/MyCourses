@@ -35,9 +35,3 @@ function roadRadar(speed, area) {
     );
   }
 }
-
-// Test Cases
-roadRadar(40, "city"); // Output: Driving 40 km/h in a 50 zone
-roadRadar(21, "residential"); // Output: The speed is 1 km/h faster than the allowed speed of 20 - speeding
-roadRadar(120, "interstate"); // Output: The speed is 30 km/h faster than the allowed speed of 90 - excessive speeding
-roadRadar(200, "motorway"); // Output: The speed is 70 km/h faster than the allowed speed of 130 - reckless driving

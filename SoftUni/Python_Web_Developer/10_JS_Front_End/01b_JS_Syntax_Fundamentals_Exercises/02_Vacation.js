@@ -60,7 +60,3 @@ function calculateVacationPrice(peopleCount, groupType, dayOfWeek) {
 
   console.log(`Total price: ${totalPrice.toFixed(2)}`);
 }
-
-// Test Cases
-calculateVacationPrice(30, "Students", "Sunday"); // Output: Total price: 266.73
-calculateVacationPrice(40, "Regular", "Saturday"); // Output: Total price: 800.00

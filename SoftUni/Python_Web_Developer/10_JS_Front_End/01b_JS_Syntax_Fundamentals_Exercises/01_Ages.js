@@ -13,9 +13,3 @@ function determineAgeGroup(age) {
     console.log("out of bounds");
   }
 }
-
-// Test Cases
-determineAgeGroup(20); // Output: adult
-determineAgeGroup(1); // Output: baby
-determineAgeGroup(100); // Output: elder
-determineAgeGroup(-1); // Output: out of bounds

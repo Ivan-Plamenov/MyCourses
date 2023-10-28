@@ -16,14 +16,3 @@ function sameNumbers(number) {
   console.log(areAllDigitsSame);
   console.log(sumOfDigits);
 }
-
-// Test Cases
-sameNumbers(2222222);
-// Output:
-// true
-// 14
-
-sameNumbers(1234);
-// Output:
-// false
-// 10

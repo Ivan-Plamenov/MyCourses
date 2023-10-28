@@ -11,8 +11,3 @@ function sumDigits(number) {
 
   return sum;
 }
-
-// Test Cases
-console.log(sumDigits(245678)); // Output: 32
-console.log(sumDigits(97561)); // Output: 28
-console.log(sumDigits(543)); // Output: 12
