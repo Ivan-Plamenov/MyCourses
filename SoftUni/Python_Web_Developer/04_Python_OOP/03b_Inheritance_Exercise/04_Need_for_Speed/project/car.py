@@ -2,11 +2,8 @@ from project.vehicle import Vehicle
 
 
 class Car(Vehicle):
-    def __init__(self, _fuel: float, _hp: int) -> None:
-        super().__init__(_fuel, _hp)
-        self.fuel_consumption = 3
+    DEFAULT_FUEL_CONSUMPTION = 3
 
-    def drive(self, _km: int):
-        expended = _km * self.fuel_consumption
-        if expended <= self.fuel:
-            self.fuel -= expended
+    def __init__(self, fuel: float, horse_power: int):
+        super().__init__(fuel, horse_power)
+        self.fuel_consumption = Car.DEFAULT_FUEL_CONSUMPTION
