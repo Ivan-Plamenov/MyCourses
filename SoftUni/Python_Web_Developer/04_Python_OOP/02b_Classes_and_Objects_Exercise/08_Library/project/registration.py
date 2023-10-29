@@ -1,45 +1,30 @@
-from project.user import User
 from project.library import Library
+from project.user import User
 
 
 class Registration:
-    def __init__(self) -> None:
-        pass
-
-    def add_user(self, _user: User, _library: Library):
-        for user in _library.user_records:
-            if _user.username == user.username:
-                return (
-                    f"User with id = {user.id} already " f"registered in the library!"
-                )
-        _library.user_records.append(_user)
-
-    def remove_user(self, _user: User, _library: Library):
-        deleted = 0
-        for index, user in enumerate(_library.user_records):
-            if _user.username == user.username:
-                del _library.user_records[index]
-                deleted = 1
-        if deleted == 0:
-            return "We could not find such user to remove!"
+    def add_user(self, user: User, library: Library):
+        if user not in library.user_records:
+            library.user_records.append(user)
         else:
-            deleted = 0
+            return f"User with id = {user.user_id} already registered in the library!"
 
-    def change_username(self, _user_id: int, _new_user: str, _library: Library):
-        for index, user in enumerate(_library.user_records):
-            if _user_id == user.id and _new_user == user.username:
-                return (
-                    "Please check again the provided username - "
-                    "it should be different than the username used so far!"
-                )
-            elif _user_id == user.id and _new_user != user.username:
-                if user.username in _library.rented_books:
-                    value = _library.rented_books[user.username]
-                    del _library.rented_books[user.username]
-                    _library.rented_books[_new_user] = value
-                user.username = _new_user
-                return (
-                    f"Username successfully changed to: {_new_user} "
-                    f"for user id: {_user_id}"
-                )
-        return f"There is no user with id = {_user_id}!"
+    def remove_user(self, user: User, library: Library):
+        if user in library.user_records:
+            library.user_records.remove(user)
+        else:
+            return "We could not find such user to remove!"
+
+    def change_username(self, user_id: int, new_username: str, library: Library):
+        for user in library.user_records:
+            if user.user_id == user_id and user.username != new_username:
+                user.username = new_username
+                if new_username in library.rented_books:
+                    library.rented_books[new_username] = library.rented_books.pop(
+                        user.username
+                    )
+                user.username = new_username
+                return f"Username successfully changed to: {new_username} for user id: {user.user_id}"
+            elif user.user_id == user_id and user.username == new_username:
+                return "Please check again the provided username - it should be different than the username used so far!"
+        return f"There is no user with id = {user_id}!"
