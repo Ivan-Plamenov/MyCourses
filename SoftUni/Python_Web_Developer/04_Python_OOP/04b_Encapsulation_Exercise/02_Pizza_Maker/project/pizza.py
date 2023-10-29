@@ -3,30 +3,52 @@ from project.topping import Topping
 
 
 class Pizza:
-    def __init__(self, _name: str, _dough: Dough, _toppings_capacity: int) -> None:
-        if len(_name) == 0:
-            raise ValueError("The name cannot be an empty string")
-        self.name = _name
-        if _dough is None:
-            raise ValueError("You should add dough to the pizza")
-        self.dough = _dough
-        if _toppings_capacity <= 0:
-            raise ValueError("The topping's capacity cannot be less or equal to zero")
-        self.toppings_capacity = _toppings_capacity
+    def __init__(self, name: str, dough: Dough, max_number_of_toppings: int):
+        self.name = name
+        self.dough = dough
+        self.max_number_of_toppings = max_number_of_toppings
         self.toppings = {}
 
-    def add_topping(self, _topping: Topping):
-        if _topping.topping_type in self.toppings and self.toppings_capacity > 0:
-            self.toppings[_topping.topping_type] += _topping.weight
-            self.toppings_capacity -= 1
-        elif self.toppings_capacity == 0:
-            raise ValueError("Not enough space for another topping")
-        elif _topping.topping_type not in self.toppings:
-            self.toppings[_topping.topping_type] = _topping.weight
-            self.toppings_capacity -= 1
+    @property
+    def name(self):
+        return self.__name
 
-    def calculate_total_weight(self):
-        total_weight = self.dough.weight
-        for topping_weight in self.toppings.values():
-            total_weight += topping_weight
+    @name.setter
+    def name(self, value):
+        if value == "":
+            raise ValueError("The name cannot be an empty string")
+        self.__name = value
+
+    @property
+    def dough(self):
+        return self.__dough
+
+    @dough.setter
+    def dough(self, value):
+        if value is None:
+            raise ValueError("You should add dough to the pizza")
+        self.__dough = value
+
+    @property
+    def max_number_of_toppings(self):
+        return self.__max_number_of_toppings
+
+    @max_number_of_toppings.setter
+    def max_number_of_toppings(self, value):
+        if value <= 0:
+            raise ValueError(
+                "The maximum number of toppings cannot be less or equal to zero"
+            )
+        self.__max_number_of_toppings = value
+
+    def add_topping(self, topping: Topping):
+        if len(self.toppings) >= self.__max_number_of_toppings:
+            raise ValueError("Not enough space for another topping")
+        if topping.topping_type not in self.toppings:
+            self.toppings[topping.topping_type] = 0
+        self.toppings[topping.topping_type] += topping.weight
+
+    def calculate_total_weight(self) -> [int, float]:
+        total_weight = self.__dough.weight + sum(self.toppings.values())
+
         return total_weight
