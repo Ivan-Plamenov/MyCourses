@@ -1,95 +1,99 @@
-const getData = async (uri) => {
-  const data = await fetch(`http://localhost:3030/jsonstore/forecaster/${uri}`);
-  if (!data.ok) throw new Error();
-  const deserialized = data.json();
-  if (!deserialized) throw new Error();
-
-  return deserialized;
-};
-
-const getCode = (arr, n) => {
-  const location = arr.find((x) => x.name === n);
-
-  if (location === undefined) throw new Error();
-
-  return location.code;
-};
-const symbols = {
-  Sunny: "&#x2600;",
-  "Partly sunny": "&#x26C5;",
-  Overcast: "&#x2601;",
-  Rain: "&#x2614;",
-  Degrees: "&#176;",
-};
-
-function tomorrowTemplate({ forecast, name }) {
-  const wrapper = document.createElement("div");
-  wrapper.className = "forecasts";
-
-  wrapper.innerHTML = `<span class="condition symbol">${
-    symbols[forecast.condition]
-  }</span><span class="condition"><span class="forecast-data">${name}</span><span class="forecast-data">${
-    forecast.high
-  }&#176;/${forecast.low}&#176;</span><span class="forecast-data">${
-    forecast.condition
-  }</span></span>`;
-
-  return wrapper;
-}
-
-function dayTemplate({ condition, high, low }) {
-  const wrapper = document.createElement("span");
-  wrapper.className = "upcoming";
-
-  wrapper.innerHTML = `<span class="symbol">${symbols[condition]}</span><span class="forecast-data">${high}&#176;/${low}&#176;</span><span class="forecast-data">${condition}</span>`;
-
-  return wrapper;
-}
-
-const outputVisibility = (display) =>
-  (document.getElementById("forecast").style.display = display);
-
-const clearSections = () => {
-  document.getElementById(
-    "current"
-  ).innerHTML = `<div class="label">Current conditions</div>`;
-  document.getElementById(
-    "upcoming"
-  ).innerHTML = `<div class="label">Three-day forecast</div>`;
-};
-
-async function displayData(name) {
-  const html = {
-    tmrwOutput: document.getElementById(`current`),
-    threeDayOutput: document.getElementById(`upcoming`),
-    forecastMain: document.getElementById("forecast"),
+async function attachEvents() {
+  const symbols = {
+    "Partly sunny": "⛅",
+    Sunny: "☀",
+    Overcast: "☁",
+    Rain: "☂",
+    Degrees: "°",
   };
 
-  outputVisibility("block");
-  clearSections();
+  let currentLabel = document.getElementById("current");
+  let upcomingLabel = document.getElementById("upcoming");
 
-  try {
-    const initialNfo = await getData("locations");
-    const code = getCode(initialNfo, name);
-    const tomorrowNfo = await getData(`today/${code}`);
-    const threeDayNfo = await getData(`upcoming/${code}`);
+  let url = `http://localhost:3030/jsonstore/forecaster/locations`;
+  let resp = await fetch(url);
+  let data = await resp.json();
+  let button = document.getElementById("submit");
+  let forecast = document.getElementById("forecast");
 
-    html.tmrwOutput.appendChild(tomorrowTemplate(tomorrowNfo));
+  button.addEventListener("click", () => {
+    // currentLabel.innerHTML = '';
+    // upcomingLabel.innerHTML = '';
+    let location = document.getElementById("location").value;
 
-    Object.values(threeDayNfo.forecast).forEach((x) =>
-      html.threeDayOutput.appendChild(dayTemplate(x))
-    );
-  } catch (e) {
-    html.tmrwOutput.appendChild(document.createTextNode("Error"));
-  }
-}
+    if (location) {
+      let find = data.find((x) => x.name == location);
 
-function attachEvents() {
-  const inputField = document.getElementById("location");
+      forecast.style.display = "block";
 
-  document
-    .getElementById("submit")
-    .addEventListener("click", () => displayData(inputField.value));
+      const url2 = `http://localhost:3030/jsonstore/forecaster/today/${find.code}`;
+      fetch(url2)
+        .then((res) => res.json())
+        .then((data) => {
+          let div = document.createElement("div");
+          div.setAttribute("class", "forecasts");
+
+          let span = document.createElement("span");
+          span.setAttribute("class", "condition symbol");
+          span.textContent = symbols[data.forecast.condition];
+          div.appendChild(span);
+
+          let span1 = document.createElement("span");
+          span1.setAttribute("class", "condition");
+
+          let spanName = document.createElement("span");
+          spanName.setAttribute("class", "forecast-data");
+          spanName.textContent = data.name;
+          span1.appendChild(spanName);
+
+          let spanGrade = document.createElement("span");
+          spanGrade.setAttribute("class", "forecast-data");
+          spanGrade.textContent = `${data.forecast.low}°/${data.forecast.high}°`;
+          span1.appendChild(spanGrade);
+
+          let spanWeather = document.createElement("span");
+          spanWeather.setAttribute("class", "forecast-data");
+          spanWeather.textContent = `${data.forecast.condition}`;
+          span1.appendChild(spanWeather);
+
+          div.appendChild(span1);
+          currentLabel.appendChild(div);
+        })
+        .catch((err) => (forecast.textContent = "Error"));
+
+      const url3 = `http://localhost:3030/jsonstore/forecaster/upcoming/${find.code}`;
+      fetch(url3)
+        .then((res) => res.json())
+        .then((data) => {
+          let div = document.createElement("div");
+          div.setAttribute("class", "forecast-info");
+
+          data.forecast.forEach((x) => {
+            let span = document.createElement("span");
+            span.setAttribute("class", "upcoming");
+
+            let span1 = document.createElement("span");
+            span1.setAttribute("class", "symbol");
+            span1.textContent = symbols[x.condition];
+            span.appendChild(span1);
+
+            let span2 = document.createElement("span");
+            span2.setAttribute("class", "forecast-data");
+            span2.textContent = `${x.low}°/${x.high}°`;
+            span.appendChild(span2);
+
+            let span3 = document.createElement("span");
+            span3.setAttribute("class", "forecast-data");
+            span3.textContent = `${x.condition}`;
+            span.appendChild(span3);
+
+            div.appendChild(span);
+          });
+          upcomingLabel.appendChild(div);
+        })
+        .catch((err) => (forecast.textContent = "Error"));
+    }
+  });
 }
 
 attachEvents();
