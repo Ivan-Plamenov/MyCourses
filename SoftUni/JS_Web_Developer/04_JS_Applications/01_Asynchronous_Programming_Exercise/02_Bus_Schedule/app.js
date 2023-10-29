@@ -1,39 +1,33 @@
 function solve() {
-  const html = {
-    info: document.getElementById(`info`),
-    depart: document.getElementById(`depart`),
-    arrive: document.getElementById(`arrive`),
-  };
+  let label = document.querySelector("#info span");
+  let departed = document.getElementById("depart");
+  let arrived = document.getElementById("arrive");
 
-  const getStop = async (name) => {
-    try {
-      const stop = await fetch(
-        `http://localhost:3030/jsonstore/bus/schedule/${name}`
-      );
-
-      return await stop.json();
-    } catch (e) {
-      html.info.innerHTML = "Error";
-      html.arrive.disabled = true;
-      html.depart.disabled = true;
-    }
+  let stop = {
+    next: "depot",
   };
-  let nextStop;
-  let nextStopName = "depot";
 
   async function depart() {
-    html.depart.disabled = true;
-    html.arrive.disabled = false;
-    nextStop = await getStop(nextStopName);
-    html.info.innerHTML = `Next stop ${nextStop.name}`;
+    let url = `http://localhost:3030/jsonstore/bus/schedule/${stop.next}`;
+    let res = await fetch(url);
+
+    if (res.status !== 200) {
+      label.textContent = `Error`;
+      departed.disabled = true;
+      arrived.disabled = true;
+    }
+    stop = await res.json();
+
+    label.textContent = `Next stop ${stop.name}`;
+    departed.disabled = true;
+    arrived.disabled = false;
   }
 
   function arrive() {
-    html.depart.disabled = false;
-    html.arrive.disabled = true;
+    label.textContent = `Arriving at ${stop.name}`;
 
-    html.info.innerHTML = `Arriving at ${nextStop.name}`;
-    nextStopName = nextStop.next;
+    departed.disabled = false;
+    arrived.disabled = true;
   }
 
   return {
