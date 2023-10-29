@@ -33,13 +33,3 @@ class Rectangle(Shape):
 
     def calculate_perimeter(self):
         return 2 * (self.__height + self.__width)
-
-
-# Example usage:
-circle = Circle(5)
-print(circle.calculate_area())
-print(circle.calculate_perimeter())
-
-rectangle = Rectangle(10, 20)
-print(rectangle.calculate_area())
-print(rectangle.calculate_perimeter())

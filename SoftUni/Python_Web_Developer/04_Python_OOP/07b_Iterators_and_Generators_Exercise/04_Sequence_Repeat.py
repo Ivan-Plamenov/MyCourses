@@ -17,13 +17,3 @@ class sequence_repeat:
             return value
         else:
             raise StopIteration
-
-
-# Test Cases
-result = sequence_repeat("abc", 5)
-for item in result:
-    print(item, end="")
-
-result = sequence_repeat("I Love Python", 3)
-for item in result:
-    print(item, end="")

@@ -21,21 +21,3 @@ class Programmer:
         else:
             needed_skills = skills_needed - self.skills
             return f"{self.name} needs {needed_skills} more skills"
-
-
-# Test the class
-programmer = Programmer("John", "Java", 50)
-print(
-    programmer.watch_course("Python Masterclass", "Python", 84)
-)  # Output: John does not know Python
-print(programmer.change_language("Java", 30))  # Output: John already knows Java
-print(programmer.change_language("Python", 100))  # Output: John needs 50 more skills
-print(
-    programmer.watch_course("Java: zero to hero", "Java", 50)
-)  # Output: John watched Java: zero to hero
-print(
-    programmer.change_language("Python", 100)
-)  # Output: John switched from Java to Python
-print(
-    programmer.watch_course("Python Masterclass", "Python", 84)
-)  # Output: John watched Python Masterclass

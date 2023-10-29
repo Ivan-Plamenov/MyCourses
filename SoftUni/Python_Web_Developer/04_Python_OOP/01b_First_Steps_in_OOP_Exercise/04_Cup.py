@@ -9,11 +9,3 @@ class Cup:
 
     def status(self):
         return self.size - self.quantity
-
-
-# Test the class
-cup = Cup(100, 50)
-print(cup.status())  # Output: 50
-cup.fill(40)
-cup.fill(20)
-print(cup.status())  # Output: 10

@@ -14,10 +14,3 @@ class Employee:
     def raise_salary(self, amount):
         self.salary += amount
         return self.salary
-
-
-# Test the class
-employee = Employee(744423129, "John", "Smith", 1000)
-print(employee.get_full_name())  # Output: John Smith
-print(employee.raise_salary(500))  # Output: 1500
-print(employee.get_annual_salary())  # Output: 18000

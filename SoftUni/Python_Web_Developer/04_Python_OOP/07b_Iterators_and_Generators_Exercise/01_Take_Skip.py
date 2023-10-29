@@ -16,13 +16,3 @@ class take_skip:
         self.current += self.step
         self.generated += 1
         return current_value
-
-
-# Test Cases
-numbers = take_skip(2, 6)
-for number in numbers:
-    print(number)
-
-numbers = take_skip(10, 5)
-for number in numbers:
-    print(number)

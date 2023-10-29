@@ -12,10 +12,3 @@ class Circle:
 
     def get_circumference(self):
         return 2 * Circle.pi * self.radius
-
-
-# Test the class
-circle = Circle(10)
-circle.set_radius(12)
-print(circle.get_area())  # Output: 452.16
-print(circle.get_circumference())  # Output: 75.36

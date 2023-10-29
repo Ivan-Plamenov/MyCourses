@@ -32,14 +32,3 @@ class Time:
                 if self.hours > Time.max_hours:
                     self.hours = 0
         return self.get_time()
-
-
-# Test the class
-time = Time(9, 30, 59)
-print(time.next_second())  # Output: 09:31:00
-
-time = Time(10, 59, 59)
-print(time.next_second())  # Output: 11:00:00
-
-time = Time(23, 59, 59)
-print(time.next_second())  # Output: 00:00:00

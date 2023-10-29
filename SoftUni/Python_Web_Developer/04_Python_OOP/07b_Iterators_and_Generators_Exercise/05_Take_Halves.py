@@ -20,9 +20,3 @@ def solution():
 
 take = solution()[0]
 halves = solution()[1]
-
-# Test Cases
-
-print(take(5, halves()))  # Output: [0.5, 1.0, 1.5, 2.0, 2.5]
-
-print(take(0, halves()))  # Output: []

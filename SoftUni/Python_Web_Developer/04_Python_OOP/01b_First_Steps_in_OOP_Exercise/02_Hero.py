@@ -11,11 +11,3 @@ class Hero:
 
     def heal(self, amount):
         self.health += amount
-
-
-# Test the class
-hero = Hero("Peter", 100)
-print(hero.defend(50))  # Output: None
-hero.heal(50)
-print(hero.defend(99))  # Output: None
-print(hero.defend(1))  # Output: Peter was defeated

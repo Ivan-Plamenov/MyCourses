@@ -13,13 +13,3 @@ class Flower:
             return f"{self.name} is happy"
         else:
             return f"{self.name} is not happy"
-
-
-# Test the class
-flower = Flower("Lilly", 100)
-flower.water(50)
-print(flower.status())  # Output: Lilly is not happy
-flower.water(60)
-print(flower.status())  # Output: Lilly is not happy
-flower.water(100)
-print(flower.status())  # Output: Lilly is happy

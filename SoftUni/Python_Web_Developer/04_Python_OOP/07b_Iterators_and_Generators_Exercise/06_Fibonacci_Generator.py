@@ -3,9 +3,3 @@ def fibonacci():
     while True:
         yield a
         a, b = b, a + b
-
-
-# Test Cases
-generator = fibonacci()
-for i in range(5):
-    print(next(generator))
