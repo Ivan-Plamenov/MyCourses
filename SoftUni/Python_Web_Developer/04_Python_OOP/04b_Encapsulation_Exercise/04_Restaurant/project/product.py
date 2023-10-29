@@ -1,7 +1,7 @@
 class Product:
-    def __init__(self, _name: str, _price: float) -> None:
-        self.__name = _name
-        self.__price = _price
+    def __init__(self, name: str, price: float):
+        self.__name = name
+        self.__price = price
 
     @property
     def name(self):

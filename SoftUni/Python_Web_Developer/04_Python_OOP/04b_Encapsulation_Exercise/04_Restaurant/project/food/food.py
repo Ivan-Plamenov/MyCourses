@@ -2,9 +2,9 @@ from project.product import Product
 
 
 class Food(Product):
-    def __init__(self, _name: str, _price: float, _grams: float) -> None:
-        super().__init__(_name, _price)
-        self.__grams = _grams
+    def __init__(self, name: str, price: float, grams: float):
+        super().__init__(name, price)
+        self.__grams = grams
 
     @property
     def grams(self):
