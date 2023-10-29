@@ -2,32 +2,31 @@ from project.player import Player
 
 
 class Guild:
-    def __init__(self, _name: str) -> None:
-        self.name = _name
+    def __init__(self, name: str):
+        self.name = name
         self.players = []
 
-    def assign_player(self, _player: Player):
-        if _player.guild == "Unaffiliated":
-            _player.guild = self.name
-            self.players.append(_player)
-            return f"Welcome player {_player.name} to the guild {self.name}"
-        elif _player.guild != self.name:
-            return f"Player {_player.name} is in another guild."
-        elif _player.guild == self.name:
-            return f"Player {_player.name} is already in the guild."
+    def assign_player(self, player: Player):
+        if player in self.players:
+            return f"Player {player.name} is already in the guild."
 
-    def kick_player(self, _player_name: str):
-        if self.players:
-            for index, value in enumerate(self.player):
-                if value.name == _player_name:
-                    value.guild = "Unaffiliated"
-                    self.players.pop(index)
-                    return f"Player {value.name} has been removed from the guild."
-            return f"Player {_player_name} is not in the guild."
-        else:
-            return f"Player {_player_name} is not in the guild."
+        if player.guild == "Unaffiliated":
+            self.players.append(player)
+            player.guild = self.name
+            return f"Welcome player {player.name} to the guild {self.name}"
+
+        return f"Player {player.name} is in another guild."
+
+    def kick_player(self, player_name: str):
+        for member in self.players:
+            if member.name == player_name:
+                self.players.remove(member)
+                member.guild = "Unaffiliated"
+                return f"Player {player_name} has been removed from the guild."
+        return f"Player {player_name} is not in the guild."
 
     def guild_info(self):
-        new_line = "\n"
-        info = [player.player_info() for player in self.players]
-        return f"Guild: {self.name}\n{new_line.join(info)}"
+        result = f"Guild: {self.name}\n"
+        for member in self.players:
+            result += f"{member.player_info()}\n"
+        return result
