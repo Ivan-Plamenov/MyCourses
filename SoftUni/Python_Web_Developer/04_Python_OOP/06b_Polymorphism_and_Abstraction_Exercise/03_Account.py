@@ -1,112 +1,57 @@
-class Account:
-    def __init__(self, _owner: str, _amount=0) -> None:
-        self.owner = _owner
-        self.amount = _amount
-        self._transactions = []
+from typing import List
 
-    def add_transaction(self, _amount: int):
-        if isinstance(_amount, int):
-            self._transactions.append(_amount)
-        else:
+
+class Account:
+    def __init__(self, owner: str, amount=0):
+        self.owner = owner
+        self.amount = amount
+        self._transactions: List[int, float] = []
+
+    def handle_transaction(self, transaction_amount) -> str:
+        if self.balance + transaction_amount < 0:
+            raise ValueError("sorry cannot go in debt!")
+
+        self._transactions.append(transaction_amount)
+        return f"New balance: {self.balance}"
+
+    def add_transaction(self, amount) -> str:
+        if not isinstance(amount, int):
             raise ValueError("please use int for amount")
+
+        self.handle_transaction(amount)
 
     @property
     def balance(self):
-        result = 0
-        result += self.amount
-        for transaction in self._transactions:
-            result += transaction
-        return result
+        return self.amount + sum(self._transactions)
 
-    def validate_transaction(self, _account, _amount_to_add: int):
-        try:
-            _account._transactions.append(_amount_to_add)
-            if _account.balance < 0:
-                raise ValueError("sorry cannot go in debt!")
-        except ValueError:
-            _account._transactions.pop()
-
-    def __str__(self) -> str:
+    def __str__(self):
         return f"Account of {self.owner} with starting amount: {self.amount}"
 
-    def __repr__(self) -> str:
+    def __repr__(self):
         return f"Account({self.owner}, {self.amount})"
 
     def __len__(self):
         return len(self._transactions)
 
-    def __getitem__(self, index):
-        return self._transactions[index]
+    def __getitem__(self, idx):
+        return self._transactions[idx]
 
     def __reversed__(self):
-        return self._transactions[::-1]
-
-    def __add__(self, other):
-        owner = f"{self.owner}&{other.owner}"
-        amount = self.amount + other.amount
-        new_account = Account(owner, amount)
-        new_account._transactions = self._transactions + other._transactions
-        return new_account
-
-    def __lt__(self, other):
-        if self.balance < other.balance:
-            return True
-        else:
-            return False
+        return list(reversed(self._transactions))
 
     def __gt__(self, other):
-        if self.balance > other.balance:
-            return True
-        else:
-            return False
-
-    def __le__(self, other):
-        if self.balance <= other.balance:
-            return True
-        else:
-            return False
+        return self.balance > other.balance
 
     def __ge__(self, other):
-        if self.balance >= other.balance:
-            return True
-        else:
-            return False
+        return self.balance >= other.balance
 
     def __eq__(self, other):
-        if self.balance == other.balance:
-            return True
-        else:
-            return False
+        return self.balance == other.balance
 
-    def __ne__(self, other):
-        if self.balance != other.balance:
-            return True
-        else:
-            return False
+    def __add__(self, other):
+        new_account = Account(f"{self.owner}&{other.owner}", self.amount + other.amount)
+        new_account._transactions = self._transactions + [
+            transaction for transaction in other
+        ]
 
-
-# Example usage:
-acc = Account("bob", 10)
-acc2 = Account("john")
-print(acc)
-print(repr(acc))
-acc.add_transaction(20)
-acc.add_transaction(-20)
-acc.add_transaction(30)
-print(acc.balance)
-print(len(acc))
-for transaction in acc:
-    print(transaction)
-print(acc[1])
-print(list(reversed(acc)))
-acc2.add_transaction(10)
-acc2.add_transaction(60)
-print(acc > acc2)
-print(acc >= acc2)
-print(acc < acc2)
-print(acc <= acc2)
-print(acc == acc2)
-print(acc != acc2)
-acc3 = acc + acc2
-print(acc3)
-print(acc3._transactions)
+        return new_account
