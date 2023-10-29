@@ -1,60 +1,68 @@
-const clearFields = (arr) => arr.forEach((x) => (x.value = ""));
+function start() {
+  getAllStudents();
 
-function validData(data) {
-  return data.every(([_, value]) => value !== "");
+  document.getElementById("form").addEventListener("submit", createStudent);
 }
 
-function displayStudents(studentsData) {
-  const table = document.querySelector("#results > tbody");
-  table.innerHTML = "";
+start();
 
-  Object.values(studentsData).forEach((student) => {
-    const tr = document.createElement("tr");
+async function request(url, options) {
+  const response = await fetch(url, options);
 
-    Object.entries(student).forEach(([key, value]) => {
-      const td = document.createElement("td");
+  if (response.ok != true) {
+    const error = await response.json();
+    alert(error.message);
+    throw new Error(error.message);
+  }
 
-      if (key !== "_id") {
-        td.innerHTML = value;
-        tr.appendChild(td);
-      }
-    });
-
-    table.appendChild(tr);
-  });
+  const data = await response.json();
+  return data;
 }
 
-async function getStudents() {
-  const response = await fetch(
+async function getAllStudents() {
+  const students = await request(
     "http://localhost:3030/jsonstore/collections/students"
   );
 
-  return await response.json();
+  const rows = Object.values(students).map(createRow).join("");
+
+  document.querySelector("tbody").innerHTML = rows;
 }
 
-async function postStudent(data) {
-  const response = await fetch(
-    "http://localhost:3030/jsonstore/collections/students",
-    {
+function createRow(student) {
+  return `<tr>
+      <td>${student.firstName}</td>
+      <td>${student.lastName}</td>
+      <td>${student.facultyNumber}</td>
+      <td>${student.grade.toFixed(2)}</td>
+  </tr>`;
+}
+
+async function createStudent(event) {
+  event.preventDefault();
+
+  var formData = new FormData(event.target);
+
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
+  const facultyNumber = formData.get("facultyNumber");
+  const grade = Number(formData.get("grade"));
+
+  if (firstName && lastName && facultyNumber && Number(grade)) {
+    const student = {
+      firstName,
+      lastName,
+      facultyNumber,
+      grade,
+    };
+
+    await request("http://localhost:3030/jsonstore/collections/students", {
       method: "post",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(data)),
-    }
-  );
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(student),
+    });
 
-  return await response.json();
-}
-
-document.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const data = [...formData.entries()];
-
-  if (validData(data)) {
-    await postStudent(data);
-    displayStudents(await getStudents());
-    clearFields([
-      ...document.querySelectorAll("#form > div.inputs > input[type=text]"),
-    ]);
+    event.target.reset();
+    getAllStudents();
   }
-});
+}
