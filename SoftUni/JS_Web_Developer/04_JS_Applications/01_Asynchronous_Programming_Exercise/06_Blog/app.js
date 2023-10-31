@@ -1,72 +1,86 @@
-const cache = { posts: null, comments: null };
-const url = "http://localhost:3030/jsonstore/blog/";
-
-function createOption({ id, title }) {
-  const e = document.createElement("option");
-  e.textContent = title;
-  e.id = id;
-
-  return e;
-}
-
-const clearOutput = (...arr) => arr.forEach((x) => (x.innerHTML = ""));
-
-async function getData(uri) {
-  const data = await fetch(`${url}${uri}`);
-
-  return await data.json();
-}
-
-async function loadData(type) {
-  if (cache[type] === null) {
-    const data = await getData(type);
-    console.log(data);
-    cache[type] = data;
-  }
-}
-
-async function displayPosts() {
-  await loadData("posts");
-  const selectElement = document.getElementById(`posts`);
-  selectElement.innerHTML = "";
-
-  Object.values(cache.posts).forEach((x) =>
-    selectElement.appendChild(createOption(x))
-  );
-}
-
-async function displayPost() {
-  await loadData("comments");
-  const html = {
-    postTitle: document.getElementById(`post-title`),
-    postBody: document.getElementById(`post-body`),
-    postComments: document.getElementById(`post-comments`),
-    selectElement: document.getElementById(`posts`),
-  };
-  const selected = html.selectElement.options[html.selectElement.selectedIndex];
-  const comments = Object.values(cache.comments).filter(
-    (x) => x.postId === selected.id
-  );
-
-  clearOutput(html.postTitle, html.postBody, html.postComments);
-
-  html.postTitle.textContent = selected.value;
-  html.postBody.textContent = cache.posts[selected.id].body;
-  html.postComments.innerHTML = comments
-    .map((x) => `<li id=${x.id}>${x.text}</li>`)
-    .join("");
-}
-
 function attachEvents() {
-  document.addEventListener("click", (e) => {
-    if (e.target.tagName === "BUTTON") {
-      const btns = {
-        btnViewPost: displayPost,
-        btnLoadPosts: displayPosts,
-      };
+  document.addEventListener("DOMContentLoaded", () => {
+    const baseUrl = "http://localhost:3030/jsonstore/blog/";
+    const postsEndpoint = `${baseUrl}posts`;
+    const commentsEndpoint = `${baseUrl}comments`;
 
-      btns[e.target.id]();
+    const btnLoadPosts = document.getElementById("btnLoadPosts");
+    const btnViewPost = document.getElementById("btnViewPost");
+    const postsDropdown = document.getElementById("posts");
+    const postTitle = document.getElementById("post-title");
+    const postBody = document.getElementById("post-body");
+    const postComments = document.getElementById("post-comments");
+
+    let postsData = null;
+    let commentsData = null;
+
+    // Function to make a GET request and handle response
+    async function fetchData(url) {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Error fetching data from ${url}`);
+      }
+      return response.json();
     }
+
+    // Function to load and display all posts
+    async function loadPosts() {
+      try {
+        postsData = await fetchData(postsEndpoint);
+
+        postsDropdown.innerHTML = "";
+        for (const postId in postsData) {
+          const post = postsData[postId];
+          const option = document.createElement("option");
+          option.value = postId;
+          option.textContent = post.title;
+          postsDropdown.appendChild(option);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Function to display selected post and its comments
+    function viewPost() {
+      const selectedPostId = postsDropdown.value;
+      const selectedPost = postsData[selectedPostId];
+
+      if (selectedPost) {
+        postTitle.textContent = selectedPost.title;
+        postBody.textContent = selectedPost.body;
+
+        postComments.innerHTML = "";
+
+        if (commentsData) {
+          const commentsForPost = Object.values(commentsData).filter(
+            (comment) => comment.postId === selectedPostId
+          );
+
+          commentsForPost.forEach((comment) => {
+            const li = document.createElement("li");
+            li.textContent = comment.text;
+            postComments.appendChild(li);
+          });
+        }
+      }
+    }
+
+    // Event listeners for button clicks
+    btnLoadPosts.addEventListener("click", loadPosts);
+    btnViewPost.addEventListener("click", viewPost);
+
+    // Load initial data
+    loadPosts();
+
+    // Fetch comments data separately
+    fetchData(commentsEndpoint)
+      .then((data) => {
+        commentsData = data;
+      })
+      .catch((error) => {
+        console.error("Error fetching comments data:", error);
+      });
   });
 }
 
