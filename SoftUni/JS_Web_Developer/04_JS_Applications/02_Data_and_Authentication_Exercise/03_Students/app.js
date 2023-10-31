@@ -1,68 +1,82 @@
-function start() {
-  getAllStudents();
+const clearFields = (arr) => arr.forEach((x) => (x.value = ""));
 
-  document.getElementById("form").addEventListener("submit", createStudent);
+function validData(data) {
+  return data.every(([_, value]) => value !== "");
 }
 
-start();
+function createTableRow(student) {
+  const tr = document.createElement("tr");
 
-async function request(url, options) {
-  const response = await fetch(url, options);
+  Object.entries(student).forEach(([key, value]) => {
+    if (key !== "_id") {
+      const td = document.createElement("td");
+      td.innerHTML = value;
+      tr.appendChild(td);
+    }
+  });
 
-  if (response.ok != true) {
-    const error = await response.json();
-    alert(error.message);
-    throw new Error(error.message);
-  }
-
-  const data = await response.json();
-  return data;
+  return tr;
 }
 
-async function getAllStudents() {
-  const students = await request(
-    "http://localhost:3030/jsonstore/collections/students"
-  );
+async function displayStudents() {
+  try {
+    const studentsData = await getStudents();
+    const table = document.querySelector("#results > tbody");
+    table.innerHTML = "";
 
-  const rows = Object.values(students).map(createRow).join("");
-
-  document.querySelector("tbody").innerHTML = rows;
-}
-
-function createRow(student) {
-  return `<tr>
-      <td>${student.firstName}</td>
-      <td>${student.lastName}</td>
-      <td>${student.facultyNumber}</td>
-      <td>${student.grade.toFixed(2)}</td>
-  </tr>`;
-}
-
-async function createStudent(event) {
-  event.preventDefault();
-
-  var formData = new FormData(event.target);
-
-  const firstName = formData.get("firstName");
-  const lastName = formData.get("lastName");
-  const facultyNumber = formData.get("facultyNumber");
-  const grade = Number(formData.get("grade"));
-
-  if (firstName && lastName && facultyNumber && Number(grade)) {
-    const student = {
-      firstName,
-      lastName,
-      facultyNumber,
-      grade,
-    };
-
-    await request("http://localhost:3030/jsonstore/collections/students", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(student),
+    Object.values(studentsData).forEach((student) => {
+      const tr = createTableRow(student);
+      table.appendChild(tr);
     });
-
-    event.target.reset();
-    getAllStudents();
+  } catch (error) {
+    console.error("Error fetching and displaying students:", error);
   }
 }
+
+async function getStudents() {
+  try {
+    const response = await fetch(
+      "http://localhost:3030/jsonstore/collections/students"
+    );
+    return await response.json();
+  } catch (error) {
+    throw new Error("Error fetching students data:", error);
+  }
+}
+
+async function postStudent(data) {
+  try {
+    const response = await fetch(
+      "http://localhost:3030/jsonstore/collections/students",
+      {
+        method: "post",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(data)),
+      }
+    );
+    return await response.json();
+  } catch (error) {
+    throw new Error("Error posting student data:", error);
+  }
+}
+
+document.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const data = [...formData.entries()];
+
+  if (validData(data)) {
+    try {
+      await postStudent(data);
+      displayStudents();
+      clearFields([
+        ...document.querySelectorAll("#form > div.inputs > input[type=text]"),
+      ]);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  }
+});
+
+// Initial display of students on page load
+displayStudents();
