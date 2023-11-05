@@ -1,6 +1,4 @@
 // TODO
-function attachEvents() {
-  
-}
+function attachEvents() {}
 
 attachEvents();
