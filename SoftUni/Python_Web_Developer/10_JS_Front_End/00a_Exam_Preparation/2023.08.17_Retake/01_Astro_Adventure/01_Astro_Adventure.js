@@ -1,64 +1,50 @@
-function manageAstronauts(input) {
-  const n = parseInt(input[0]);
+function spaceMission(input) {
+  let numAstronauts = parseInt(input[0], 10);
   let astronauts = {};
 
-  for (let i = 1; i <= n; i++) {
-    const [name, oxygen, energy] = input[i].split(" ");
-    astronauts[name] = {
-      oxygen: parseInt(oxygen),
-      energy: parseInt(energy),
-    };
+  // Parse astronauts' details
+  for (let i = 1; i <= numAstronauts; i++) {
+    let [name, oxygen, energy] = input[i]
+      .split(" ")
+      .map((el, idx) => (idx > 0 ? parseInt(el, 10) : el));
+    astronauts[name] = { oxygen, energy };
   }
 
-  for (let i = n + 1; i < input.length; i++) {
-    const command = input[i].split(" - ");
-    const action = command[0];
-    const astronautName = command[1];
-    const amount = parseInt(command[2]);
+  // Process commands
+  for (let i = numAstronauts + 1; i < input.length; i++) {
+    let [command, name, amount] = input[i].split(" - ");
+    amount = parseInt(amount, 10);
 
-    switch (action) {
+    switch (command) {
       case "Explore":
-        if (astronauts[astronautName].energy >= amount) {
-          astronauts[astronautName].energy -= amount;
+        if (astronauts[name].energy >= amount) {
+          astronauts[name].energy -= amount;
           console.log(
-            `${astronautName} has successfully explored a new area and now has ${astronauts[astronautName].energy} energy!`
+            `${name} has successfully explored a new area and now has ${astronauts[name].energy} energy!`
           );
         } else {
-          console.log(
-            `${astronautName} does not have enough energy to explore!`
-          );
+          console.log(`${name} does not have enough energy to explore!`);
         }
         break;
       case "Refuel":
-        let refueledAmount = Math.min(
-          200 - astronauts[astronautName].energy,
-          amount
-        );
-        astronauts[astronautName].energy += refueledAmount;
-        console.log(
-          `${astronautName} refueled their energy by ${refueledAmount}!`
-        );
+        let energyToAdd = Math.min(200 - astronauts[name].energy, amount);
+        astronauts[name].energy += energyToAdd;
+        console.log(`${name} refueled their energy by ${energyToAdd}!`);
         break;
       case "Breathe":
-        let recoveredOxygen = Math.min(
-          100 - astronauts[astronautName].oxygen,
-          amount
-        );
-        astronauts[astronautName].oxygen += recoveredOxygen;
+        let oxygenToAdd = Math.min(100 - astronauts[name].oxygen, amount);
+        astronauts[name].oxygen += oxygenToAdd;
         console.log(
-          `${astronautName} took a breath and recovered ${recoveredOxygen} oxygen!`
+          `${name} took a breath and recovered ${oxygenToAdd} oxygen!`
         );
         break;
+      case "End":
+        Object.keys(astronauts).forEach((astronaut) => {
+          console.log(
+            `Astronaut: ${astronaut}, Oxygen: ${astronauts[astronaut].oxygen}, Energy: ${astronauts[astronaut].energy}`
+          );
+        });
+        return; // End the function as the mission is over
     }
-
-    if (input[i] === "End") {
-      break;
-    }
-  }
-
-  for (let astronaut in astronauts) {
-    console.log(
-      `Astronaut: ${astronaut}, Oxygen: ${astronauts[astronaut].oxygen}, Energy: ${astronauts[astronaut].energy}`
-    );
   }
 }
