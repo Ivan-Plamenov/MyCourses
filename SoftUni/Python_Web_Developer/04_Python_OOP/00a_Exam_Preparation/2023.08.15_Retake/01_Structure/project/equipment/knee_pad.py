@@ -1,13 +1,11 @@
-from project.equipment.base_equipment import BaseEquipment
+from base_equipment import BaseEquipment
 
 
 class KneePad(BaseEquipment):
-    PROTECTION = 120
-    PRICE = 15.0
-    TYPE_ = 'KneePad'
-
     def __init__(self):
-        super().__init__(protection=self.PROTECTION, price=self.PRICE)
+        # Set the protection to 120 and the price to 15.0 as per the requirements.
+        super().__init__(protection=120, price=15.0)
 
     def increase_price(self):
-        self.price *= 1.2
+        # Increase the price by 20%
+        self.price *= 1.20

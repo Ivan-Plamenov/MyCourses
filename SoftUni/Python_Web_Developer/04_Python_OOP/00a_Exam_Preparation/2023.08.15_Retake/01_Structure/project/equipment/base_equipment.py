@@ -9,4 +9,3 @@ class BaseEquipment(ABC):
     @abstractmethod
     def increase_price(self):
         pass
-
