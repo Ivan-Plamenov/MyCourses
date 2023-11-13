@@ -13,7 +13,7 @@ class StudentReportCard:
 
     @student_name.setter
     def student_name(self, value):
-        if value == '':
+        if value == "":
             raise ValueError("Student Name cannot be an empty string!")
         self.__student_name = value
 
@@ -33,7 +33,7 @@ class StudentReportCard:
         self.grades_by_subject[subject].append(grade)
 
     def average_grade_by_subject(self):
-        report_for_each_subject = ''
+        report_for_each_subject = ""
         for subject, grades in self.grades_by_subject.items():
             average_grade = sum(grades) / len(grades)
             report_for_each_subject += f"{subject}: {average_grade:.2f}\n"
@@ -48,10 +48,12 @@ class StudentReportCard:
         return f"Average Grade: {sum_all_grades/ all_count :.2f}"
 
     def __repr__(self):
-        report = f"Name: {self.student_name}\n" \
-                 f"Year: {self.school_year}\n" \
-                 f"----------\n" \
-                 f"{self.average_grade_by_subject()}\n" \
-                 f"----------\n" \
-                 f"{self.average_grade_for_all_subjects()}"
+        report = (
+            f"Name: {self.student_name}\n"
+            f"Year: {self.school_year}\n"
+            f"----------\n"
+            f"{self.average_grade_by_subject()}\n"
+            f"----------\n"
+            f"{self.average_grade_for_all_subjects()}"
+        )
         return report
