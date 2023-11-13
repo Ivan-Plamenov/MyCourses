@@ -1,91 +1,92 @@
-function sprintReview(input) {
-  const numberOfTasks = parseInt(input[0], 10);
-  const tasks = {};
-  let totalPoints = {
-    ToDo: 0,
-    "In Progress": 0,
-    "Code Review": 0,
-    Done: 0,
-  };
+function calculateSprintStatus(input) {
+  let n = Number(input.shift());
+  let assignees = new Map();
 
-  // Parse initial tasks
-  for (let i = 1; i <= numberOfTasks; i++) {
-    const [assignee, taskId, title, status, estimatedPoints] =
+  // Initialize task totals for each status
+  let todoTotal = 0;
+  let inProgressTotal = 0;
+  let codeReviewTotal = 0;
+  let doneTotal = 0;
+
+  // Populate initial task data
+  for (let i = 0; i < n; i++) {
+    let [assignee, taskId, title, status, estimatedPoints] =
       input[i].split(":");
-    if (!tasks[assignee]) {
-      tasks[assignee] = [];
+    estimatedPoints = Number(estimatedPoints);
+
+    if (!assignees.has(assignee)) {
+      assignees.set(assignee, []);
     }
-    tasks[assignee].push({
-      taskId,
-      title,
-      status,
-      estimatedPoints: parseInt(estimatedPoints, 10),
-    });
-    totalPoints[status] += parseInt(estimatedPoints, 10);
+
+    assignees.get(assignee).push({ taskId, title, status, estimatedPoints });
   }
 
   // Process commands
-  for (let i = numberOfTasks + 1; i < input.length; i++) {
-    const [command, assignee, arg1, arg2, arg3, arg4] = input[i].split(":");
+  for (let i = n; i < input.length; i++) {
+    let [command, ...args] = input[i].split(":");
+    let assignee = args.shift();
 
-    switch (command) {
-      case "Add New":
-        if (!tasks[assignee]) {
-          console.log(`Assignee ${assignee} does not exist on the board!`);
-        } else {
-          tasks[assignee].push({
-            taskId: arg1,
-            title: arg2,
-            status: arg3,
-            estimatedPoints: parseInt(arg4, 10),
-          });
-          totalPoints[arg3] += parseInt(arg4, 10);
-        }
-        break;
+    if (!assignees.has(assignee)) {
+      console.log(`Assignee ${assignee} does not exist on the board!`);
+      continue;
+    }
 
-      case "Change Status":
-        if (!tasks[assignee]) {
-          console.log(`Assignee ${assignee} does not exist on the board!`);
-        } else {
-          let task = tasks[assignee].find((task) => task.taskId === arg1);
-          if (!task) {
-            console.log(`Task with ID ${arg1} does not exist for ${assignee}!`);
-          } else {
-            totalPoints[task.status] -= task.estimatedPoints;
-            task.status = arg2;
-            totalPoints[arg2] += task.estimatedPoints;
-          }
-        }
-        break;
+    if (command === "Add New") {
+      let [taskId, title, status, estimatedPoints] = args;
+      estimatedPoints = Number(estimatedPoints);
+      assignees.get(assignee).push({ taskId, title, status, estimatedPoints });
+    } else if (command === "Change Status") {
+      let taskId = args[0];
+      let newStatus = args[1];
+      let taskIndex = assignees
+        .get(assignee)
+        .findIndex((task) => task.taskId === taskId);
 
-      case "Remove Task":
-        const index = parseInt(arg1, 10);
-        if (!tasks[assignee]) {
-          console.log(`Assignee ${assignee} does not exist on the board!`);
-        } else if (index < 0 || index >= tasks[assignee].length) {
-          console.log(`Index is out of range!`);
-        } else {
-          let task = tasks[assignee][index];
-          totalPoints[task.status] -= task.estimatedPoints;
-          tasks[assignee].splice(index, 1);
-        }
-        break;
+      if (taskIndex === -1) {
+        console.log(`Task with ID ${taskId} does not exist for ${assignee}!`);
+        continue;
+      }
+
+      assignees.get(assignee)[taskIndex].status = newStatus;
+    } else if (command === "Remove Task") {
+      let index = Number(args[0]);
+
+      if (index < 0 || index >= assignees.get(assignee).length) {
+        console.log("Index is out of range!");
+        continue;
+      }
+
+      assignees.get(assignee).splice(index, 1);
     }
   }
 
-  // Print total points
-  console.log(`ToDo: ${totalPoints["ToDo"]}pts`);
-  console.log(`In Progress: ${totalPoints["In Progress"]}pts`);
-  console.log(`Code Review: ${totalPoints["Code Review"]}pts`);
-  console.log(`Done Points: ${totalPoints["Done"]}pts`);
+  // Calculate task totals for each status
+  for (let tasks of assignees.values()) {
+    for (let task of tasks) {
+      if (task.status === "ToDo") {
+        todoTotal += task.estimatedPoints;
+      } else if (task.status === "In Progress") {
+        inProgressTotal += task.estimatedPoints;
+      } else if (task.status === "Code Review") {
+        codeReviewTotal += task.estimatedPoints;
+      } else if (task.status === "Done") {
+        doneTotal += task.estimatedPoints;
+      }
+    }
+  }
 
-  // Determine if the sprint was successful
-  const successful =
-    totalPoints["Done"] >=
-    totalPoints["ToDo"] +
-      totalPoints["In Progress"] +
-      totalPoints["Code Review"];
-  console.log(
-    successful ? "Sprint was successful!" : "Sprint was unsuccessful..."
-  );
+  // Check Sprint success
+  let isSuccessful = doneTotal >= todoTotal + inProgressTotal + codeReviewTotal;
+
+  // Print results
+  console.log(`ToDo: ${todoTotal}pts`);
+  console.log(`In Progress: ${inProgressTotal}pts`);
+  console.log(`Code Review: ${codeReviewTotal}pts`);
+  console.log(`Done Points: ${doneTotal}pts`);
+
+  if (isSuccessful) {
+    console.log("Sprint was successful!");
+  } else {
+    console.log("Sprint was unsuccessful...");
+  }
 }
