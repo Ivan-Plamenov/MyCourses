@@ -6,7 +6,7 @@ class PetShop:
 
     def add_food(self, name: str, quantity: float):
         if quantity <= 0:
-            raise ValueError('Quantity cannot be equal to or less than 0')
+            raise ValueError("Quantity cannot be equal to or less than 0")
 
         if name not in self.food:
             self.food[name] = 0
@@ -24,7 +24,7 @@ class PetShop:
             raise Exception(f"Please insert a valid pet name")
 
         if food_name not in self.food:
-            return f'You do not have {food_name}'
+            return f"You do not have {food_name}"
 
         if self.food[food_name] < 100:
             self.add_food(food_name, 1000.00)
@@ -34,5 +34,4 @@ class PetShop:
         return f"{pet_name} was successfully fed"
 
     def __repr__(self):
-        return f'Shop {self.name}:\n' \
-               f'Pets: {", ".join(self.pets)}'
+        return f"Shop {self.name}:\n" f'Pets: {", ".join(self.pets)}'
