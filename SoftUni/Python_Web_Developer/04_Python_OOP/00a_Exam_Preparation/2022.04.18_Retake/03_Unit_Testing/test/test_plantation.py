@@ -1,65 +1,72 @@
-# 62 / 100
 import unittest
 from project.plantation import Plantation
 
 
 class TestPlantation(unittest.TestCase):
     def setUp(self):
-        self.plantation = Plantation(100)
+        self.plantation = Plantation(10)
 
-    def test_constructor_and_properties(self):
-        self.assertEqual(self.plantation.size, 100)
-        self.assertDictEqual(self.plantation.plants, {})
-        self.assertListEqual(self.plantation.workers, [])
+    # Test Initialization and State Management
+    def test_initialization(self):
+        self.assertEqual(self.plantation.size, 10)
+        self.assertEqual(self.plantation.plants, {})
+        self.assertEqual(self.plantation.workers, [])
 
-    def test_size_setter_valid_and_invalid(self):
-        self.plantation.size = 50
-        self.assertEqual(self.plantation.size, 50)
-
+    # Test for Size Setter
+    def test_invalid_size(self):
         with self.assertRaises(ValueError):
             self.plantation.size = -1
 
-    def test_hire_worker_valid_and_duplicate(self):
-        result = self.plantation.hire_worker("Alice")
-        self.assertEqual(result, "Alice successfully hired.")
-        self.assertIn("Alice", self.plantation.workers)
+    # Positive Testing for hire_worker
+    def test_hire_worker(self):
+        result = self.plantation.hire_worker("Worker A")
+        self.assertIn("Worker A", self.plantation.workers)
+        self.assertEqual(result, "Worker A successfully hired.")
 
+    # Negative Testing for hire_worker
+    def test_hire_existing_worker(self):
+        self.plantation.hire_worker("Worker A")
         with self.assertRaises(ValueError):
-            self.plantation.hire_worker("Alice")
+            self.plantation.hire_worker("Worker A")
 
-    def test_planting_valid_new_and_existing_worker(self):
-        self.plantation.hire_worker("Bob")
-        result = self.plantation.planting("Bob", "Carrot")
-        self.assertEqual(result, "Bob planted it's first Carrot.")
+    # Positive Testing for planting
+    def test_planting(self):
+        self.plantation.hire_worker("Worker A")
+        result = self.plantation.planting("Worker A", "Tomato")
+        self.assertIn("Tomato", self.plantation.plants["Worker A"])
+        self.assertEqual(result, "Worker A planted it's first Tomato.")
 
-        result = self.plantation.planting("Bob", "Tomato")
-        self.assertEqual(result, "Bob planted Tomato.")
-
-    def test_planting_unhired_worker_and_full_plantation(self):
+    # Negative Testing for planting
+    def test_planting_by_unhired_worker(self):
         with self.assertRaises(ValueError):
-            self.plantation.planting("Charlie", "Potato")
+            self.plantation.planting("Worker B", "Tomato")
 
-        self.plantation.size = 1
-        self.plantation.hire_worker("Alice")
-        self.plantation.planting("Alice", "Lettuce")
+    def test_planting_on_full_plantation(self):
+        self.plantation.hire_worker("Worker A")
+        for _ in range(self.plantation.size):
+            self.plantation.planting("Worker A", "Tomato")
         with self.assertRaises(ValueError):
-            self.plantation.planting("Alice", "Tomato")
+            self.plantation.planting("Worker A", "Cucumber")
 
+    # Test __len__ method
     def test_len_method(self):
-        self.plantation.hire_worker("Alice")
-        self.plantation.planting("Alice", "Tomato")
-        self.assertEqual(len(self.plantation), 1)
+        self.plantation.hire_worker("Worker A")
+        self.plantation.planting("Worker A", "Tomato")
+        self.plantation.planting("Worker A", "Cucumber")
+        self.assertEqual(len(self.plantation), 2)
 
-    def test_str_representation(self):
-        self.plantation.hire_worker("Alice")
-        self.plantation.planting("Alice", "Tomato")
-        expected_str = "Plantation size: 100\nAlice\nAlice planted: Tomato"
-        self.assertEqual(str(self.plantation), expected_str)
+    # Test __str__ method
+    def test_str_method(self):
+        self.plantation.hire_worker("Worker A")
+        self.plantation.planting("Worker A", "Tomato")
+        expected_result = "Plantation size: 10\nWorker A\nWorker A planted: Tomato"
+        self.assertEqual(str(self.plantation), expected_result)
 
-    def test_repr_representation(self):
-        self.plantation.hire_worker("Alice")
-        expected_repr = "Size: 100\nWorkers: Alice"
-        self.assertEqual(repr(self.plantation), expected_repr)
+    # Test __repr__ method
+    def test_repr_method(self):
+        self.plantation.hire_worker("Worker A")
+        expected_result = "Size: 10\nWorkers: Worker A"
+        self.assertEqual(repr(self.plantation), expected_result)
 
 
 if __name__ == "__main__":

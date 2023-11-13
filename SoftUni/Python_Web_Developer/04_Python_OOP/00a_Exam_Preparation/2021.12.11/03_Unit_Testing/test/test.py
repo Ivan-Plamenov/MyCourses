@@ -1,61 +1,66 @@
-# 75 / 1000
+# 68 / 100
 import unittest
 from project.team import Team
 
 
 class TestTeam(unittest.TestCase):
     def setUp(self):
-        self.team = Team("Lions")
+        self.team = Team("Eagles")
 
-    def test_constructor(self):
-        self.assertEqual(self.team.name, "Lions")
+    def test_initialization(self):
+        self.assertEqual(self.team.name, "Eagles")
         self.assertEqual(self.team.members, {})
 
-    def test_name_setter_valid(self):
-        self.team.name = "Tigers"
-        self.assertEqual(self.team.name, "Tigers")
+    def test_valid_name_setter(self):
+        self.team.name = "Falcons"
+        self.assertEqual(self.team.name, "Falcons")
 
-    def test_name_setter_invalid(self):
+    def test_invalid_name_setter(self):
         with self.assertRaises(ValueError):
             self.team.name = "123"
 
     def test_add_member(self):
-        result = self.team.add_member(John=30, Alice=25)
-        self.assertEqual(result, "Successfully added: John, Alice")
+        result = self.team.add_member(John=30)
         self.assertIn("John", self.team.members)
-        self.assertIn("Alice", self.team.members)
+        self.assertEqual(result, "Successfully added: John")
 
-    def test_remove_member_exists(self):
+    def test_add_multiple_members(self):
+        result = self.team.add_member(Jane=25, Mike=35)
+        self.assertIn("Jane", self.team.members)
+        self.assertIn("Mike", self.team.members)
+        self.assertEqual(result, "Successfully added: Jane, Mike")
+
+    def test_remove_member_existing(self):
+        self.team.add_member(Alice=28)
+        result = self.team.remove_member("Alice")
+        self.assertNotIn("Alice", self.team.members)
+        self.assertEqual(result, "Member Alice removed")
+
+    def test_remove_member_non_existing(self):
+        result = self.team.remove_member("Bob")
+        self.assertEqual(result, "Member with name Bob does not exist")
+
+    def test_greater_than(self):
+        other_team = Team("Hawks")
         self.team.add_member(John=30)
-        result = self.team.remove_member("John")
-        self.assertEqual(result, "Member John removed")
-        self.assertNotIn("John", self.team.members)
+        other_team.add_member(Jane=25)
+        other_team.add_member(Mike=35)
+        self.assertTrue(other_team > self.team)
 
-    def test_remove_member_not_exist(self):
-        result = self.team.remove_member("John")
-        self.assertEqual(result, "Member with name John does not exist")
-
-    def test_comparison_greater_than(self):
-        other_team = Team("Tigers")
+    def test_len(self):
         self.team.add_member(John=30)
-        self.assertTrue(self.team > other_team)
-
-    def test_length(self):
-        self.team.add_member(John=30, Alice=25)
+        self.team.add_member(Jane=25)
         self.assertEqual(len(self.team), 2)
 
-    def test_addition_of_teams(self):
-        other_team = Team("Tigers")
-        other_team.add_member(Bob=22)
+    def test_addition(self):
+        other_team = Team("Hawks")
         new_team = self.team + other_team
-        self.assertEqual(new_team.name, "LionsTigers")
-        self.assertIn("Bob", new_team.members)
+        self.assertEqual(new_team.name, "EaglesHawks")
 
-    def test_str_representation(self):
-        self.team.add_member(John=30)
-        team_str = str(self.team)
-        self.assertIn("Team name: Lions", team_str)
-        self.assertIn("Member: John - 30-years old", team_str)
+    def test_str(self):
+        self.team.add_member(Jane=25)
+        expected_str = "Team name: Eagles\nMember: Jane - 25-years old"
+        self.assertEqual(str(self.team), expected_str)
 
 
 if __name__ == "__main__":
