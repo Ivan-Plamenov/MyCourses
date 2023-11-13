@@ -1,3 +1,4 @@
+# 100 / 100
 import unittest
 from project.factory.paint_factory import PaintFactory
 
